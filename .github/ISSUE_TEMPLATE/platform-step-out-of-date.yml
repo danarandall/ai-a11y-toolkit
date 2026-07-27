@@ -1,0 +1,47 @@
+name: A platform step is out of date
+description: A step in START-HERE.md no longer matches what you see on screen.
+title: "[Platform] "
+labels: ["out of date"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These platforms rename their rules files, move their settings menus, and change
+        character limits without notice. If a step no longer matches reality, that is a bug
+        in this file and I want to fix it. Thank you for taking the time.
+  - type: input
+    id: platform
+    attributes:
+      label: Which platform
+      description: For example Cursor, Lovable, Claude Code, Base44, Windsurf.
+      placeholder: Cursor
+    validations:
+      required: true
+  - type: textarea
+    id: says
+    attributes:
+      label: What START-HERE.md says to do
+      description: Paste the step, or describe it. A quote is easiest.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What you actually see
+      description: What is on screen instead. Menu names, field names, any limit it enforces.
+    validations:
+      required: true
+  - type: input
+    id: checked
+    attributes:
+      label: Date you checked
+      placeholder: 2026-07-27
+    validations:
+      required: false
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Screenshots help. Drag them in here.
+    validations:
+      required: false
