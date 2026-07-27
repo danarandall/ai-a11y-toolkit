@@ -75,6 +75,8 @@ Two things I genuinely want.
 
 Pull requests welcome, particularly for platform instructions I have wrong and for tools I have not covered yet.
 
+Both of those have an issue template, so you are not staring at a blank box. If you do not have a GitHub account and do not want one, there is a short form on [the toolkit page](https://www.danarandall.com/ai-a11y-toolkit#feedback) instead. Nothing on it is required except the last box.
+
 ## Licence
 
 [CC BY 4.0](LICENSE). Use it commercially, adapt it, teach with it, fork it. Keep the attribution.
