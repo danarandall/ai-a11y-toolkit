@@ -1,0 +1,46 @@
+name: What I am building with
+description: Tell me which tool you are using this with. This decides what stays maintained.
+title: "[Using] "
+labels: ["usage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        There are 15 platform sections in START-HERE.md and I cannot keep all of them current
+        forever. Knowing which ones people actually use decides which ones I maintain.
+        Nothing here is required. A single line is plenty.
+  - type: input
+    id: tool
+    attributes:
+      label: Which tool or tools
+      placeholder: Cursor and Figma Make
+    validations:
+      required: false
+  - type: dropdown
+    id: file
+    attributes:
+      label: Which file are you using
+      options:
+        - ACCESSIBILITY-CORE.md
+        - ACCESSIBILITY.md
+        - START-HERE.md
+        - More than one
+        - Not sure yet
+    validations:
+      required: false
+  - type: textarea
+    id: building
+    attributes:
+      label: What are you building
+      description: A sentence is fine. Client work, a side project, a workshop, anything.
+    validations:
+      required: false
+  - type: textarea
+    id: held
+    attributes:
+      label: Did the rules hold up
+      description: >
+        Where did the AI follow them and where did it drift? Specific failures are the most
+        useful thing you can send me.
+    validations:
+      required: false
