@@ -11,7 +11,7 @@ Last updated: 2026-07-27
 Latest version of this file: https://danarandall.com/ai-a11y-toolkit
 Using this, or found something that does not work? https://danarandall.com/ai-a11y-toolkit#feedback
 
-Part of the AI A11y Toolkit. Free to download, share, and adapt. Attribution appreciated, not required.
+Part of the AI A11y Toolkit. Licensed CC BY 4.0: free to use commercially, adapt, and redistribute, with attribution. https://creativecommons.org/licenses/by/4.0/
 
 ---
 
@@ -2277,7 +2277,24 @@ If you are making a legal or procurement claim, that requires a formal audit and
 
 Created by **Dana Randall**, creative director and designer working at the intersection of accessibility, brand, and AI-native design.
 
-Use it, fork it, adapt it for your team, put it in your repos, hand it to your AI tools. Attribution appreciated, not required. If you improve it, tell me what you changed.
+Use it, fork it, adapt it for your team, put it in your repos, hand it to your AI tools, and use it commercially. If you improve it, tell me what you changed.
+
+### License
+
+Licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
+
+You are free to share and adapt this material for any purpose, including commercially. The one condition is attribution: credit Dana Randall, link to the license, and indicate if you made changes.
+
+A line like this is enough:
+
+```
+Adapted from the AI A11y Toolkit by Dana Randall, licensed CC BY 4.0.
+https://github.com/danarandall/ai-a11y-toolkit
+```
+
+If you paste these rules into an internal tool or a client project, keep that line in the file. That is both the license condition and, practically, how other people find their way back to the current version.
+
+Full license text: https://github.com/danarandall/ai-a11y-toolkit/blob/main/LICENSE
 
 ### Primary sources
 
@@ -2333,4 +2350,4 @@ Accessibility guidance does not change quickly, but AI tools do. If a rule here 
 
 That feedback is the only reason this stays accurate across fifteen platforms, so it is genuinely useful rather than a politeness.
 
-Author: Dana Randall. Target standard: WCAG 2.2 Level AA. Free to download, share, copy, and adapt.
+Author: Dana Randall. Target standard: WCAG 2.2 Level AA. Licensed CC BY 4.0, so free to share and adapt with attribution.

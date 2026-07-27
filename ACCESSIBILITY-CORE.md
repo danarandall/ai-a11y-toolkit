@@ -90,3 +90,6 @@ Say so, explain the barrier in one sentence, and offer the accessible alternativ
 
 Full reference, setup guide for 15 AI tools, and the current release: https://danarandall.com/ai-a11y-toolkit
 Something here not work in your tool? https://danarandall.com/ai-a11y-toolkit#feedback
+
+AI A11y Toolkit by Dana Randall, licensed CC BY 4.0. Keep this line if you adapt or redistribute these rules.
+https://creativecommons.org/licenses/by/4.0/

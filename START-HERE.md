@@ -299,4 +299,15 @@ All three files, and the current release, are at https://danarandall.com/ai-a11y
 
 **Tell me when it breaks.** These products change their settings menus, rename their rules files, and shift character limits without notice. If a step here no longer matches what you see on screen, that is a bug in this file and I want to know: https://danarandall.com/ai-a11y-toolkit#feedback
 
-Release 2026.07. Author: Dana Randall. Target standard: WCAG 2.2 Level AA. Written to be shared, copied, and adapted. Attribution appreciated, not required.
+### License
+
+Licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0). Share it, adapt it, teach with it, use it commercially. The condition is attribution.
+
+If you are adapting these files for a team or a client, keep a line like this in them:
+
+```
+Adapted from the AI A11y Toolkit by Dana Randall, licensed CC BY 4.0.
+https://github.com/danarandall/ai-a11y-toolkit
+```
+
+Release 2026.07. Author: Dana Randall. Target standard: WCAG 2.2 Level AA.
