@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Send feedback without a GitHub account
+    url: https://www.danarandall.com/ai-a11y-toolkit#feedback
+    about: A short form on my site. No account needed, and nothing is required except the last box.
+  - name: The toolkit page
+    url: https://www.danarandall.com/ai-a11y-toolkit
+    about: Downloads, setup guidance, and the current release.
