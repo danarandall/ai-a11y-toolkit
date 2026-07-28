@@ -2,7 +2,7 @@
 
 **Your AI writes beautiful code that locks people out.**
 
-Three markdown files that make AI design and coding tools build accessible interfaces by default, mapped to WCAG 2.2 Level AA.
+Three markdown files that make AI design and coding tools build more accessible interfaces by default, mapped to WCAG 2.2 Level AA.
 
 Free. No signup. Drop a file into your project and every prompt after that inherits the rules.
 
