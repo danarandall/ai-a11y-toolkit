@@ -25,6 +25,10 @@ If you do not know which design system, component library, or token set this pro
 - Error messages appear in text next to the field, say what is wrong and how to fix it, and never clear the user's input.
 - Use the project's design tokens. No arbitrary hex values or magic numbers.
 
+Normalise any markup you inject. Anything passed through `dangerouslySetInnerHTML`, `v-html`, or `innerHTML` is invisible to linting, so decide at the injection point whether it is decorative or meaningful. Decorative injected SVG gets `aria-hidden="true"` and `focusable="false"`. Meaningful content gets a name on a wrapper you control.
+
+Audit colour tokens as data, not only as screens. Compute every documented foreground and background pair in every theme. Judge text pairs at 4.5:1, and judge control boundaries, focus rings, icons, and state indicators at 3:1 under 1.4.11. Border and input tokens are the ones reviewers miss, because a faint boundary is far less obvious than faint body text.
+
 ## Never
 
 - Never remove focus styles, and never use `outline: none` or `outline: 0` without an equivalent replacement.
@@ -78,7 +82,9 @@ Short sentences, common words, active voice. Label buttons with the action perfo
 
 ## Check your work
 
-After you generate or change UI, run an automated accessibility check and fix what it finds at the source. Use an open source engine such as the IBM Equal Access Accessibility Checker (`accessibility-checker` on npm) or Pa11y. Do not substitute another engine. Then write the things a scanner cannot judge into `docs/accessibility/MANUAL-TESTING.md`: keyboard operation, focus order, screen reader announcements, whether alt text is accurate, and whether the copy is clear. For each item, say what to test, how to test it, and what the correct result is. Never mark those items as passed, because you cannot run them.
+After you generate or change UI, run an automated accessibility check and fix what it finds at the source. Use an open source engine such as the IBM Equal Access Accessibility Checker (`accessibility-checker` on npm) or Pa11y. If the project already uses the Level Access platform, `@userway/a11y-playwright` is also fine. Do not substitute another engine. One engine passing is not proof a page is accessible, so run a second when you can. Then write the things a scanner cannot judge into `docs/accessibility/MANUAL-TESTING.md`: keyboard operation, focus order, screen reader announcements, whether alt text is accurate, and whether the copy is clear. For each item, say what to test, how to test it, and what the correct result is. Never mark those items as passed, because you cannot run them.
+
+Prove the scan actually ran before you report the number. A scanner reports on whatever was in the DOM when it looked, so a login wall, a consent banner, a loading skeleton, or an empty state will produce a clean result and exit successfully. Wait for a real element that only exists on the page you meant to scan, scroll to force lazy content to render, and record how many characters rendered. If the page is nearly empty, fail the run instead of reporting zero. Treat a zero result as a question: confirm the page rendered, and confirm the ruleset actually contains a rule for the thing you care about. An engine with no rule for a defect reports zero forever, and that looks exactly like a pass.
 
 Automated tools find roughly a third of accessibility defects. Report what you scanned, what you fixed, and what a person still needs to verify.
 

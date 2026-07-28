@@ -4,7 +4,7 @@
 
 Target standard: WCAG 2.2, Level AA
 Author: Dana Randall
-Version: 1.9
+Version: 1.12
 Toolkit release: 2026.07
 Last updated: 2026-07-27
 
@@ -1294,7 +1294,7 @@ The same reasoning applies to accessibility overlay widgets generally. A paralle
 ### 7.7 Testing color
 
 1. **Flip the design to grayscale.** Stripping color out immediately reveals every element that depended on hue to make sense. This is the fastest and highest-yield check available, and it takes seconds.
-2. **Run a contrast checker** on every text and UI pair, in every theme.
+2. **Run a contrast checker** on every text and UI pair, in every theme. Level Access publishes a free [color contrast checker](https://www.levelaccess.com/color-contrast-checker-new/) that needs no install, and an [Accessible Color Picker extension](https://chromewebstore.google.com/detail/accessible-color-picker/bgfhbflmeekopanooidljpnmnljdihld) for Chrome that samples colors off a live page with an eyedropper and suggests the nearest conformant alternatives when a pair fails. Note the limit on tools of this kind: they report text contrast against 1.4.3 and 1.4.6 thresholds. They do not tell you whether a control border, focus ring, icon, or chart segment clears the 3:1 required by 1.4.11, so you still have to check non-text pairs deliberately. This is a common way border and input-outline failures survive a review that felt thorough.
 3. **Use a CVD simulator** to view the interface under deuteranopia, protanopia, and tritanopia.
 4. **Test in forced-colors and Windows High Contrast mode.** Your palette is discarded there, and anything that relied on a background color or a border image disappears.
 5. **Test in dark mode** as a separate pass.
@@ -1311,6 +1311,21 @@ Automated scanners detect color contrast failures immediately, which cuts both w
 - **Build the palette with luminance steps** so any two non-adjacent steps clear 3:1 and most clear 4.5:1.
 - **Test brand colors early.** Many brand palettes cannot pass AA as text colors. Better to discover that during identity work than during an audit. Reserve those colors for large display type, illustration, and accents, and define compliant alternates for text and UI.
 - **Do not use color to establish hierarchy alone.** Size, weight, spacing, and position carry hierarchy for everyone.
+
+
+#### Audit the tokens, not only the components
+
+Contrast review is usually done by looking at screens. That finds text problems and misses structural ones, because a failing border is far less visible to a reviewer than failing body copy, and the same token can be correct in one theme and wrong in the other.
+
+Audit the palette itself, as data, separately from any screen it appears on.
+
+1. **Export every token to a table**: name, value, and the background tokens it is allowed to sit on.
+2. **Compute the ratio for every documented pair,** in every theme, in code rather than by eye. A dozen lines of script will do it and can then run in CI.
+3. **Split the pass criteria by kind.** Text pairs are judged at 4.5:1, or 3:1 for large text. Control boundaries, focus rings, icons, chart segments, and state indicators are judged at 3:1 under 1.4.11. Mixing these two lists is the most common way a border failure survives review.
+4. **Check border and input tokens specifically.** If a border is the only thing showing where a control is, it needs 3:1. A card border on a card that already has its own background colour is decorative and exempt. Be honest about which is which rather than failing everything.
+5. **Re-run on every theme.** A token that clears 3:1 in light mode routinely fails in dark, because dark palettes compress the range at the low end.
+
+This is worth doing precisely because no automated engine will do it for you. Engines evaluate rendered pixels on the routes you point them at, so a token used only in a state you did not scan is never measured. In one real audit, six border and input tokens all sat between 1.2:1 and 1.9:1 against their own backgrounds, in both themes, and three separate engines reported none of them.
 
 ### 7.9 Agent directives for color
 
@@ -1683,6 +1698,40 @@ Every interactive component you build must document and support:
 - Do not use `aria-live` on large or frequently updating regions. Announce a concise summary instead.
 - Escape hatch: expose `aria-*` props on every component. Consumers know their context better than the library does.
 
+### Markup you inject bypasses every safeguard above
+
+Anything rendered through `dangerouslySetInnerHTML` in React, `v-html` in Vue, `{@html}` in Svelte, or a raw `innerHTML` assignment is invisible to JSX linting. `eslint-plugin-jsx-a11y` reads your source tree. It cannot see a string that becomes DOM at runtime. Component tests that query by role will not catch it either, because the injected nodes usually have no role worth querying.
+
+This is one of the highest-yield patterns to check in AI-generated code, because AI tools reach for HTML injection constantly: icon sets, rich text from a CMS, markdown output, chart libraries, and SVG sprites all arrive as strings.
+
+In a real audit of one AI-built application, a single injection site produced 321 unnamed graphics on one page. The lint config would not have flagged it even if the project had one.
+
+**The rule: normalise at the injection point. Never trust the string.**
+
+```tsx
+// Wrong. Whatever the source contains is now in your accessibility tree.
+<div dangerouslySetInnerHTML={{ __html: icon }} />
+
+// Right. Decide the semantics yourself, at the boundary.
+function decorativeSvg(markup: string) {
+  return markup
+    .replace(/<svg\b/, '<svg aria-hidden="true" focusable="false"')
+    .replace(/\s(on\w+)="[^"]*"/g, '');
+}
+
+<span role="img" aria-label={`${topic} icon`}>
+  <span dangerouslySetInnerHTML={{ __html: decorativeSvg(icon) }} />
+</span>
+```
+
+Checklist for any injected string:
+
+- **Decide whether it is decorative or meaningful,** then enforce that decision. Decorative means `aria-hidden="true"` on the injected root. Meaningful means a name on a wrapper you control.
+- **Add `focusable="false"` to injected SVG.** Without it, some engines place the element in the tab order.
+- **Strip inline event handlers and `tabindex`** rather than assuming the source is well behaved.
+- **Never let injected content supply your headings.** A CMS blob starting at `h4` will break document structure silently. Shift levels on the way in.
+- **Scan the rendered page, not the source.** This is the class of defect that only a browser-based engine will find, which is one more argument for the loop in Section 14.
+
 ### Testing in the pipeline
 
 ```bash
@@ -1693,16 +1742,23 @@ npm i -D accessibility-checker @testing-library/react
 # Command line scanning of a URL list or sitemap
 npm i -D pa11y pa11y-ci
 
+# Optional third engine, if your organisation uses the Level Access platform
+npm i -D @userway/a11y-playwright
+
 # Linting
 npm i -D eslint-plugin-jsx-a11y
 ```
 
 - `accessibility-checker` is the Node package of the open source [IBM Equal Access toolkit](https://github.com/IBMa/equal-access), which also ships Chrome, Firefox, and Edge extensions running the same rules. Developers see identical results in the browser and in CI, which removes most arguments about whether a finding is real.
 - [Pa11y](https://pa11y.org/) runs from the command line across a URL list or a sitemap. Keep it on its default HTML_CodeSniffer runner and set `standard` to `WCAG2AA`. Its ruleset trails the newest criteria, so treat it as breadth coverage and let Equal Access carry depth.
+- [Level Access](https://www.levelaccess.com/developer-tools/) publishes `@userway/a11y-playwright`, which runs the Access Engine ruleset inside a Playwright script. Local scanning writes a JSON report and needs no account. A platform token is only required if you want to push results up with `@userway/cicd-cli`. It grades findings Critical, Serious, Moderate, Minor, and it is the only one of the three engines here that reports suppressed zoom and target size out of the box.
 - Add `jsx-a11y` to the lint config and treat its errors as build failures.
 - Query by role and accessible name in Testing Library, not by test id. If you cannot query it by role and name, assistive tech probably cannot find it either.
 - Run the checker in end-to-end tests on every key route and every modal open state, not only on initial page load.
-- Pick one engine, record a baseline, and stay on it. Swapping engines to make a build go green is not a fix.
+- Gate the build on one engine, record a baseline, and stay on it. Swapping engines to make a build go green is not a fix.
+- Run a second engine on a schedule rather than on every commit. Engines disagree far more than most teams expect. In a measured comparison against one deployed production application, on a single page rendering roughly 19,000 characters of real content, Pa11y on its HTML_CodeSniffer runner reported **zero** violations. On that identical page IBM Equal Access reported **403** violations plus 715 items needing review, and the Level Access Access Engine reported **321** instances, 320 of them graded Serious. The two engines that flagged the page agreed almost exactly on the dominant problem: IBM counted 320 SVG elements with no accessible name, Level Access counted 320 elements with no name mechanism. Independent engines converging on the same number is strong evidence the finding is real.
+- Understand why an engine returns zero before you trust it. In the comparison above, the zero was not a disagreement about severity, it was a coverage gap. The WCAG2AA ruleset shipped with that version of HTML_CodeSniffer contains 98 rule files, and not one of them checks whether an SVG has an accessible name. The only rule file in the whole set that even mentions SVG is a AAA contrast rule. The engine was not passing the page, it was not looking at that class of element. Before you cite a clean result, confirm the ruleset actually contains a rule for the thing you care about.
+- A single engine returning a clean result is not evidence that a page is accessible.
 - Automated tooling catches roughly a third of issues. It is a floor, never a pass.
 
 ---
@@ -1809,6 +1865,9 @@ So the loop below has two halves, and the second half is not optional. A build t
 npm i -D accessibility-checker   # open source IBM Equal Access engine
 npm i -D pa11y pa11y-ci          # breadth scanning across a URL list or sitemap
 npm i -D eslint-plugin-jsx-a11y  # catches a class of errors before the page renders
+
+# Optional, if your organisation uses the Level Access platform
+npm i -D @userway/a11y-playwright
 ```
 
 `.achecker.yml` in the project root. Note `reportLevels` includes `manual`, which is how the engine hands you the items that need a human. That list becomes the manual test queue in 14.6.
@@ -1916,6 +1975,52 @@ process.exit(failed ? 1 : 0);
 ```
 
 `assertCompliance` returns `0` for a pass, `1` when results differ from a recorded baseline, and `2` when something matched a level in `failLevels`.
+
+
+#### Prove the scan actually ran before you believe the number
+
+A scanner reports on whatever was in the DOM when it looked. If it looked at a login wall, a consent banner, a loading skeleton, or an empty state, it will report very few problems and exit successfully. **A clean result from a scan you did not validate is worse than no scan, because it creates confidence you have not earned.**
+
+This is not a rare edge case. It is the normal condition of modern applications:
+
+- **Client-side routing.** Frameworks using hash routing serve every route from one URL. Pointing a scanner at `https://example.com/settings` may load the home route, or nothing.
+- **Gates.** Auth walls, onboarding steps, cookie banners, and profile pickers all render instead of your application.
+- **Asynchronous data.** A list that renders after a fetch is not present at `domcontentloaded`, and often not at `networkidle` either.
+- **Lazy rendering.** Content below the fold, or inside a virtualised list, may never render in a headless viewport unless you scroll.
+
+Add these four assertions to every scan, and fail the run if any of them fails:
+
+```js
+// 1. Get past the gate deterministically, before any navigation.
+await context.addInitScript(() => {
+  localStorage.setItem('app-session', 'test-user');
+});
+
+await page.goto(url, { waitUntil: 'domcontentloaded' });
+
+// 2. Wait for a real element that only exists on the page you meant to scan.
+await page.waitForSelector('main [data-testid="content-loaded"]', { timeout: 30000 });
+
+// 3. Force lazy content to render.
+for (let i = 0; i < 3; i++) {
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.waitForTimeout(2000);
+}
+await page.evaluate(() => window.scrollTo(0, 0));
+
+// 4. Record how much actually rendered, and refuse to trust a thin page.
+const chars = await page.evaluate(() => document.body.innerText.trim().length);
+if (chars < 500) {
+  throw new Error(`Scan aborted: only ${chars} characters rendered at ${url}. ` +
+                  `The scanner is probably looking at a gate or an empty state.`);
+}
+console.log(`${url}: ${chars} characters scanned`);
+```
+
+Then apply two rules of interpretation:
+
+- **Log the rendered character count next to every result, permanently.** It is the single most useful number for spotting an invalid run later, and it makes a sudden drop obvious in CI history.
+- **Treat zero as a question, not an answer.** When an engine reports no violations, confirm two things before you repeat it: that the page rendered, and that the ruleset contains a rule for the thing you care about. Rulesets differ enormously in coverage. An engine that has no rule for a defect will report zero for that defect forever, and it will look exactly like a pass.
 
 ### 14.4 The agent build loop, paste this into your instruction file
 
@@ -2228,6 +2333,11 @@ What to look for specifically when reviewing AI output. These recur across tools
 | `outline: none` in a reset | Copied from legacy CSS resets | Replace with `:focus-visible` styles |
 | Placeholder used as the label | Looks cleaner in a screenshot | Add a persistent visible label |
 | Identical link or button names repeated | Component reuse without context | Unique accessible names per instance |
+| Markup injected with `dangerouslySetInnerHTML` or `innerHTML` | Icon sets, CMS content, and SVG sprites arrive as strings | Normalise at the injection point; lint cannot see runtime strings |
+| `maximum-scale=1` or `user-scalable=no` in the viewport tag | Copied from mobile app scaffolding | Delete both; never block zoom |
+| Animation utilities with no `prefers-reduced-motion` handling | The preference is invisible in a screenshot | One global reduce block, shipped with the first animation |
+| `aria-label` placed on a `<div>` or `<span>` | Reads as helpful, is silently discarded | Use a real element, or a role that permits a name |
+| Border and input tokens below 3:1 | Reviewers look at text, not boundaries | Audit tokens as data against 1.4.11 |
 | Same function named differently across screens | Each file generated in isolation | One accessible name per function, product-wide |
 | aria-label that differs from the visible text | Models over-describe | Match the visible label (2.5.3) |
 | Navigation or help relocated per template | No cross-page context in the prompt | Same relative order on every page (3.2.3, 3.2.6) |
@@ -2331,6 +2441,16 @@ Written by the author of this file.
 - [IBM Equal Access Accessibility Checker](https://github.com/IBMa/equal-access), open source, browser extensions and Node package
 - [Pa11y](https://pa11y.org/), open source command line scanning
 - [ANDI](https://www.ssa.gov/accessibility/andi/help/install.html), free manual inspection bookmarklet from the U.S. Social Security Administration
+- [Level Access developer tools](https://www.levelaccess.com/developer-tools/), browser extensions, testing SDKs, and CI integrations. Level Access ships several surfaces and it is worth knowing which can be automated, because only one of them can:
+
+| Tool | What it is | Scriptable |
+|---|---|---|
+| [Testing SDKs](https://client.levelaccess.com/hc/en-us/articles/21805172871063-Level-Access-testing-SDKs-overview), for example `@userway/a11y-playwright` on npm | Access Engine driven from Playwright, Cypress, Puppeteer, or WebdriverIO. Installs from the public registry, runs locally, and writes a JSON report with no account and no token. This is the one to reach for. | Yes |
+| [Level Access browser extension](https://chromewebstore.google.com/detail/level-access-extension/kgbmnemfaellbfabmkmmilchbhiigpdi) | Manual panel for scanning a page in the browser. | No |
+| [Accessibility Checker browser extension](https://client.levelaccess.com/hc/en-us/articles/14801734404247-Install-the-Accessibility-Checker-browser-extension) | Manual checker for Chrome and Firefox. Supports multi-page scan sessions that report into the Level Access platform. No API key needed for basic setup. | No |
+| [Accessible Color Picker](https://chromewebstore.google.com/detail/accessible-color-picker/bgfhbflmeekopanooidljpnmnljdihld) | Design-time contrast tool. Eyedropper sampling from a live page, editable hex, and suggested conformant alternatives when a pair fails. Text contrast only, so it will not catch 1.4.11 non-text failures. | No |
+
+  Use the SDK for the build gate and the extensions for the manual passes that automation cannot do. Everything in the table above can be installed and used without a paid licence, though pushing results into the Level Access platform needs an account. Level Access also ships a Figma plugin, a Desktop Crawler App, a mobile testing SDK, an accessibility API, and webhooks, but those are licensed features rather than free tools, so they are outside the scope of this file.
 
 ### Level Access resources
 
