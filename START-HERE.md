@@ -1,6 +1,6 @@
 # Start here
 
-**How to make your AI build accessible things.** Part of the AI A11y Toolkit by Dana Randall.
+**How to make your AI build more accessible things.** Part of the AI A11y Toolkit by Dana Randall.
 
 Release 2026.07. Latest version of all three files: https://danarandall.com/ai-a11y-toolkit
 Something not working in your tool? Tell me: https://danarandall.com/ai-a11y-toolkit#feedback
