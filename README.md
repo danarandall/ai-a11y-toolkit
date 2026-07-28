@@ -23,8 +23,8 @@ Pasting accessibility rules into chat does not fix it, because chat context deca
 | File | Size | Use it when |
 | --- | --- | --- |
 | [`START-HERE.md`](START-HERE.md) | 19 KB | You want the install steps. Covers 15 AI platforms, exact filenames, exact settings fields, and what to do when the tool ignores the rules. |
-| [`ACCESSIBILITY-CORE.md`](ACCESSIBILITY-CORE.md) | 7 KB | You are pasting into a field with a character limit. Sized to fit Lovable Project Knowledge at 10,000 characters and Windsurf workspace rules at 12,000. |
-| [`ACCESSIBILITY.md`](ACCESSIBILITY.md) | 158 KB | You can commit a file to a repo or upload to project knowledge. The full reference, 18 sections, all 55 Level A and AA success criteria in build terms. |
+| [`ACCESSIBILITY-CORE.md`](ACCESSIBILITY-CORE.md) | 9 KB | You are pasting into a field with a character limit. Sized to fit Lovable Project Knowledge at 10,000 characters and Windsurf workspace rules at 12,000. |
+| [`ACCESSIBILITY.md`](ACCESSIBILITY.md) | 167 KB | You can commit a file to a repo or upload to project knowledge. The full reference, 18 sections, all 55 Level A and AA success criteria in build terms. |
 
 ## Quick start
 
@@ -64,6 +64,18 @@ Worth saying plainly.
 Automated accessibility checking detects roughly a third of defects. No file, and no AI, can tell you whether your alt text is accurate, whether your focus order makes sense to a person, or whether your error message actually helps someone recover. That needs a human with a keyboard and a screen reader, and ideally a disabled tester who is paid for their time.
 
 This toolkit will not make you compliant. It will stop your AI from generating the obvious failures by default, and it will tell you honestly what is left to check. That is a large improvement over the default, and it is not the same as done.
+
+## Does it actually work
+
+I test the toolkit rather than assert it, and I publish the results including the parts that do not flatter it. Both studies live in [`research/`](research/).
+
+**[A field audit](research/level-icons-audit.md)** of a production application built with AI tooling and without this file installed. Nine findings, seven of which map to rules already in the toolkit. The other two were found by reading the rules by hand, because no engine reported them. Three engines scanning the same page at the same moment returned 0, 403, and 321 findings. The zero was a ruleset coverage gap, not a pass, and Section 14.3 exists because of it.
+
+**[A controlled test](research/preventive-test/RESULTS.md)** of the preventive claim. Two AI agents, one identical brief that never mentioned accessibility, same model, same constraints. The only difference was this file in the project root. The control scored 6 of 16 on a rubric written before either build existed. The treatment scored 15 of 16. Engine violations fell from 39 to 15, and five of the nine checks the control failed are ones no scanner can detect.
+
+One rubric check failed in **both** arms, silently, and the treatment's own summary claimed it had got that check right. That result is reported in full alongside the rest, because a toolkit that only publishes its wins is not evidence of anything.
+
+Everything needed to repeat or dispute either study is in that folder: the brief, the rubric, both sets of generated source, the harness, and the raw engine output.
 
 ## Contributing
 

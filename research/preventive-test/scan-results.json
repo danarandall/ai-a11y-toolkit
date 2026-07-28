@@ -1,0 +1,139 @@
+[
+  {
+    "label": "control",
+    "chars": 364,
+    "consoleErrors": [],
+    "dom": {
+      "svgTotal": 12,
+      "svgAriaHidden": 0,
+      "svgFocusableFalse": 0,
+      "svgExposedUnnamed": 12,
+      "mains": 0,
+      "h1s": [
+        "Icon Browser"
+      ],
+      "headings": [
+        "H1:Icon Browser"
+      ],
+      "liveRegions": 0,
+      "divsWithAriaLabel": 1,
+      "divOnClickish": 0,
+      "inputs": [
+        {
+          "type": "text",
+          "hasLabel": true,
+          "placeholderOnly": false
+        }
+      ],
+      "ariaPressed": 3,
+      "ariaChecked": 0,
+      "buttons": 16,
+      "buttonNames": [
+        "Toggle theme",
+        "Navigation",
+        "Media",
+        "Status",
+        "Copy"
+      ],
+      "interactiveCount": 29,
+      "under24": 12,
+      "smallest": {
+        "tag": "button",
+        "w": 39,
+        "h": 17
+      }
+    },
+    "counts": {
+      "potentialviolation": 42,
+      "violation": 39
+    },
+    "byRule": {
+      "potentialviolation | style_color_misuse": 1,
+      "potentialviolation | style_focus_visible": 28,
+      "violation | label_name_visible": 1,
+      "violation | aria_content_in_landmark": 14,
+      "potentialviolation | input_label_visible": 1,
+      "potentialviolation | aria_descendant_valid": 12,
+      "violation | svg_graphics_labelled": 12,
+      "violation | text_contrast_sufficient": 12
+    }
+  },
+  {
+    "label": "treatment",
+    "chars": 409,
+    "consoleErrors": [],
+    "dom": {
+      "svgTotal": 27,
+      "svgAriaHidden": 27,
+      "svgFocusableFalse": 27,
+      "svgExposedUnnamed": 0,
+      "mains": 0,
+      "h1s": [
+        "Icon Browser"
+      ],
+      "headings": [
+        "H1:Icon Browser"
+      ],
+      "liveRegions": 1,
+      "divsWithAriaLabel": 2,
+      "divOnClickish": 0,
+      "inputs": [
+        {
+          "type": "text",
+          "hasLabel": true,
+          "placeholderOnly": false
+        }
+      ],
+      "ariaPressed": 5,
+      "ariaChecked": 0,
+      "buttons": 29,
+      "buttonNames": [
+        "Light",
+        "Dark",
+        "Navigation",
+        "Media",
+        "Status",
+        "Arrow rightStable",
+        "Copy SVG for Arrow right",
+        "Chevron downStable",
+        "Copy SVG for Chevron down",
+        "PlayStable",
+        "Copy SVG for Play",
+        "PauseBeta",
+        "Copy SVG for Pause",
+        "VolumeDeprecated",
+        "Copy SVG for Volume",
+        "Check circleStable",
+        "Copy SVG for Check circle",
+        "WarningStable",
+        "Copy SVG for Warning",
+        "InfoBeta",
+        "Copy SVG for Info",
+        "HomeStable",
+        "Copy SVG for Home",
+        "SearchStable",
+        "Copy SVG for Search",
+        "RecordStable",
+        "Copy SVG for Record",
+        "ErrorDeprecated",
+        "Copy SVG for Error"
+      ],
+      "interactiveCount": 30,
+      "under24": 0,
+      "smallest": {
+        "tag": "button",
+        "w": 32,
+        "h": 32
+      }
+    },
+    "counts": {
+      "potentialviolation": 31,
+      "violation": 15
+    },
+    "byRule": {
+      "potentialviolation | style_color_misuse": 1,
+      "potentialviolation | style_focus_visible": 30,
+      "violation | aria_content_in_landmark": 15
+    }
+  }
+]
