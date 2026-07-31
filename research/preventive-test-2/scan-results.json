@@ -1,0 +1,398 @@
+[
+  {
+    "label": "control",
+    "chars": 376,
+    "consoleErrors": [],
+    "dom": {
+      "h1s": [
+        "Baker’s Calculator"
+      ],
+      "headings": [
+        "H1:Baker’s Calculator"
+      ],
+      "mains": 0,
+      "liveRegions": 1,
+      "liveRegionDetail": [
+        {
+          "tag": "div",
+          "role": "status",
+          "live": "polite",
+          "atomic": null
+        }
+      ],
+      "inputs": [
+        {
+          "type": "number",
+          "name": "Loaves",
+          "hasName": true,
+          "placeholder": "Loaves",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        },
+        {
+          "type": "number",
+          "name": "Exact loaf weight in grams",
+          "hasName": true,
+          "placeholder": "Exact g",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        },
+        {
+          "type": "range",
+          "name": "Hydration",
+          "hasName": true,
+          "placeholder": "",
+          "placeholderOnly": false,
+          "ariaInvalid": null,
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        },
+        {
+          "type": "number",
+          "name": "Starter percent",
+          "hasName": true,
+          "placeholder": "Starter %",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        },
+        {
+          "type": "number",
+          "name": "Salt percent",
+          "hasName": true,
+          "placeholder": "Salt %",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        }
+      ],
+      "inputsTotal": 5,
+      "inputsUnnamed": 0,
+      "inputsPlaceholderOnly": 0,
+      "ranges": [
+        {
+          "type": "range",
+          "name": "Hydration",
+          "hasName": true,
+          "placeholder": "",
+          "placeholderOnly": false,
+          "ariaInvalid": null,
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        }
+      ],
+      "buttons": [
+        {
+          "name": "Reset to defaults",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "Print recipe card",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "Switch to dark theme",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "Decrease number of loaves",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "Increase number of loaves",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "400 g",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "900 g",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "1200 g",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "Advanced",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": "false"
+        },
+        {
+          "name": "Save this recipe",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        }
+      ],
+      "buttonsTotal": 10,
+      "buttonsUnnamed": 0,
+      "ariaPressed": 0,
+      "ariaExpanded": 1,
+      "ariaInvalid": 4,
+      "radiogroups": 0,
+      "detailsEl": 0,
+      "tables": [
+        {
+          "th": 3,
+          "thWithScope": 3,
+          "rows": 5,
+          "hasCaption": false
+        }
+      ],
+      "tablesTotal": 1,
+      "divsWithAriaLabel": 1,
+      "divOnClickish": 0,
+      "svgTotal": 5,
+      "svgAriaHidden": 5,
+      "svgExposedUnnamed": 0,
+      "interactiveCount": 15,
+      "under24": 2,
+      "under24List": [
+        "input[Hydration] 554x6",
+        "button[Advanced] 75x22"
+      ],
+      "smallest": {
+        "tag": "input",
+        "name": "Hydration",
+        "w": 554,
+        "h": 6
+      }
+    },
+    "counts": {
+      "potentialviolation": 19,
+      "violation": 22
+    },
+    "byRule": {
+      "potentialviolation | style_color_misuse": 1,
+      "potentialviolation | text_contrast_sufficient": 2,
+      "potentialviolation | style_focus_visible": 10,
+      "potentialviolation | input_label_visible": 6,
+      "violation | text_contrast_sufficient": 22
+    }
+  },
+  {
+    "label": "treatment",
+    "chars": 531,
+    "consoleErrors": [],
+    "dom": {
+      "h1s": [
+        "Baker’s Calculator"
+      ],
+      "headings": [
+        "H1:Baker’s Calculator",
+        "H2:Recipe inputs",
+        "H2:Your recipe"
+      ],
+      "mains": 1,
+      "liveRegions": 2,
+      "liveRegionDetail": [
+        {
+          "tag": "div",
+          "role": "status",
+          "live": "polite",
+          "atomic": null
+        },
+        {
+          "tag": "div",
+          "role": "status",
+          "live": "polite",
+          "atomic": null
+        }
+      ],
+      "inputs": [
+        {
+          "type": "number",
+          "name": "Number of loaves",
+          "hasName": true,
+          "placeholder": "Loaves",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        },
+        {
+          "type": "number",
+          "name": "Loaf weight",
+          "hasName": true,
+          "placeholder": "Custom g",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        },
+        {
+          "type": "range",
+          "name": "Hydration",
+          "hasName": true,
+          "placeholder": "",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        },
+        {
+          "type": "number",
+          "name": "Starter percent",
+          "hasName": true,
+          "placeholder": "Starter % (5-40)",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        },
+        {
+          "type": "number",
+          "name": "Salt percent",
+          "hasName": true,
+          "placeholder": "Salt % (1-3)",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        }
+      ],
+      "inputsTotal": 5,
+      "inputsUnnamed": 0,
+      "inputsPlaceholderOnly": 0,
+      "ranges": [
+        {
+          "type": "range",
+          "name": "Hydration",
+          "hasName": true,
+          "placeholder": "",
+          "placeholderOnly": false,
+          "ariaInvalid": "false",
+          "ariaDescribedby": null,
+          "ariaValuetext": null
+        }
+      ],
+      "buttons": [
+        {
+          "name": "Reset to default recipe",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "Print recipe card",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "Switch to dark theme",
+          "hasName": true,
+          "ariaPressed": "false",
+          "ariaExpanded": null
+        },
+        {
+          "name": "Decrease number of loaves",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "Increase number of loaves",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        },
+        {
+          "name": "400 g",
+          "hasName": true,
+          "ariaPressed": "false",
+          "ariaExpanded": null
+        },
+        {
+          "name": "900 g",
+          "hasName": true,
+          "ariaPressed": "true",
+          "ariaExpanded": null
+        },
+        {
+          "name": "1200 g",
+          "hasName": true,
+          "ariaPressed": "false",
+          "ariaExpanded": null
+        },
+        {
+          "name": "Advanced: starter & salt",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": "false"
+        },
+        {
+          "name": "Save this recipe",
+          "hasName": true,
+          "ariaPressed": null,
+          "ariaExpanded": null
+        }
+      ],
+      "buttonsTotal": 10,
+      "buttonsUnnamed": 0,
+      "ariaPressed": 4,
+      "ariaExpanded": 1,
+      "ariaInvalid": 5,
+      "radiogroups": 0,
+      "detailsEl": 0,
+      "tables": [
+        {
+          "th": 7,
+          "thWithScope": 7,
+          "rows": 5,
+          "hasCaption": true
+        }
+      ],
+      "tablesTotal": 1,
+      "divsWithAriaLabel": 1,
+      "divOnClickish": 0,
+      "svgTotal": 5,
+      "svgAriaHidden": 5,
+      "svgExposedUnnamed": 0,
+      "interactiveCount": 13,
+      "under24": 0,
+      "under24List": [],
+      "smallest": {
+        "tag": "button",
+        "name": "Reset to default recipe",
+        "w": 44,
+        "h": 44
+      }
+    },
+    "counts": {
+      "potentialviolation": 18,
+      "violation": 3
+    },
+    "byRule": {
+      "potentialviolation | style_color_misuse": 1,
+      "potentialviolation | style_focus_visible": 12,
+      "potentialviolation | input_label_visible": 5,
+      "violation | text_contrast_sufficient": 3
+    }
+  }
+]

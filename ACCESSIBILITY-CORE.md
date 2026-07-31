@@ -16,12 +16,14 @@ If you do not know which design system, component library, or token set this pro
 - Every interactive element is reachable and operable by keyboard alone, in a logical order, with a visible focus indicator at 3:1 contrast or better against adjacent colors.
 - Every form control has a programmatically associated visible label. Placeholder text is not a label.
 - Every image that carries meaning has alt text that says what it means in this context. Decorative images get `alt=""`. Never a filename, never a SKU, never a color code like "RD-100". Say "bright red pebbled leather" instead.
-- Text contrast at least 4.5:1. Large text, meaning 24px regular or 18.66px bold and above, at least 3:1. Icons, control borders, focus rings, and meaningful graphics at least 3:1. State the ratio you calculated.
+- Text contrast at least 4.5:1. Large text, meaning 24px regular or 18.66px bold and above, at least 3:1. Icons, control borders, focus rings, and meaningful graphics at least 3:1. State the ratio you calculated. Check every text token in the palette, including the faintest tier used for column headers, hints, and captions.
 - Interactive targets at least 44x44 CSS pixels, with at least 8px between adjacent targets.
 - Text reflows with no clipping or overlap at 200% text zoom, at 400% page zoom, and at 320px width. Use relative units. Never fix the height of a container holding text.
 - One `h1` per page, headings in order with no skipped levels, real landmarks, a skip link, a descriptive page title, and `lang` on `html`.
 - Respect `prefers-reduced-motion`, `prefers-reduced-transparency`, and `prefers-contrast`.
 - Announce dynamic changes through a live region that already exists in the DOM before its content updates.
+- If the announced value changes continuously, as with a slider drag or search-as-you-type, let it settle for around 700ms and announce the result once. Never animate or count a number inside a live region.
+- Give a range input an `aria-valuetext` carrying the unit, and a 44px target height. Styling only the track leaves the input a few pixels tall.
 - Error messages appear in text next to the field, say what is wrong and how to fix it, and never clear the user's input.
 - Use the project's design tokens. No arbitrary hex values or magic numbers.
 

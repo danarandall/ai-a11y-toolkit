@@ -2,7 +2,7 @@
 
 Evidence behind the claims in [ACCESSIBILITY.md](../ACCESSIBILITY.md).
 
-The toolkit tells you what to do. This folder is where I try to show that following it changes the outcome, and where I record the places it did not. Both studies were run in July 2026 against version 1.11 and 1.12 of the file.
+The toolkit tells you what to do. This folder is where I try to show that following it changes the outcome, and where I record the places it did not. All three studies were run in July 2026, against versions 1.11, 1.12, and 1.14 of the file.
 
 Every number below is reproducible from the artifacts in this folder. Where a result is unflattering to the toolkit, it is reported at the same length as the results that flatter it.
 
@@ -67,6 +67,8 @@ preventive-test/
 
 `BRIEF.md` is published exactly as it was given to both agents, including its punctuation, which does not follow the style rules used elsewhere in this repository. It is evidence rather than guidance, so it has not been edited after the run.
 
+The same applies to `preventive-test-2/BRIEF.md`.
+
 ```bash
 npm i react@18 react-dom@18 esbuild
 node harness/build.mjs
@@ -77,9 +79,34 @@ python3 contrast.py
 
 ---
 
+## 3. Replication: does the result hold in a different domain?
+
+**[preventive-test-2/RESULTS.md](preventive-test-2/RESULTS.md)**
+
+The same design as study 2, run against version 1.14 in a different domain with a different trap set: a consumer-facing baker's percentage calculator with live numeric output, form validation, a slider, and a data table. Those exercise criteria the first test never reached, specifically 3.3.1, 1.4.3, 2.5.8, and table semantics under 1.3.1.
+
+| | Control | Treatment |
+| --- | --- | --- |
+| Rubric score | 10 of 16 | 15 of 16 |
+| Engine violations | 22 | 3 |
+| Failing text pairs, light theme | 23 of 33 | 3 of 33 |
+| Failing text pairs, dark theme | 10 of 33 | 0 of 33 |
+| Targets under 24 by 24 px | 2 | 0 |
+| `prefers-reduced-motion` blocks | 0 | 3 |
+| Lines of code | 1,212 | 1,410 |
+
+The direction replicated. The interesting part is that **the control scored four points higher than the control in study 2**, and every one of those points was on a machine-detectable check. It named all ten buttons including both icon-only ones, labeled all five inputs, hid all five decorative SVGs, and built a real table with scoped headers, none of which it was asked to do. Split by detection method, the control scored 7 of 8 on the automated checks and 3 of 8 on the ones no engine can see.
+
+The baseline has moved. Models have absorbed the failures that automated tooling has flagged publicly for a decade. What has not improved is everything a scanner never flagged, because there was never a corpus of corrections to learn from. The toolkit's differentiating value has shifted accordingly, away from naming and toward contrast, state exposure, meaning not carried by color, and announcement discipline.
+
+The treatment lost the same check both arms lost: a second, dimmer text token used in exactly one place, at 3.16:1. It also introduced two problems no check caught, one of which the toolkit caused, by instructing the model to add a live region without saying how to govern one. Version 1.15 exists because of that finding.
+
+---
+
 ## What these studies do not show
 
-- **One brief, one component, one run per arm.** Run-to-run variance is unmeasured. The gap is large but a single pair of builds cannot separate the toolkit's effect from sampling noise with statistical confidence.
+- **One brief, one component, one run per arm.** Run-to-run variance is unmeasured. The gap is large but a single pair of builds cannot separate the toolkit's effect from sampling noise with statistical confidence. Study 3 replicates the direction in a second domain, which is weak replication, not proof.
+- **No screen reader was used.** The announcement findings describe what the accessibility tree contains, not what any particular assistive technology says.
 - **One model family, and agents in a sandbox rather than a developer working interactively in an editor.**
 - **React and plain CSS only.** Nothing here tests the guidance for plain HTML, no-code platforms, design tools, or AI-generated content, which together are most of the toolkit's stated scope.
 - **The rubric is mine.** Written before the builds and applied identically to both, but I designed the rules and the test of the rules.

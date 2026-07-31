@@ -4,7 +4,7 @@
 
 Target standard: WCAG 2.2, Level AA
 Author: Dana Randall
-Version: 1.14
+Version: 1.15
 Toolkit release: 2026.07
 Last updated: 2026-07-31
 
@@ -259,6 +259,9 @@ ALWAYS:
 - Default autoplay to off when prefers-reduced-motion is set. Check the preference in JS before calling play() on any media element.
 - Ensure text is never clipped, truncated, or covered by another element at 200% zoom and at 320px CSS width.
 - Announce async state changes with aria-live, role="status", or role="alert", or move focus deliberately.
+- Let a continuously changing value settle for 500ms to 1000ms before writing it to a live region. Announce the result once, not every intermediate value.
+- Add aria-valuetext to any range input whose value carries a unit, and give the input itself a 44px target height rather than styling only the track.
+- Verify contrast for every text token in the palette, including the faintest one used for column headers, hints, timestamps, and captions.
 - Support text spacing overrides without clipping content.
 - Keep repeated navigation, search, help, and footer content in the same relative order on every page.
 - Use one accessible name and one icon per function across the whole product.
@@ -282,6 +285,9 @@ NEVER:
 - Never use bounce, spring, elastic, or overshoot easing, spinning, 3D rotation, or blur transitions.
 - Never animate full-page or viewport-scale transitions, or animate text in word by word.
 - Never make motion the only signal for a state change, and never block interaction until an animation finishes.
+- Never animate or count a number that sits inside a live region, and never ship a counting number without a reduced-motion path that jumps to the final value.
+- Never write to a live region on every keystroke or every step of a slider drag.
+- Never show selection or validation state with a CSS class or a color alone. Expose aria-pressed or radio semantics for selection, and aria-invalid plus a text message for errors.
 - Never autoplay or loop a background video without a pause control.
 - Never set fixed heights, line clamps, or overflow: hidden on containers holding user-facing text.
 - Never position a sticky, fixed, or absolutely positioned element so it can cover text when text size increases.
@@ -335,6 +341,17 @@ Beyond preference, motion is a medical accessibility issue. Vestibular disorders
 | Anything at all | Hard ceiling 5 seconds | Above 5 seconds requires a pause, stop, or hide control (2.2.2) |
 
 Larger and farther movement needs slightly more time, but if your animation needs more than 400ms to make sense, the problem is the concept, not the timing.
+
+**Animated and counting numbers**
+
+Counting a number up to its new value is one of the most common flourishes in AI-generated interfaces, and it fails in two directions at once.
+
+It is motion, so it needs a `prefers-reduced-motion` path that sets the final value immediately rather than animating to it. And it is a changing value, so if the animated node also sits inside a live region, every intermediate frame is announced.
+
+- Under reduced motion, jump straight to the final number. Do not shorten the count, remove it.
+- Never animate a number inside a live region. Announce once, after the count settles. See Section 11.
+- Use `font-variant-numeric: tabular-nums` so the layout does not shift while digits change width.
+- Do not animate a value the user is actively driving. If they are dragging a slider, the number should track the drag exactly, with no easing behind it.
 
 **Why parallax is discouraged**
 
@@ -1338,6 +1355,7 @@ Audit the palette itself, as data, separately from any screen it appears on.
 3. **Split the pass criteria by kind.** Text pairs are judged at 4.5:1, or 3:1 for large text. Control boundaries, focus rings, icons, chart segments, and state indicators are judged at 3:1 under 1.4.11. Mixing these two lists is the most common way a border failure survives review.
 4. **Check border and input tokens specifically.** If a border is the only thing showing where a control is, it needs 3:1. A card border on a card that already has its own background color is decorative and exempt. Be honest about which is which rather than failing everything.
 5. **Re-run on every theme.** A token that clears 3:1 in light mode routinely fails in dark, because dark palettes compress the range at the low end.
+6. **Count your text tokens, and audit the dimmest one hardest.** Palettes rarely stop at one muted text color. A second, fainter token gets invented for table column headers, field hints, timestamps, captions, and legal text, and it is usually the one nobody measures, because it is only used in a few places and it reads as decoration. It is not decoration. It is text, judged at 4.5:1, and it is frequently the smallest type in the product, which removes the large-text exemption. If your palette has a `muted` and a `faint`, or a `secondary` and a `tertiary`, assume the dimmer of the two is failing until you have the number.
 
 This is worth doing precisely because no automated engine will do it for you. Engines evaluate rendered pixels on the routes you point them at, so a token used only in a state you did not scan is never measured. In one real audit, six border and input tokens all sat between 1.2:1 and 1.9:1 against their own backgrounds, in both themes, and three separate engines reported none of them.
 
@@ -1622,7 +1640,9 @@ Before anything goes to a generation tool:
 - [ ] Target sizes specified, 24 minimum and 44 preferred
 - [ ] Motion policy stated, including the reduced motion experience
 - [ ] Error, empty, and loading copy written in plain language
-- [ ] Live region politeness decided for each status message
+- [ ] Live region politeness decided for each status message, and a settle delay specified for any value the user drags or types
+- [ ] Every text color in the palette contrast-checked, including the faintest tier
+- [ ] Units specified for any slider readout, so the announcement is not a bare number
 - [ ] Reflow verified at 320 CSS pixels and 200% zoom
 - [ ] Text spacing overrides survive: 1.5 line height, 2x paragraph, 0.12em letter, 0.16em word (1.4.12)
 - [ ] Grayscale check passed, no meaning carried by color alone
@@ -1718,6 +1738,33 @@ Use this, not `display: none`, when content should be available to screen reader
 - Reflow at 320px CSS width, equivalent to 1280px at 400% zoom. Only data tables, maps, and code blocks may scroll in two dimensions. (1.4.10)
 - Avoid `!important` on `line-height`, `letter-spacing`, `word-spacing`, and text container heights so user stylesheets can override. (1.4.12)
 
+### Range inputs and sliders
+
+A native `<input type="range">` is almost always the right choice, and it is the one thing in this document that is easy to get wrong precisely because you picked the correct element. The native control gives you keyboard support and a role for free. It does not give you a unit.
+
+A range bound to a percentage announces "75". Not 75 percent, not 75 percent hydration. Just the number. Add `aria-valuetext` whenever the raw number is not the full meaning.
+
+```html
+<label for="hydration">Hydration</label>
+<input
+  id="hydration"
+  type="range"
+  min="50"
+  max="100"
+  step="1"
+  value="75"
+  aria-valuetext="75 percent"
+>
+<output for="hydration">75%</output>
+```
+
+- Set `aria-valuetext` for any range whose value carries a unit, a currency, a date, a duration, or a named step. Update it whenever the value changes.
+- Do not set `aria-valuenow`, `aria-valuemin`, or `aria-valuemax` on a native range. The browser derives them from `value`, `min`, and `max`, and duplicating them is a common source of drift.
+- A visible readout next to the slider is not a substitute. It is a separate node, and nothing associates it with the input unless you use `<output for>` or `aria-describedby`.
+- **Target size applies to the input, not the thumb.** A styled range often collapses to the height of its track. Measure the element's box: a 6px tall input fails 2.5.8 even though the thumb looks large enough. Give the input a real height, usually 44px, and paint the thin track with a pseudo-element or a gradient inside it.
+- Ranges must be operable with arrow keys, Home, and End. If you intercept keyboard events for a custom thumb, you have hand-rolled a slider, and Section 4 applies.
+- Never make a range the only way to enter a value. Pair it with a number input for anyone who needs precision or cannot make fine pointer movements.
+
 ### Forms in markup
 
 ```html
@@ -1796,6 +1843,40 @@ Every interactive component you build must document and support:
 - Do not use `aria-live` on large or frequently updating regions. Announce a concise summary instead.
 - Escape hatch: expose `aria-*` props on every component. Consumers know their context better than the library does.
 
+#### Live regions attached to a continuously changing value
+
+A concise summary is not enough on its own. If the value behind that summary changes on every keystroke or every step of a slider, a polite region queues one announcement per change, and the user cannot reach the result through the backlog. Silence would have served them better, which means adding the live region made the experience worse.
+
+This failure only appears once the region is correct, so it survives review by anyone who checked that a region exists. It also passes every automated engine, because the markup is right.
+
+Let the value settle before you write to the region.
+
+```jsx
+// Announce the result, not every intermediate value.
+function useSettledAnnouncement(value, delay = 600) {
+  const [announced, setAnnounced] = useState('');
+  useEffect(() => {
+    const id = setTimeout(() => setAnnounced(value), delay);
+    return () => clearTimeout(id);
+  }, [value, delay]);
+  return announced;
+}
+
+const summary = useSettledAnnouncement(
+  `${flour} g flour, ${water} g water. Total ${total} g.`
+);
+
+<div role="status" aria-live="polite" aria-atomic="true" className="visually-hidden">
+  {summary}
+</div>
+```
+
+- Use a settle delay of roughly 500ms to 1000ms for slider drags, numeric steppers, and search-as-you-type.
+- Keep the visible value updating immediately. Only the announcement waits.
+- Never put an animated or counting number inside a live region. Announce the final value once the count has finished.
+- Set `aria-atomic="true"` when the summary is a sentence, so a partial rewrite is not read as a fragment.
+- Applies to: calculators, filter and search result counts, cart and pricing totals, sliders bound to a readout, progress values, and character counters.
+
 ### Markup you inject bypasses every safeguard above
 
 Anything rendered through `dangerouslySetInnerHTML` in React, `v-html` in Vue, `{@html}` in Svelte, or a raw `innerHTML` assignment is invisible to JSX linting. `eslint-plugin-jsx-a11y` reads your source tree. It cannot see a string that becomes DOM at runtime. Component tests that query by role will not catch it either, because the injected nodes usually have no role worth querying.
@@ -1804,7 +1885,7 @@ This is one of the highest-yield patterns to check in AI-generated code, because
 
 In a real audit of one AI-built application, a single injection site produced 321 unnamed graphics on one page. The lint config would not have flagged it even if the project had one.
 
-**The rule: normalise at the injection point. Never trust the string.**
+**The rule: normalize at the injection point. Never trust the string.**
 
 ```tsx
 // Wrong. Whatever the source contains is now in your accessibility tree.
@@ -2432,7 +2513,7 @@ What to look for specifically when reviewing AI output. These recur across tools
 | `outline: none` in a reset | Copied from legacy CSS resets | Replace with `:focus-visible` styles |
 | Placeholder used as the label | Looks cleaner in a screenshot | Add a persistent visible label |
 | Identical link or button names repeated | Component reuse without context | Unique accessible names per instance |
-| Markup injected with `dangerouslySetInnerHTML` or `innerHTML` | Icon sets, CMS content, and SVG sprites arrive as strings | Normalise at the injection point; lint cannot see runtime strings |
+| Markup injected with `dangerouslySetInnerHTML` or `innerHTML` | Icon sets, CMS content, and SVG sprites arrive as strings | Normalize at the injection point; lint cannot see runtime strings |
 | `maximum-scale=1` or `user-scalable=no` in the viewport tag | Copied from mobile app scaffolding | Delete both; never block zoom |
 | Animation utilities with no `prefers-reduced-motion` handling | The preference is invisible in a screenshot | One global reduce block, shipped with the first animation |
 | `aria-label` placed on a `<div>` or `<span>` | Reads as helpful, is silently discarded | Use a real element, or a role that permits a name |
@@ -2443,6 +2524,13 @@ What to look for specifically when reviewing AI output. These recur across tools
 | `aria-label` layered onto correct semantics | ARIA treated as a fix-all | Remove the redundant ARIA |
 | Invented ARIA patterns for menus and comboboxes | Half-remembered specs | Use an APG pattern or a tested primitive |
 | Low-contrast gray text on white | Aesthetic defaults in training data | Verify every ratio |
+| A second, dimmer text token used only for column headers and hints | Invented for de-emphasis, too rare to get reviewed | Audit the faintest text token first (1.4.3) |
+| Live region rewritten on every keystroke or slider step | The model learned that a live region is the fix, not how to govern one | Settle the value, then announce once (4.1.3) |
+| Counting or animated numbers with no reduced-motion path | Reads as polish, invisible in a screenshot | Jump to the final value under reduce (2.3.3) |
+| `<input type="range">` announcing a bare number | Correct element chosen, unit never added | Add `aria-valuetext` with the unit (4.1.2) |
+| A styled range input only a few pixels tall | The track is styled, the input box is forgotten | Measure the input, not the thumb (2.5.8) |
+| Selected state shown with a CSS class only | Visual selection is obvious to the person looking at it | Expose `aria-pressed` or use radio semantics (4.1.2) |
+| Validation shown by turning the field red | The brief said make it red, and it did | Add a text message and `aria-invalid` (3.3.1) |
 | Red-only error states | Visual convention in training data | Text message plus icon, adjacent to the field |
 | Green and red for good and bad | Universal convention, unusable for red-green CVD | Add text or distinct shapes |
 | Filename, SKU, or color code as alt text | CMS data passed straight through | Human-readable descriptions only |
@@ -2563,7 +2651,7 @@ Written by the author of this file.
 | [Accessibility Checker browser extension](https://client.levelaccess.com/hc/en-us/articles/14801734404247-Install-the-Accessibility-Checker-browser-extension) | Manual checker for Chrome and Firefox. Supports multi-page scan sessions that report into the Level Access platform. No API key needed for basic setup. | No |
 | [Accessible Color Picker](https://chromewebstore.google.com/detail/accessible-color-picker/bgfhbflmeekopanooidljpnmnljdihld) | Design-time contrast tool. Eyedropper sampling from a live page, editable hex, and suggested conformant alternatives when a pair fails. Text contrast only, so it will not catch 1.4.11 non-text failures. | No |
 
-  Use the SDK for the build gate and the extensions for the manual passes that automation cannot do. Everything in the table above can be installed and used without a paid licence, though pushing results into the Level Access platform needs an account. Level Access also ships a Figma plugin, a Desktop Crawler App, a mobile testing SDK, an accessibility API, and webhooks, but those are licensed features rather than free tools, so they are outside the scope of this file.
+  Use the SDK for the build gate and the extensions for the manual passes that automation cannot do. Everything in the table above can be installed and used without a paid license, though pushing results into the Level Access platform needs an account. Level Access also ships a Figma plugin, a Desktop Crawler App, a mobile testing SDK, an accessibility API, and webhooks, but those are licensed features rather than free tools, so they are outside the scope of this file.
 
 ### Level Access resources
 

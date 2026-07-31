@@ -1,0 +1,656 @@
+/* Dana's Dough — Baker's Calculator
+   Warm, handmade, unfussy. Flour on a work surface, not a laboratory. */
+
+.dd-app {
+  --dd-crust: 28 42% 45%;
+  --dd-crust-dark: 28 46% 32%;
+
+  --dd-bg: #faf6f0;
+  --dd-bg-soft: #f3ece2;
+  --dd-card-bg: #fffdfa;
+  --dd-panel-bg: #ffffff;
+  --dd-border: #e7dccb;
+  --dd-border-soft: #f0e6d6;
+
+  --dd-text-primary: #382c22;
+  --dd-text-secondary: #8a7a68;
+  --dd-text-tertiary: #b9ad9c;
+
+  --dd-accent: #b3592e;
+  --dd-accent-strong: #96461f;
+  --dd-accent-soft: #f2e3d3;
+  --dd-accent-contrast: #fffaf3;
+
+  --dd-warning: #c23b2c;
+  --dd-warning-soft: #fbe6e1;
+
+  --dd-track: #ece1d1;
+  --dd-track-fill: #c9895a;
+  --dd-thumb: #b3592e;
+
+  --dd-shadow-sm: 0 1px 2px rgba(56, 44, 34, 0.06);
+  --dd-shadow-md: 0 8px 24px rgba(56, 44, 34, 0.08);
+  --dd-shadow-lg: 0 16px 40px rgba(56, 44, 34, 0.14);
+
+  --dd-radius-sm: 8px;
+  --dd-radius-md: 14px;
+  --dd-radius-lg: 22px;
+
+  color-scheme: light;
+  background: var(--dd-bg);
+  color: var(--dd-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.dd-app.dd-theme-dark {
+  color-scheme: dark;
+  --dd-bg: #241d17;
+  --dd-bg-soft: #2c231b;
+  --dd-card-bg: #2a221a;
+  --dd-panel-bg: #2f2620;
+  --dd-border: #4a3c2d;
+  --dd-border-soft: #3c3126;
+
+  --dd-text-primary: #f3ead9;
+  --dd-text-secondary: #b6a58e;
+  --dd-text-tertiary: #7d6f5c;
+
+  --dd-accent: #e08a52;
+  --dd-accent-strong: #f0a06a;
+  --dd-accent-soft: #43331f;
+  --dd-accent-contrast: #2a1c10;
+
+  --dd-warning: #ef7b66;
+  --dd-warning-soft: #402420;
+
+  --dd-track: #453a2d;
+  --dd-track-fill: #d68b53;
+  --dd-thumb: #e08a52;
+
+  --dd-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --dd-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --dd-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.5);
+}
+
+.dd-app * {
+  box-sizing: border-box;
+}
+
+.dd-card {
+  width: 100%;
+  max-width: 620px;
+  background: var(--dd-card-bg);
+  border-radius: var(--dd-radius-lg);
+  box-shadow: var(--dd-shadow-lg);
+  border: 1px solid var(--dd-border-soft);
+  overflow: hidden;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+/* Header */
+
+.dd-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px 32px 24px;
+  background: linear-gradient(180deg, var(--dd-accent-soft) 0%, transparent 100%);
+}
+
+.dd-brand-name {
+  margin: 0 0 2px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dd-accent);
+}
+
+.dd-tool-name {
+  margin: 0 0 8px;
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--dd-text-primary);
+}
+
+.dd-tagline {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--dd-text-secondary);
+}
+
+.dd-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.dd-icon-btn,
+.dd-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--dd-text-secondary);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.dd-icon-btn:hover,
+.dd-theme-toggle:hover {
+  background: var(--dd-accent-soft);
+  color: var(--dd-accent);
+}
+
+.dd-icon-btn:active,
+.dd-theme-toggle:active {
+  transform: scale(0.92);
+}
+
+.dd-theme-toggle {
+  border-color: var(--dd-border);
+}
+
+/* Body layout */
+
+.dd-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dd-panel {
+  padding: 24px 32px;
+}
+
+.dd-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  border-bottom: 1px solid var(--dd-border-soft);
+}
+
+.dd-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dd-field-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--dd-text-tertiary);
+}
+
+/* Loaves stepper */
+
+.dd-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.dd-stepper-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid var(--dd-border);
+  background: var(--dd-panel-bg);
+  color: var(--dd-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, transform 0.12s ease, border-color 0.15s ease;
+}
+
+.dd-stepper-btn:hover {
+  background: var(--dd-accent-soft);
+  border-color: var(--dd-accent);
+}
+
+.dd-stepper-btn:active {
+  transform: scale(0.9);
+}
+
+.dd-stepper-input {
+  width: 68px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 6px 4px;
+  border-radius: var(--dd-radius-sm);
+  border: 1px solid var(--dd-border);
+  background: var(--dd-panel-bg);
+  color: var(--dd-text-primary);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dd-stepper-input:focus {
+  outline: none;
+  border-color: var(--dd-accent);
+  box-shadow: 0 0 0 3px var(--dd-accent-soft);
+}
+
+/* Loaf weight segmented control */
+
+.dd-segmented {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dd-segment {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--dd-border);
+  background: var(--dd-panel-bg);
+  color: var(--dd-text-secondary);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.dd-segment:hover {
+  border-color: var(--dd-accent);
+  color: var(--dd-accent);
+}
+
+.dd-segment-active {
+  background: var(--dd-accent);
+  border-color: var(--dd-accent);
+  color: var(--dd-accent-contrast);
+  box-shadow: var(--dd-shadow-sm);
+}
+
+.dd-segment-active:hover {
+  color: var(--dd-accent-contrast);
+}
+
+.dd-segment-custom {
+  width: 84px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px dashed var(--dd-border);
+  background: transparent;
+  color: var(--dd-text-primary);
+  font-size: 13.5px;
+  text-align: center;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dd-segment-custom:focus {
+  outline: none;
+  border-color: var(--dd-accent);
+  border-style: solid;
+  box-shadow: 0 0 0 3px var(--dd-accent-soft);
+}
+
+/* Hydration slider */
+
+.dd-hydration-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dd-hydration-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dd-text-primary);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s ease;
+}
+
+.dd-value-warning {
+  color: var(--dd-warning);
+}
+
+.dd-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--dd-track-fill) 0%,
+    var(--dd-track-fill) calc((var(--val, 75) - 50) / 50 * 100%),
+    var(--dd-track) calc((var(--val, 75) - 50) / 50 * 100%),
+    var(--dd-track) 100%
+  );
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+.dd-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--dd-thumb);
+  border: 3px solid var(--dd-card-bg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.dd-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.dd-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--dd-thumb);
+  border: 3px solid var(--dd-card-bg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.dd-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--dd-track);
+}
+
+.dd-slider::-moz-range-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--dd-track-fill);
+}
+
+.dd-slider-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--dd-text-tertiary);
+}
+
+/* Advanced */
+
+.dd-advanced-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--dd-text-secondary);
+  cursor: pointer;
+  width: fit-content;
+  transition: color 0.15s ease;
+}
+
+.dd-advanced-toggle:hover {
+  color: var(--dd-accent);
+}
+
+.dd-chevron {
+  width: 7px;
+  height: 7px;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+  margin-bottom: 2px;
+}
+
+.dd-chevron-open {
+  transform: rotate(45deg);
+}
+
+.dd-advanced-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s ease;
+}
+
+.dd-advanced-open {
+  grid-template-rows: 1fr;
+}
+
+.dd-advanced-inner {
+  overflow: hidden;
+  display: flex;
+  gap: 16px;
+  padding-top: 14px;
+}
+
+.dd-advanced-inner .dd-field {
+  flex: 1;
+}
+
+.dd-text-input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--dd-radius-sm);
+  border: 1px solid var(--dd-border);
+  background: var(--dd-panel-bg);
+  color: var(--dd-text-primary);
+  font-size: 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dd-text-input:focus {
+  outline: none;
+  border-color: var(--dd-accent);
+  box-shadow: 0 0 0 3px var(--dd-accent-soft);
+}
+
+.dd-invalid {
+  border-color: var(--dd-warning) !important;
+  color: var(--dd-warning);
+  box-shadow: none !important;
+}
+
+.dd-invalid:focus {
+  box-shadow: 0 0 0 3px var(--dd-warning-soft) !important;
+}
+
+/* Results */
+
+.dd-results {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dd-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dd-table thead th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--dd-text-tertiary);
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--dd-border-soft);
+}
+
+.dd-table thead th:not(:first-child),
+.dd-table td:not(:first-child) {
+  text-align: right;
+}
+
+.dd-table tbody td {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--dd-border-soft);
+}
+
+.dd-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.dd-ingredient-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dd-text-primary);
+}
+
+.dd-ingredient-percent {
+  font-size: 14px;
+  color: var(--dd-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.dd-ingredient-grams {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dd-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.dd-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: var(--dd-radius-md);
+  background: var(--dd-accent-soft);
+}
+
+.dd-total-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dd-text-secondary);
+}
+
+.dd-total-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dd-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.dd-save-btn {
+  align-self: flex-start;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: none;
+  background: var(--dd-accent);
+  color: var(--dd-accent-contrast);
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--dd-shadow-md);
+  transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+}
+
+.dd-save-btn:hover {
+  background: var(--dd-accent-strong);
+  box-shadow: var(--dd-shadow-lg);
+}
+
+.dd-save-btn:active {
+  transform: scale(0.97);
+}
+
+/* Toast */
+
+.dd-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 24px);
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--dd-text-primary);
+  color: var(--dd-card-bg);
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--dd-shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.32s ease, transform 0.32s ease;
+  z-index: 20;
+}
+
+.dd-toast-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .dd-app {
+    padding: 16px 10px;
+  }
+
+  .dd-header {
+    padding: 22px 20px 18px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dd-header-actions {
+    justify-content: flex-end;
+  }
+
+  .dd-panel {
+    padding: 20px;
+  }
+
+  .dd-tool-name {
+    font-size: 22px;
+  }
+}
+
+/* Print */
+
+@media print {
+  .dd-header-actions,
+  .dd-save-btn,
+  .dd-advanced-toggle,
+  .dd-toast {
+    display: none !important;
+  }
+
+  .dd-app {
+    background: #fff;
+    padding: 0;
+  }
+
+  .dd-card {
+    box-shadow: none;
+    border: none;
+  }
+}

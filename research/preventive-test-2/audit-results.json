@@ -1,0 +1,987 @@
+{
+  "control": {
+    "contrast_light": {
+      "total": 33,
+      "failures": [
+        {
+          "text": "Tell it how many loaves and how wet you ",
+          "tag": "p",
+          "cls": "dd-tagline",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 13.5,
+          "weight": 400,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Loaves",
+          "tag": "label",
+          "cls": "dd-field-label",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Loaf weight",
+          "tag": "span",
+          "cls": "dd-field-label",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "400 g",
+          "tag": "button",
+          "cls": "dd-segment ",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,255,255)",
+          "px": 13.5,
+          "weight": 600,
+          "large": false,
+          "ratio": 4.15,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "1200 g",
+          "tag": "button",
+          "cls": "dd-segment ",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,255,255)",
+          "px": 13.5,
+          "weight": 600,
+          "large": false,
+          "ratio": 4.15,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Hydration",
+          "tag": "label",
+          "cls": "dd-field-label",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "50%",
+          "tag": "span",
+          "cls": "",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 11,
+          "weight": 400,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "100%",
+          "tag": "span",
+          "cls": "",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 11,
+          "weight": 400,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Advanced",
+          "tag": "button",
+          "cls": "dd-advanced-toggle",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 12.5,
+          "weight": 600,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Starter percent",
+          "tag": "label",
+          "cls": "dd-field-label",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Salt percent",
+          "tag": "label",
+          "cls": "dd-field-label",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Ingredient",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 11,
+          "weight": 600,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Baker’s %",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 11,
+          "weight": 600,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Weight",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(185,173,156)",
+          "bg": "rgb(255,253,250)",
+          "px": 11,
+          "weight": 600,
+          "large": false,
+          "ratio": 2.17,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "100%",
+          "tag": "td",
+          "cls": "dd-ingredient-percent",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 14,
+          "weight": 400,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "913.7 g",
+          "tag": "td",
+          "cls": "dd-ingredient-grams",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 16,
+          "weight": 700,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "75%",
+          "tag": "td",
+          "cls": "dd-ingredient-percent",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 14,
+          "weight": 400,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "685.3 g",
+          "tag": "td",
+          "cls": "dd-ingredient-grams",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 16,
+          "weight": 700,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "20%",
+          "tag": "td",
+          "cls": "dd-ingredient-percent",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 14,
+          "weight": 400,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "182.7 g",
+          "tag": "td",
+          "cls": "dd-ingredient-grams",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 16,
+          "weight": 700,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "2%",
+          "tag": "td",
+          "cls": "dd-ingredient-percent",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 14,
+          "weight": 400,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "18.3 g",
+          "tag": "td",
+          "cls": "dd-ingredient-grams",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(255,253,250)",
+          "px": 16,
+          "weight": 700,
+          "large": false,
+          "ratio": 4.08,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Total dough weight",
+          "tag": "span",
+          "cls": "dd-total-label",
+          "fg": "rgb(138,122,104)",
+          "bg": "rgb(242,227,211)",
+          "px": 13,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.3,
+          "need": 4.5,
+          "pass": false
+        }
+      ],
+      "failCount": 23,
+      "min": 2.17
+    },
+    "focus": [
+      {
+        "tag": "button",
+        "name": "Reset to defaults",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Print recipe card",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Switch to dark theme",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Decrease number of loave",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "focused": true,
+        "changed": true,
+        "hasOutline": false,
+        "outlineAfter": "none 3px rgb(56, 44, 34)",
+        "shadowAfter": "rgba(242, 227, 211, 0.114) 0px 0px 0px 0.337868px"
+      },
+      {
+        "tag": "button",
+        "name": "Increase number of loave",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "400 g",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "900 g",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "rgba(56, 44, 34, 0.06) 0px 1px 2px 0px"
+      },
+      {
+        "tag": "button",
+        "name": "1200 g",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "input",
+        "name": "Exact loaf weight in gra",
+        "focused": true,
+        "changed": true,
+        "hasOutline": false,
+        "outlineAfter": "none 3px rgb(56, 44, 34)",
+        "shadowAfter": "rgba(242, 227, 211, 0.114) 0px 0px 0px 0.337868px"
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Advanced",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "focused": true,
+        "changed": true,
+        "hasOutline": false,
+        "outlineAfter": "none 3px rgb(56, 44, 34)",
+        "shadowAfter": "rgba(242, 227, 211, 0.114) 0px 0px 0px 0.337868px"
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "focused": true,
+        "changed": true,
+        "hasOutline": false,
+        "outlineAfter": "none 3px rgb(56, 44, 34)",
+        "shadowAfter": "rgba(242, 227, 211, 0.114) 0px 0px 0px 0.337868px"
+      },
+      {
+        "tag": "button",
+        "name": "Save this recipe",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "auto 1px rgb(16, 16, 16)",
+        "shadowAfter": "rgba(56, 44, 34, 0.08) 0px 8px 24px 0px"
+      }
+    ],
+    "interactions": {
+      "steps": {
+        "initial": {
+          "live": [
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved"
+            }
+          ],
+          "invalid": 0,
+          "expandedTrue": 0,
+          "expandedFalse": 1,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. LOAVES LOAF WEIGHT 400 g 900 g 1200 g HYDRATION 75% 50% 100% Advanced STARTER PERCENT SALT PERCENT INGREDIENT BAKER’S % WEIGHT Flour 100% 913.7 g Water 75% 685.3 g Starter 20% 182.7 g Salt 2% 18.3 g Total dough weight 1800.0 g Save this recipe Recipe saved"
+        },
+        "hydration92": {
+          "live": [
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved"
+            }
+          ],
+          "invalid": 0,
+          "expandedTrue": 0,
+          "expandedFalse": 1,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. LOAVES LOAF WEIGHT 400 g 900 g 1200 g HYDRATION 92% 50% 100% Advanced STARTER PERCENT SALT PERCENT INGREDIENT BAKER’S % WEIGHT Flour 100% 841.1 g Water 92% 773.8 g Starter 20% 168.2 g Salt 2% 16.8 g Total dough weight 1800.0 g Save this recipe Recipe saved"
+        },
+        "outOfRange": {
+          "live": [
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved"
+            }
+          ],
+          "invalid": 1,
+          "expandedTrue": 0,
+          "expandedFalse": 1,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. LOAVES LOAF WEIGHT 400 g 900 g 1200 g HYDRATION 92% 50% 100% Advanced STARTER PERCENT SALT PERCENT INGREDIENT BAKER’S % WEIGHT Flour 100% 420140.2 g Water 92% 386529.0 g Starter 20% 84028.0 g Salt 2% 8402.8 g Total dough weight 899100.0 g Save this recipe Recipe saved"
+        },
+        "advancedOpen": {
+          "live": [
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved"
+            }
+          ],
+          "invalid": 1,
+          "expandedTrue": 1,
+          "expandedFalse": 0,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. LOAVES LOAF WEIGHT 400 g 900 g 1200 g HYDRATION 92% 50% 100% Advanced STARTER PERCENT SALT PERCENT INGREDIENT BAKER’S % WEIGHT Flour 100% 420140.2 g Water 92% 386529.0 g Starter 20% 84028.0 g Salt 2% 8402.8 g Total dough weight 899100.0 g Save this recipe Recipe saved"
+        },
+        "afterSave": {
+          "live": [
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved"
+            }
+          ],
+          "invalid": 1,
+          "expandedTrue": 1,
+          "expandedFalse": 0,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. LOAVES LOAF WEIGHT 400 g 900 g 1200 g HYDRATION 92% 50% 100% Advanced STARTER PERCENT SALT PERCENT INGREDIENT BAKER’S % WEIGHT Flour 100% 420140.2 g Water 92% 386529.0 g Starter 20% 84028.0 g Salt 2% 8402.8 g Total dough weight 899100.0 g Save this recipe Recipe saved"
+        }
+      }
+    },
+    "darkBodyBg": "rgba(0, 0, 0, 0)",
+    "contrast_dark": {
+      "total": 33,
+      "failures": [
+        {
+          "text": "Loaves",
+          "tag": "label",
+          "cls": "dd-field-label",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Loaf weight",
+          "tag": "span",
+          "cls": "dd-field-label",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Hydration",
+          "tag": "label",
+          "cls": "dd-field-label",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "50%",
+          "tag": "span",
+          "cls": "",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 11,
+          "weight": 400,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "100%",
+          "tag": "span",
+          "cls": "",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 11,
+          "weight": 400,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Starter percent",
+          "tag": "label",
+          "cls": "dd-field-label",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Salt percent",
+          "tag": "label",
+          "cls": "dd-field-label",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Ingredient",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 11,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Baker’s %",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 11,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Weight",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(125,111,92)",
+          "bg": "rgb(42,34,26)",
+          "px": 11,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.2,
+          "need": 4.5,
+          "pass": false
+        }
+      ],
+      "failCount": 10,
+      "min": 3.2
+    },
+    "focusSummary": {
+      "tested": 15,
+      "noVisibleChange": 0,
+      "noVisibleChangeList": []
+    }
+  },
+  "treatment": {
+    "contrast_light": {
+      "total": 33,
+      "failures": [
+        {
+          "text": "Ingredient",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(156,143,125)",
+          "bg": "rgb(255,255,255)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.16,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Baker’s %",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(156,143,125)",
+          "bg": "rgb(255,255,255)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.16,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Weight",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(156,143,125)",
+          "bg": "rgb(255,255,255)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.16,
+          "need": 4.5,
+          "pass": false
+        }
+      ],
+      "failCount": 3,
+      "min": 3.16
+    },
+    "focus": [
+      {
+        "tag": "button",
+        "name": "Reset to default recipe",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Print recipe card",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Switch to dark theme",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Decrease number of loave",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Increase number of loave",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "400 g",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "900 g",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "rgba(44, 33, 23, 0.08) 0px 1px 2px 0px"
+      },
+      {
+        "tag": "button",
+        "name": "1200 g",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Advanced: starter & salt",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      },
+      {
+        "tag": "button",
+        "name": "Save this recipe",
+        "focused": true,
+        "changed": true,
+        "hasOutline": true,
+        "outlineAfter": "solid 2px rgb(122, 58, 16)",
+        "shadowAfter": "none"
+      }
+    ],
+    "interactions": {
+      "steps": {
+        "initial": {
+          "live": [
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "913.7 g flour, 685.3 g water, 182.7 g starter, 18.3 g salt. Total dough weight 1"
+            },
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved."
+            }
+          ],
+          "invalid": 0,
+          "expandedTrue": 0,
+          "expandedFalse": 1,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. Recipe inputs Number of loaves Loaf weight 400 g 900 g 1200 g Hydration 75% Advanced: starter & salt Your recipe 913.7 g flour, 685.3 g water, 182.7 g starter, 18.3 g salt. Total dough weight 1800.0 g. Ingredient weights as baker’s percentages of flour INGREDIENT BAKER’S % WEIGHT Flour 100% 913.7 g Water 75% 685.3 g Starter 20% 182.7 g Salt 2% 18.3 g Total dough weight 1800.0 g Save this recipe Recipe saved."
+        },
+        "hydration92": {
+          "live": [
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "841.1 g flour, 773.8 g water, 168.2 g starter, 16.8 g salt. Total dough weight 1"
+            },
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved."
+            }
+          ],
+          "invalid": 0,
+          "expandedTrue": 0,
+          "expandedFalse": 1,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. Recipe inputs Number of loaves Loaf weight 400 g 900 g 1200 g Hydration 92% Above 85% is a wet, sticky dough that most home bakers find hard to handle. Advanced: starter & salt Your recipe 841.1 g flour, 773.8 g water, 168.2 g starter, 16.8 g salt. Total dough weight 1800.0 g. Ingredient weights as baker’s percentages of flour INGREDIENT BAKER’S % WEIGHT Flour 100% 841.1 g Water 92% 773.8 g Starter 20% 168.2 g Salt 2% 16.8 g Total dough weight 1800.0 g Save this recipe Recipe saved."
+        },
+        "outOfRange": {
+          "live": [
+            {
+              "role": "alert",
+              "live": null,
+              "text": "Enter a whole number of loaves between 1 and 12."
+            },
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "841.1 g flour, 773.8 g water, 168.2 g starter, 16.8 g salt. Total dough weight 1"
+            },
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved."
+            }
+          ],
+          "invalid": 1,
+          "expandedTrue": 0,
+          "expandedFalse": 1,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. Recipe inputs Number of loaves Enter a whole number of loaves between 1 and 12. Loaf weight 400 g 900 g 1200 g Hydration 92% Above 85% is a wet, sticky dough that most home bakers find hard to handle. Advanced: starter & salt Your recipe 841.1 g flour, 773.8 g water, 168.2 g starter, 16.8 g salt. Total dough weight 1800.0 g. Ingredient weights as baker’s percentages of flour INGREDIENT BAKER’S % WEIGHT Flour 100% 841.1 g Water 92% 773.8 g Starter 20% 168.2 g Salt 2% 16.8 g Total dough weight 1800.0 g Save this recipe Recipe saved."
+        },
+        "advancedOpen": {
+          "live": [
+            {
+              "role": "alert",
+              "live": null,
+              "text": "Enter a whole number of loaves between 1 and 12."
+            },
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "841.1 g flour, 773.8 g water, 168.2 g starter, 16.8 g salt. Total dough weight 1"
+            },
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved."
+            }
+          ],
+          "invalid": 1,
+          "expandedTrue": 1,
+          "expandedFalse": 0,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. Recipe inputs Number of loaves Enter a whole number of loaves between 1 and 12. Loaf weight 400 g 900 g 1200 g Hydration 92% Above 85% is a wet, sticky dough that most home bakers find hard to handle. Advanced: starter & salt Starter percent Salt percent Your recipe 841.1 g flour, 773.8 g water, 168.2 g starter, 16.8 g salt. Total dough weight 1800.0 g. Ingredient weights as baker’s percentages of flour INGREDIENT BAKER’S % WEIGHT Flour 100% 841.1 g Water 92% 773.8 g Starter 20% 168.2 g Salt 2% 16.8 g Total dough weight 1800.0 g Save this recipe Recipe saved."
+        },
+        "afterSave": {
+          "live": [
+            {
+              "role": "alert",
+              "live": null,
+              "text": "Enter a whole number of loaves between 1 and 12."
+            },
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "841.1 g flour, 773.8 g water, 168.2 g starter, 16.8 g salt. Total dough weight 1"
+            },
+            {
+              "role": "status",
+              "live": "polite",
+              "text": "Recipe saved."
+            }
+          ],
+          "invalid": 1,
+          "expandedTrue": 1,
+          "expandedFalse": 0,
+          "bodyText": "DANA’S DOUGH Baker’s Calculator Tell it how many loaves and how wet you like your dough, and it weighs out the rest. Recipe inputs Number of loaves Enter a whole number of loaves between 1 and 12. Loaf weight 400 g 900 g 1200 g Hydration 92% Above 85% is a wet, sticky dough that most home bakers find hard to handle. Advanced: starter & salt Starter percent Salt percent Your recipe 841.1 g flour, 773.8 g water, 168.2 g starter, 16.8 g salt. Total dough weight 1800.0 g. Ingredient weights as baker’s percentages of flour INGREDIENT BAKER’S % WEIGHT Flour 100% 841.1 g Water 92% 773.8 g Starter 20% 168.2 g Salt 2% 16.8 g Total dough weight 1800.0 g Save this recipe Recipe saved."
+        }
+      }
+    },
+    "darkBodyBg": "rgba(0, 0, 0, 0)",
+    "contrast_dark": {
+      "total": 33,
+      "failures": [
+        {
+          "text": "Ingredient",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(156,143,125)",
+          "bg": "rgb(255,255,255)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.16,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Baker’s %",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(156,143,125)",
+          "bg": "rgb(255,255,255)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.16,
+          "need": 4.5,
+          "pass": false
+        },
+        {
+          "text": "Weight",
+          "tag": "th",
+          "cls": "",
+          "fg": "rgb(156,143,125)",
+          "bg": "rgb(255,255,255)",
+          "px": 12,
+          "weight": 600,
+          "large": false,
+          "ratio": 3.16,
+          "need": 4.5,
+          "pass": false
+        }
+      ],
+      "failCount": 3,
+      "min": 3.16
+    },
+    "focusSummary": {
+      "tested": 13,
+      "noVisibleChange": 0,
+      "noVisibleChangeList": []
+    }
+  }
+}

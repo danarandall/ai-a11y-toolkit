@@ -12,7 +12,7 @@ Release `2026.07`
 
 ## Why this exists
 
-AI builders generate whatever pattern is most common in their training data. Across the web, the most common pattern is inaccessible: `div` elements used as buttons, inputs with no labels, focus outlines removed for looking untidy, colour contrast chosen for a mood board rather than for readability.
+AI builders generate whatever pattern is most common in their training data. Across the web, the most common pattern is inaccessible: `div` elements used as buttons, inputs with no labels, focus outlines removed for looking untidy, color contrast chosen for a mood board rather than for readability.
 
 So the output looks finished and locks people out. It ships faster than anyone can review it, which is the part that should worry you.
 
@@ -52,7 +52,7 @@ A plain `.md` file in `.cursor/rules/` is ignored. It has to be `.mdc` with fron
 - Split by job function, so designers, web developers, framework engineers, and people prompting for AI-generated content each have their own section
 - Motion, media controls, target size, and text reflow, including `prefers-reduced-motion` and the 24 by 24 floor with a 44 by 44 house standard
 - Alt text that describes the image instead of repeating a filename or a hex code
-- Colour and colour vision deficiency, and why a "colour blindness mode" toggle is the wrong answer
+- Color and color vision deficiency, and why a "color blindness mode" toggle is the wrong answer
 - Open source design systems that are already tested, so your AI copies from something good
 - An automated check loop the agent runs as it builds, then fixes what it finds
 - A manual test queue the agent generates for the things a scanner cannot judge
@@ -89,7 +89,7 @@ Pull requests welcome, particularly for platform instructions I have wrong and f
 
 Both of those have an issue template, so you are not staring at a blank box. If you do not have a GitHub account and do not want one, there is a short form on [the toolkit page](https://www.danarandall.com/ai-a11y-toolkit#feedback) instead. Nothing on it is required except the last box.
 
-## Licence
+## License
 
 [CC BY 4.0](LICENSE). Use it commercially, adapt it, teach with it, fork it. Keep the attribution.
 
