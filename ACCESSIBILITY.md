@@ -4,9 +4,9 @@
 
 Target standard: WCAG 2.2, Level AA
 Author: Dana Randall
-Version: 1.12
+Version: 1.14
 Toolkit release: 2026.07
-Last updated: 2026-07-27
+Last updated: 2026-07-31
 
 Latest version of this file: https://danarandall.com/ai-a11y-toolkit
 Using this, or found something that does not work? https://danarandall.com/ai-a11y-toolkit#feedback
@@ -28,6 +28,20 @@ There are three files in this set.
 | `ACCESSIBILITY.md` | This file. The full reference. Commit it to a repo, or read it as a human. |
 
 All three files are at https://danarandall.com/ai-a11y-toolkit. If you were sent a copy, check there for the current release, because the platform instructions in `START-HERE.md` go stale as these tools ship changes.
+
+---
+
+## What this file is for
+
+Accessibility knowledge has always lived with specialists, and it reached everyone else through review. Someone built a thing, an expert found the problems, fixes came later. That worked when building took weeks.
+
+It does not survive a workflow where a working interface exists ninety seconds after you describe it. There is no gap in the schedule for a review cycle, and increasingly the person generating the interface is not an engineer. They are a designer, a product manager, a content strategist, a founder. They are directing a model and shipping what comes back.
+
+This file is for that person. It moves the baseline to the front of the process, so accessibility is a property of what gets generated rather than a correction applied to it afterward.
+
+That is also why it is a file and not a list of prompts. You cannot prompt for a requirement you do not know exists, and accessibility failures are almost entirely unknown unknowns. A prompt library asks you to identify the gap before it can help you close it. A file your tool has already read does not wait to be asked.
+
+What that buys you is a defensible floor, reached by default, by someone who is not an accessibility specialist. It is not an audit, and it is not a replacement for expert review or for testing with disabled people, which is where accessibility is actually established rather than approximated. Section 18 is specific about the limits. Treat this as the work you do before that conversation, so the conversation can be about substance instead of contrast ratios.
 
 ---
 
@@ -1322,7 +1336,7 @@ Audit the palette itself, as data, separately from any screen it appears on.
 1. **Export every token to a table**: name, value, and the background tokens it is allowed to sit on.
 2. **Compute the ratio for every documented pair,** in every theme, in code rather than by eye. A dozen lines of script will do it and can then run in CI.
 3. **Split the pass criteria by kind.** Text pairs are judged at 4.5:1, or 3:1 for large text. Control boundaries, focus rings, icons, chart segments, and state indicators are judged at 3:1 under 1.4.11. Mixing these two lists is the most common way a border failure survives review.
-4. **Check border and input tokens specifically.** If a border is the only thing showing where a control is, it needs 3:1. A card border on a card that already has its own background colour is decorative and exempt. Be honest about which is which rather than failing everything.
+4. **Check border and input tokens specifically.** If a border is the only thing showing where a control is, it needs 3:1. A card border on a card that already has its own background color is decorative and exempt. Be honest about which is which rather than failing everything.
 5. **Re-run on every theme.** A token that clears 3:1 in light mode routinely fails in dark, because dark palettes compress the range at the low end.
 
 This is worth doing precisely because no automated engine will do it for you. Engines evaluate rendered pixels on the routes you point them at, so a token used only in a state you did not scan is never measured. In one real audit, six border and input tokens all sat between 1.2:1 and 1.9:1 against their own backgrounds, in both themes, and three separate engines reported none of them.
@@ -1464,78 +1478,162 @@ COGNITIVE AND CONTENT CONSTRAINTS
 
 ## Section 9: For designers
 
-Your decisions determine most of the accessibility outcome before a line of code exists. These are yours to own.
+You are the earliest point of control in this process. By the time a model is generating markup, most of the decisions that determine whether the result is accessible have already been made or left unmade by you. Karen Hawkins' research finds that around 96 percent of WCAG criteria can be addressed before development begins ([Level Access](https://www.levelaccess.com/blog/play-your-part-role-based-advice-for-agile-accessibility/)). When generation takes ninety seconds, that number tells you something specific about where a designer's leverage sits: almost all of it is upstream of the first line of code.
 
-### Color and contrast
+This section is organized around a different question than the rest of this file. Everywhere else, the question is what the code must do. Here, the question is what you must decide and write down before the code exists.
 
-- Text at 4.5:1 minimum against its actual background, including gradients, images, and overlays. Large text at 3:1. (1.4.3)
-- Icons, input borders, focus rings, toggle states, chart strokes, and any boundary that communicates meaning at 3:1. (1.4.11)
-- Test disabled states too. If a disabled control still needs to be read, it still needs contrast. WCAG exempts inactive controls, but usability does not.
-- Build the palette so accessible pairings are the default, not something a developer has to hunt for. Document which foreground tokens are legal on which background tokens.
-- Do not rely on hue alone to distinguish anything. Roughly one in twelve men has a color vision deficiency.
+### 9.1 Your design scope is a system, not a screen
 
-### Templates and imagery
+The most useful reframe I know for this comes from Karen Hawkins, Principal of Accessible Design at Level Access, in her [Accessible Design Framework](https://www.levelaccess.com/blog/introducing-the-accessible-design-framework/). Her argument is that the scope of design is not the human alone. It is a system made of a human plus the technologies that let them do what they came to do. Designers, she observes, are good at considering the human and much weaker at considering the technology.
 
-Templates outlive the content in them. A site that launches accessible commonly degrades over time because of the content poured into a template, not because of the template's structure ([Level Access, template design](https://www.levelaccess.com/blog/elevating-e-commerce-accessibility-template-design-tips-and-tricks/)).
+That gap explains almost every accessibility failure an AI tool produces.
 
-- **Pressure-test templates against a range of imagery,** especially anywhere text overlays an image. Check light, dark, and busy or patterned backgrounds, not just the one hero shot you designed with.
-- **Design a protective gradient, scrim, or overlay into the template** so text legibility survives whatever image arrives next season.
-- **Give the content team explicit imagery guidelines,** including where the focal point of the image should sit, so overlaid text lands on a usable area.
-- **Offer preset image treatments,** meaning approved blends, blurs, and burns, so the team has a compliant way to fix a difficult image.
-- **Do not embed text into images.** Screen readers cannot read it, and it creates downstream alt text work (1.4.5).
-- **Design the mobile case deliberately.** A layout can pass on desktop and fail on mobile, where an overlaid text lockup fills far more of the image. Switch overlay layouts to stacked layouts at small breakpoints.
-- **Set copy length guidance per breakpoint** so headlines do not collide with imagery or the call to action.
-- **Pressure-test at 200% text zoom, and better at 400%.** Plan how text wraps and reflows so it never collides with other content or the primary action (see 3.6).
+A generation model has exactly one technology in its head: a screen operated by a mouse. It has no representation of a keyboard as a primary input, no representation of a screen reader as an output, no representation of a finger as an imprecise pointer, no representation of a magnifier showing eight percent of the viewport at once. It is not being careless. It is completing the pattern it was trained on, and that pattern assumes your hardware.
 
-### Typography and layout
+When this toolkit was tested by building the same brief twice, once unguided and once with these files installed, every failure in the unguided build was a technology the model never considered. Contrast failures are the screen. Missing focus indicators are the keyboard. Unnamed graphics and absent landmarks are the screen reader. Targets under 24 pixels are the finger. See `research/preventive-test/RESULTS.md`.
 
-- Body text at 16px minimum as a practical floor. Line height at 1.5 for body copy, paragraph spacing at 2x the font size. (1.4.12)
-- Design must survive user text spacing overrides: line height 1.5, letter spacing 0.12em, word spacing 0.16em, paragraph spacing 2em. Avoid fixed-height text containers. (1.4.12)
-- Design a 320px CSS width state for every layout. Content reflows to a single column, nothing is clipped, nothing scrolls sideways. (1.4.10)
-- Left-align body copy in left-to-right languages. Justified text creates rivers of whitespace that are hard for dyslexic readers.
-- Avoid images of text. Use real text you can style. Logos are the exception. (1.4.5)
-- Support both portrait and landscape orientation unless orientation is essential to the experience. (1.3.4)
+So the discipline is simple to state. For every component you design, walk the technologies. Not the criteria, the technologies. The criteria fall out on their own.
 
-### Interaction and states
+| Technology | The question to ask | What it usually surfaces |
+|---|---|---|
+| Screen, full sight | Does this read at a glance? | Hierarchy, contrast, density |
+| Screen, low vision or magnified | Does this survive 200% zoom and a 320 pixel viewport? | Reflow, truncation, lost context (1.4.4, 1.4.10) |
+| Screen, color vision deficiency | Does this still work in grayscale? | Color as the only cue (1.4.1) |
+| Keyboard | Can I reach it, see where I am, and get back out? | Focus order, focus visibility, traps (2.1.1, 2.1.2, 2.4.7) |
+| Screen reader | What does this announce, and in what order? | Names, roles, states, landmarks, live regions (1.1.1, 4.1.2, 4.1.3) |
+| Touch and imprecise pointing | Can I hit it without hitting its neighbor? | Target size and spacing (2.5.8) |
+| Voice control | Can I say the label I can see? | Visible label matching accessible name (2.5.3) |
+| Switch or other slow input | How many actions does this cost, and is there a time limit? | Timing, redundant steps (2.2.1, 3.3.7) |
+| Reduced motion preference | Is the calm version a real design or an afterthought? | Motion policy (2.3.3) |
 
-- Motion is user-triggered, local, and under 300ms for micro-interactions. No parallax, no ambient or looping animation, nothing over five seconds. Full rules in 3.1.
-- Design the focus state, not just hover. Hover does not exist for keyboard or touch users. Specify focus visually in your files. (2.4.7)
-- Focus indicators need at least 3:1 contrast against adjacent colors and should be at least 2px thick with an offset so it reads against the component itself.
-- Design targets at 44x44 CSS pixels. 24x24 is the AA floor, and only with adequate spacing. (2.5.8)
-- Any drag interaction needs a click, tap, or keyboard alternative. Reorderable lists get up and down buttons or a move-to menu. (2.5.7)
-- Tooltips and hover cards must be dismissible without moving the pointer, hoverable so users can move into them, and persistent until dismissed. (1.4.13)
-- Keep help, search, and contact affordances in the same relative place on every page. (3.2.6, 3.2.3)
+Run this sweep once per component and you will find more than any scan will.
 
-### Forms
+### 9.2 The three phases
 
-- Every field gets a persistent visible label above or beside it. Placeholders disappear and fail contrast. (3.3.2)
-- Mark required fields in text, not with an unexplained asterisk alone.
-- Errors appear inline, adjacent to the field, in text, with a plain-language description of how to fix it. (3.3.1, 3.3.3)
-- Do not ask for the same information twice in one flow. Auto-populate or let users select previously entered values. (3.3.7)
-- Authentication cannot depend on memorizing, transcribing, or solving a puzzle. Support password managers, paste, and passkeys. (3.3.8)
-- For legal, financial, or data-deleting actions, provide review, confirm, or reverse. (3.3.4)
+Hawkins' framework moves each component through three phases of the exchange between a person and their technology: **perceive, understand, operate**. It is a better sequence for design work than the WCAG principle order, because it follows what actually happens to a user in the first two seconds.
 
-### Content and copy
+Use it as a thinking order, not a checklist.
 
-- Write link text that makes sense out of context. "View pricing" not "click here" or "read more". (2.4.4)
-- Write headings and labels that describe what follows. (2.4.6)
-- Never write instructions that depend on sensory characteristics alone: not "the button on the right" or "the green box". (1.3.3)
-- Plain language is an accessibility feature. Short sentences, common words, expanded acronyms on first use.
+**Perceive.** Can the person detect that this thing exists, in whatever way they take in information? This covers contrast in every state, not just the resting one. It covers text alternatives. It covers whether the thing is announced at all. A control that is visually beautiful and programmatically silent has failed at perceive for a whole category of user.
 
-### Design deliverables checklist
+**Understand.** Now that they have detected it, do they know what it is, what it does, and what state it is in? This is where labels, names, roles, grouping, instructions, and error copy live. It is also where most AI-generated interfaces quietly fail, because a model will produce a control that looks self-explanatory to a sighted mouse user and communicates nothing to anyone else. An icon-only button is the canonical case: perfectly perceivable, completely opaque.
 
-Annotate for handoff. Undocumented intent gets lost.
+**Operate.** Can they act on it with the input they have, and recover when it goes wrong? Reachability, target size, focus management, timing, undo, and error recovery.
 
-- [ ] Heading level for every text block, not just visual size
-- [ ] Reading and tab order marked where it differs from visual order
-- [ ] Focus state for every interactive component
-- [ ] Accessible names for all icon-only controls
-- [ ] Alt text written by you, for every meaningful image, delivered with the file
-- [ ] Error, empty, loading, and success states designed
-- [ ] 320px reflow state
-- [ ] Contrast ratios documented on the color tokens
-- [ ] Landmark regions identified: header, nav, main, aside, footer
-- [ ] Motion intent plus the reduced-motion fallback
+The reason this ordering earns its place in a file about AI generation is that models fail at these three phases in a predictable ratio. They are decent at perceive, weak at understand, and worst at operate. Understand and operate are also the two phases automated tooling covers least well, which is why they are where expert review and testing with disabled users earn their keep. Spend your own review time accordingly.
+
+### 9.3 Write the annotation, because the annotation is now the prompt
+
+This is the most important change to how designers work, and it is the part I got wrong for a long time.
+
+Accessible design practice has always asked designers to annotate their concepts: mark the heading levels, the landmarks, the tab order, the accessible names, the focus behavior, the error messages, the live region politeness. In Hawkins' heuristics guide the recurring verb is "documented," appearing in roughly one heuristic in ten. The deliverable was never just the pixels. It was the pixels plus the intent.
+
+In a traditional workflow that annotation is a note to a developer, and it gets lost at handoff often enough that most designers stopped writing it.
+
+**In an AI workflow there is no handoff. The annotation is the input.**
+
+A generation tool reads what you give it. If you give it a layout, it infers everything else from pixels, and pixel inference is exactly how you get twelve unnamed icons and a div that behaves like a button. If you give it a layout plus intent, the intent survives into the code. The annotation you stopped writing because developers ignored it is now the single highest-leverage artifact you produce.
+
+So write it. Here is a format that works, structured by the three phases. Fill it in per component and paste it with your design.
+
+```
+COMPONENT: transaction row action menu
+
+PERCEIVE
+  Visible label:        "Actions"
+  Icon:                 three-dot, decorative, hidden from AT
+  Contrast:             icon 4.8:1 resting, 6.2:1 hover, both on #FFFFFF
+  Focus indicator:      2px solid #0B4BD6, 2px offset, 7.02:1 on white
+  Not conveyed by color alone: yes, label text present
+
+UNDERSTAND
+  Accessible name:      "Actions for {merchant}, {date}, {amount}"
+  Role:                 button, opens menu
+  State to expose:      aria-expanded true/false
+  Group:                menu items grouped, labeled "Transaction actions"
+  Instructions needed:  none
+  Error copy:           n/a
+
+OPERATE
+  Keyboard:             Enter or Space opens, Escape closes and returns focus
+                        to the trigger, arrow keys move within the menu
+  Focus on open:        first menu item
+  Focus on close:       back to the trigger, always
+  Target size:          44x44 including padding, 24 minimum (2.5.8)
+  Always present:       yes, not revealed on hover (2.1.1)
+  Motion:               none, or 120ms fade honoring prefers-reduced-motion
+  Timing:               no time limit
+```
+
+Notes on making this work in practice.
+
+**Write it before the visual is finished, not after.** Half of these fields will change your design. Discovering that you need a visible label will change the layout. Discovering that focus has to return somewhere will change the interaction.
+
+**Name the states explicitly.** Design every state a component can hold: default, hover, focus, active, disabled, loading, selected, expanded, error, empty. A model will invent the states you do not specify, and it will invent them without contrast checks. Note that focus and hover are different states with different users, and a hover style is not a focus indicator.
+
+**Say what is decorative.** An unmarked icon is an ambiguity, and models resolve ambiguity by guessing. Mark decorative graphics as decorative and they will be hidden correctly.
+
+**Put contrast values in, not just color names.** Write the ratio. "Muted gray" is not a specification and a model will pick something that fails.
+
+**Annotate the empty, loading, and error states too.** These are generated least carefully and reviewed least often.
+
+### 9.4 Decide these before you generate anything
+
+A short list of decisions that are cheap now and expensive later.
+
+- **Focus indicator.** One indicator, defined once, in the design system. Specify color, thickness, offset, and its contrast against every background it will sit on (2.4.11, 1.4.11). If this is not in your tokens, every generated component will invent its own or remove it.
+- **Contrast tokens.** Audit the palette itself, not the components. A token pair that fails will fail everywhere it is used, and component-level scanning will report it as many separate defects instead of one root cause. See Section 7.
+- **Target size floor.** 24 by 24 CSS pixels is the requirement (2.5.8). 44 by 44 is the number to design to. Set it as a rule for the whole system rather than per component.
+- **Motion policy.** Decide what moves, what triggers it, and what the reduced motion experience is. Treat the reduced version as a real design rather than a fallback (2.3.3).
+- **Heading structure per template.** One h1, properly nested, headings marking real sections.
+- **Landmark map per template.** Where main, nav, header, footer, and search go. All content inside a landmark.
+- **Error and status copy.** Written by you, in plain language, saying what happened and what to do next (3.3.1, 3.3.3). Also decide which messages are polite and which are assertive, because a model will not.
+- **Form label position and required marking.** Labels visible, positioned consistently, and requirement indicated in text rather than color or an unlabeled asterisk (3.3.2).
+- **Two cues for anything that matters.** Any information carried by color needs a second, non-color cue: text, shape, position, or an icon with a name (1.4.1).
+
+### 9.5 Smaller things that are easy to specify and easy to lose
+
+Not all of these are WCAG requirements. They are the details that separate a technically conformant interface from a usable one, and models get them wrong by default.
+
+- Put form labels above or to the left of their input, consistently, and put radio and checkbox labels to the right of the control. Consistent placement is what lets people with magnification find them.
+- Keep controls and their labels physically close. Proximity is what communicates the relationship before any code does.
+- Avoid placeholder text as a label substitute. It disappears on input, usually fails contrast, and is not reliably announced.
+- Keep tables simple. Merged cells break the header association that screen reader users depend on.
+- Use SVG rather than raster images for anything that functions as a control, so it survives zoom and high contrast mode.
+- Differentiate table headers from data cells visually, not only structurally.
+- Give sortable columns a visible indication of which column is sorted and in which direction.
+- Make sticky headers, toolbars, and non-modal dialogs movable or dismissible, and make sure a focused element is never left underneath one (2.4.11).
+- Give every page a title that describes its purpose, and update it when the state changes to searched, filtered, sorted, or error.
+- Design a way to bypass repeated blocks. A skip link is the cheapest version and almost no generated build includes one (2.4.1).
+- Design the visible focus state for every interactive element, including ones the design system inherited rather than authored.
+
+### 9.6 Design deliverables checklist
+
+Before anything goes to a generation tool:
+
+- [ ] Every component annotated across perceive, understand, and operate
+- [ ] Every state designed, including focus, disabled, loading, empty, and error
+- [ ] Focus indicator defined in the system with contrast values
+- [ ] Contrast verified at the token level, in every state, in every theme
+- [ ] Heading structure and landmark map specified per template
+- [ ] Tab order stated where it differs from visual order
+- [ ] Accessible names written for every control, including icon-only ones
+- [ ] Decorative graphics marked as decorative
+- [ ] Target sizes specified, 24 minimum and 44 preferred
+- [ ] Motion policy stated, including the reduced motion experience
+- [ ] Error, empty, and loading copy written in plain language
+- [ ] Live region politeness decided for each status message
+- [ ] Reflow verified at 320 CSS pixels and 200% zoom
+- [ ] Text spacing overrides survive: 1.5 line height, 2x paragraph, 0.12em letter, 0.16em word (1.4.12)
+- [ ] Grayscale check passed, no meaning carried by color alone
+
+If you hand a generation tool a design that satisfies this list, most of what the rest of this file enforces has already been decided by a person. That is the point.
+
+---
+
+**Credit.** The perceive, understand, operate sequence and the framing of design scope as a human plus technology system come from the Accessible Design Framework by Karen Hawkins, Principal of Accessible Design at Level Access. Her [Accessible Design Principles and Heuristics](https://www.levelaccess.com/resources/accessible-design-principles-and-heuristics/) guide, which organizes more than 170 heuristics into eight principles, and her article [Introducing the Accessible Design Framework](https://www.levelaccess.com/blog/introducing-the-accessible-design-framework/) are the best designer-facing accessibility resources I know of. Go read them in full. They are published by Level Access and remain its copyright.
+
+The section above is written for a narrower purpose than hers, which is instructing a generation tool rather than teaching a designer. The wording, the technology sweep, and the annotation format are mine, as is any error in the translation.
 
 ---
 
@@ -1771,7 +1869,7 @@ npm i -D eslint-plugin-jsx-a11y
 - Name layers meaningfully. Layer names become the first draft of everyone's mental model, and of code generation output.
 - Use text styles and color variables with contrast documented on the token, so accessible pairings are picked by default.
 - Order layers to match intended reading order. Design tool layer order and generated DOM order are correlated.
-- Annotate with a handoff plugin or a dedicated annotation layer covering headings, landmarks, tab order, alt text, and focus states.
+- Annotate with a handoff plugin or a dedicated annotation layer covering headings, landmarks, tab order, alt text, and focus states. In an AI workflow this annotation is not a note to a developer, it is the input the tool builds from, so it is worth more than it used to be. Section 9.3 has a format for it.
 - Include the keyboard flow in prototypes, not just click paths.
 
 ### Prompting AI tools for UI
@@ -1788,6 +1886,7 @@ Prompt patterns that work:
 - Constrain the primitives. "Use semantic HTML only. No div with click handlers. No positive tabindex."
 - Require the states. "Include focus, error, empty, loading, and disabled states."
 - Ask for a self-audit pass. "Now review your output against this file and fix violations."
+- Paste the component annotation from Section 9.3 alongside the design. A model given explicit accessible names, states, focus behavior, and target sizes will use them. A model given only a layout will infer them from pixels, which is how you get twelve unnamed icons.
 
 ### AI-generated visuals and layouts
 
@@ -2406,6 +2505,14 @@ If you paste these rules into an internal tool or a client project, keep that li
 
 Full license text: https://github.com/danarandall/ai-a11y-toolkit/blob/main/LICENSE
 
+### Sourcing
+
+Everything here is written in original language. This file cites publicly available sources and links to them, because reading the original is always better than reading my summary of it. It does not reproduce anyone's text.
+
+Where a rule comes from WCAG, the success criterion is named so you can go read it. Where guidance comes from a practitioner's published work, they are credited by name with a link. Facts and requirements are not anyone's property. The words used to explain them are, and those words here are mine.
+
+Tools and resources are recommended on merit, weighted toward open source and toward things you can use without an account. Where a commercial platform is mentioned, it is mentioned because it does something the open source options do not, and it is always marked optional.
+
 ### Primary sources
 
 - [Web Content Accessibility Guidelines (WCAG) 2.2, W3C Recommendation](https://www.w3.org/TR/WCAG22/)
@@ -2419,6 +2526,12 @@ Full license text: https://github.com/danarandall/ai-a11y-toolkit/blob/main/LICE
 - [Understanding SC 3.2.6 Consistent Help, W3C](https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html)
 - [USWDS Accessibility and conformance report](https://designsystem.digital.gov/documentation/accessibility/)
 - [GOV.UK Design System Accessibility](https://design-system.service.gov.uk/accessibility/)
+
+### Further reading
+
+- [Accessible Design Principles and Heuristics](https://www.levelaccess.com/resources/accessible-design-principles-and-heuristics/), Karen Hawkins. Over 170 design heuristics organized into eight principles. The best designer-facing accessibility reference in print, and the structural basis for Section 9.
+- [Introducing the Accessible Design Framework](https://www.levelaccess.com/blog/introducing-the-accessible-design-framework/), Karen Hawkins. The perceive, understand, operate model, and the argument that the scope of design is a system rather than a person.
+- [Accessible Design Principles and Heuristics: The Story Behind the Guide](https://www.levelaccess.com/blog/accessible-design-principles-and-heuristics-the-story-behind-the-guide/), Karen Hawkins. How the principles were derived.
 
 ### DESIGNA11Y
 

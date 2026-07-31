@@ -7,6 +7,8 @@ Something not working in your tool? Tell me: https://danarandall.com/ai-a11y-too
 
 You do not need to be a developer to use this. If you are building with Lovable, Base44, Bolt, v0, Figma Make, Replit, Cursor, Claude Code, ChatGPT, or anything similar, this file tells you where to put the rules so your AI actually follows them.
 
+The reason this is a set of files and not a list of prompts: you cannot prompt for a requirement you do not know exists. These rules sit inside your tool and apply themselves, so the thing you generate starts from a baseline without you having to know what to ask for.
+
 Verified against platform documentation in July 2026. These products change fast, so if a menu has moved, the linked documentation is the source of truth.
 
 ---
