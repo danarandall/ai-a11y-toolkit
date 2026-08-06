@@ -1,0 +1,193 @@
+{
+ "control": {
+  "violation": 22,
+  "potential": 57,
+  "recommendation": 1,
+  "pageErrors": [],
+  "rules": {
+   "svg_graphics_labelled": 10,
+   "text_contrast_sufficient": 9,
+   "aria_complementary_labelled": 1,
+   "input_label_exists": 2
+  },
+  "details": [
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[2]/svg[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.48 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 600",
+    "xpath": "/html[1]/body[1]/div[1]/header[1]/div[2]/div[1]/button[1]/span[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/header[1]/div[2]/div[1]/button[1]/svg[1]"
+   },
+   {
+    "rule": "aria_complementary_labelled",
+    "msg": "Element with \"complementary\" role does not have a label",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/aside[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/aside[1]/nav[1]/button[1]/svg[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/aside[1]/nav[1]/button[2]/svg[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/aside[1]/nav[1]/button[3]/svg[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/aside[1]/nav[1]/button[4]/svg[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/aside[1]/nav[1]/button[5]/svg[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.48 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 600",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/button[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.10 with its background is less than the WCAG AA minimum requirements for text of size 14px and weight of 600",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[2]/button[2]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.10 with its background is less than the WCAG AA minimum requirements for text of size 14px and weight of 600",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[2]/button[3]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.10 with its background is less than the WCAG AA minimum requirements for text of size 14px and weight of 600",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[2]/button[4]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.48 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 600",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/div[5]/button[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.48 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 400",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[3]/div[2]/span[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[5]/div[1]/table[1]/thead[1]/tr[1]/th[2]/button[1]/svg[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[5]/div[1]/table[1]/thead[1]/tr[1]/th[4]/button[1]/svg[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[5]/div[1]/table[1]/thead[1]/tr[1]/th[6]/button[1]/svg[1]"
+   },
+   {
+    "rule": "input_label_exists",
+    "msg": "Form control element <select> has no associated label",
+    "xpath": "/html[1]/body[1]/div[1]/div[1]/main[1]/div[5]/div[3]/div[1]/select[1]"
+   },
+   {
+    "rule": "input_label_exists",
+    "msg": "Form control element <input> has no associated label",
+    "xpath": "/html[1]/body[1]/aside[1]/div[2]/div[2]/div[3]/div[1]/input[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.48 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 400",
+    "xpath": "/html[1]/body[1]/aside[1]/div[2]/div[2]/div[3]/span[2]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.48 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 600",
+    "xpath": "/html[1]/body[1]/aside[1]/div[3]/button[2]"
+   }
+  ]
+ },
+ "treatment": {
+  "violation": 11,
+  "potential": 31,
+  "recommendation": 1,
+  "pageErrors": [],
+  "rules": {
+   "aria_content_in_landmark": 1,
+   "label_content_exists": 10
+  },
+  "details": [
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "xpath": "/html[1]/body[1]/a[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[5]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[6]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[7]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[8]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[9]/td[1]/label[1]"
+   },
+   {
+    "rule": "label_content_exists",
+    "msg": "The <label> element does not have descriptive text that identifies the expected input",
+    "xpath": "/html[1]/body[1]/div[1]/main[1]/div[4]/div[3]/div[1]/table[1]/tbody[1]/tr[10]/td[1]/label[1]"
+   }
+  ]
+ }
+}

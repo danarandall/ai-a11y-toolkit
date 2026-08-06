@@ -1,0 +1,2159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orders | Prime Commerce Admin</title>
+<style>
+  /* ============================================================
+     DESIGN TOKENS — Prime 6.0
+     ============================================================ */
+  :root{
+    /* Type */
+    --font-family: Inter, system-ui, sans-serif;
+
+    /* Blue Spark */
+    --blue-100:#E8F2FF; --blue-200:#D1E4FF; --blue-300:#A2C9FF; --blue-400:#73ADFF;
+    --blue-500:#4090FF; --blue-600:#076EFF; --blue-700:#0056D0; --blue-800:#00419D;
+    --blue-900:#002D6D; --blue-1000:#001A40;
+
+    /* Obsidian */
+    --obs-100:#F4F5F6; --obs-200:#E6E8EA; --obs-300:#C6CED2; --obs-400:#A0ADB4;
+    --obs-500:#83939C; --obs-600:#667A85; --obs-700:#4E616B; --obs-800:#3A4951;
+    --obs-900:#283237; --obs-1000:#171C1F;
+
+    /* Grey */
+    --grey-100:#F1F1F1; --grey-200:#E2E2E2; --grey-300:#C6C6C6; --grey-400:#ABABAB;
+    --grey-500:#919191; --grey-600:#777777; --grey-700:#5E5E5E; --grey-800:#474747;
+    --grey-900:#303030; --grey-1000:#1B1B1B;
+
+    /* Green Bell Pepper (success) */
+    --green-100:#E1F7D8; --green-200:#C1EFB0; --green-300:#7CDD56; --green-400:#37C500;
+    --green-500:#2FA700; --green-600:#268900; --green-700:#1E6D00; --green-800:#175200;
+    --green-900:#103900; --green-1000:#092100;
+
+    /* Golden Stone (warning) */
+    --gold-100:#FFF0CB; --gold-200:#FFDF93; --gold-300:#FFBB16; --gold-400:#E99B00;
+    --gold-500:#C77100; --gold-600:#A85A00; --gold-700:#8A4900; --gold-800:#663600;
+    --gold-900:#472600; --gold-1000:#291500;
+
+    /* Electric Crimson (danger) */
+    --crim-100:#FFECF1; --crim-200:#FFD9E3; --crim-300:#FFB1C5; --crim-400:#FF85A4;
+    --crim-500:#FF4E7B; --crim-600:#ED003D; --crim-700:#BF0031; --crim-800:#920025;
+    --crim-900:#67001A; --crim-1000:#400010;
+
+    /* Blue Sari */
+    --sari-100:#F4F4F6; --sari-200:#E0E3E7; --sari-300:#C2C7CF; --sari-400:#A5ABB8;
+    --sari-500:#8891A2; --sari-600:#6D778C; --sari-700:#545F74; --sari-800:#3F4757;
+    --sari-900:#2B313B; --sari-1000:#181C22;
+
+    --white:#FFFFFF; --black:#000000;
+
+    /* Spacing steps */
+    --space-4:4px; --space-8:8px; --space-12:12px; --space-16:16px;
+    --space-24:24px; --space-32:32px; --space-40:40px; --space-80:80px;
+
+    /* Radius */
+    --radius-8:8px; --radius-12:12px; --radius-16:16px; --radius-pill:1000px;
+
+    /* Semantic tokens */
+    --color-text-primary: var(--obs-1000);
+    --color-text-secondary: var(--obs-700);   /* 6.47:1 on white, 5.93:1 on obs-100 */
+    --color-text-muted: var(--obs-700);       /* changed from a lighter step, see NOTES.md */
+    --color-text-on-primary: var(--white);
+    --color-text-link: var(--blue-700);       /* 6.48:1 on white */
+    --color-border-default: var(--obs-600);   /* changed from obs-300, see NOTES.md */
+    --color-border-subtle: var(--obs-200);
+    --color-border-focus: var(--blue-800);    /* changed from blue-500, see NOTES.md */
+    --color-surface-page: var(--obs-100);
+    --color-surface-card: var(--white);
+    --color-danger-text: var(--crim-800);
+
+    /* Motion tokens */
+    --motion-instant: 100ms;
+    --motion-fast: 150ms;
+    --motion-base: 200ms;
+    --motion-slow: 300ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0.38, 0.9);
+    --ease-entrance: cubic-bezier(0, 0, 0.38, 0.9);
+    --ease-exit: cubic-bezier(0.2, 0, 1, 0.9);
+  }
+
+  /* ============================================================
+     RESET & BASE
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--color-surface-page);
+    color: var(--color-text-primary);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+  }
+  h1, h2, h3, h4, h5, p, fieldset { margin: 0; padding: 0; border: 0; }
+  button, input, select, textarea { font-family: inherit; color: inherit; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  img { max-width: 100%; }
+
+  /* Reduced motion global guard — opt-in per component, not opt-out */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus visibility — never removed, always replaced deliberately */
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Table cells need offset adjustment so focus ring isn't clipped */
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  select:focus-visible, [tabindex]:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+    z-index: 2;
+    position: relative;
+  }
+
+  .visually-hidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: var(--space-8);
+    top: -100px;
+    background: var(--blue-600);
+    color: var(--white);
+    padding: var(--space-12) var(--space-16);
+    border-radius: var(--radius-8);
+    z-index: 1000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top var(--motion-fast) var(--ease-standard);
+  }
+  .skip-link:focus {
+    top: var(--space-8);
+  }
+
+  /* ============================================================
+     TYPE SCALE
+     ============================================================ */
+  .text-h3 { font-size: 24px; line-height: 29px; font-weight: 700; letter-spacing: 0; }
+  .text-h4 { font-size: 20px; line-height: 24px; font-weight: 600; letter-spacing: 0.15px; }
+  .text-h5 { font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: 0.15px; }
+  .text-body-md { font-size: 16px; line-height: 24px; font-weight: 400; letter-spacing: 0.5px; }
+  .text-body-sm { font-size: 14px; line-height: 21px; font-weight: 400; letter-spacing: 0.25px; }
+  .text-body-sm-semibold { font-size: 14px; line-height: 21px; font-weight: 500; letter-spacing: 0.25px; }
+  .text-action-md { font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: 0.3px; }
+  .text-action-sm { font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.4px; }
+  .text-caption { font-size: 12px; line-height: 14.5px; font-weight: 500; letter-spacing: 0.4px; }
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  .app-shell {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 64px 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar main";
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .page-header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    gap: var(--space-24);
+    padding: 0 var(--space-24);
+    background: var(--white);
+    border-bottom: 1px solid var(--color-border-subtle);
+    min-height: 64px;
+  }
+  .product-name {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+  }
+  .header-search {
+    flex: 1;
+    max-width: 420px;
+    min-width: 160px;
+  }
+  .header-search-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .header-search-field svg { position: absolute; left: var(--space-12); pointer-events: none; }
+  .header-search input {
+    width: 100%;
+    height: 44px;
+    padding: var(--space-12) var(--space-12) var(--space-12) 40px;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-12);
+    background: var(--white);
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .header-search input::placeholder { color: var(--obs-700); }
+  .header-account {
+    margin-left: auto;
+    position: relative;
+  }
+  .account-menu-button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    height: 44px;
+    min-width: 44px;
+    padding: var(--space-8) var(--space-12);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-12);
+    background: var(--white);
+    cursor: pointer;
+  }
+  /* Background changed from blue-600 to blue-700, see NOTES.md (text contrast: bold 12px initials need 4.5:1). */
+  .account-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--blue-700); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+  }
+  .account-menu-button:hover { background: var(--obs-100); }
+  .account-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + var(--space-8));
+    background: var(--white);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-12);
+    box-shadow: 0 8px 24px rgba(23,28,31,0.16);
+    min-width: 220px;
+    padding: var(--space-8);
+    z-index: 60;
+  }
+  .account-menu[hidden] { display: none; }
+  .account-menu button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    width: 100%;
+    min-height: 44px;
+    padding: var(--space-8) var(--space-12);
+    background: none;
+    border: none;
+    border-radius: var(--radius-8);
+    text-align: left;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: pointer;
+  }
+  .account-menu button:hover { background: var(--obs-100); }
+
+  /* Sidebar */
+  .sidebar {
+    grid-area: sidebar;
+    background: var(--white);
+    border-right: 1px solid var(--color-border-subtle);
+    padding: var(--space-16) var(--space-12);
+  }
+  .sidebar-nav-list { display: flex; flex-direction: column; gap: var(--space-4); }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    min-height: 44px;
+    padding: var(--space-8) var(--space-12);
+    border-radius: var(--radius-8);
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+  }
+  .sidebar-link:hover { background: var(--obs-100); color: var(--color-text-primary); }
+  .sidebar-link[aria-current="page"] {
+    background: var(--blue-100);
+    color: var(--blue-800);
+    font-weight: 700;
+  }
+  .sidebar-link .icon-dot {
+    width: 20px; height: 20px; flex-shrink: 0;
+  }
+
+  /* Main content */
+  .main-content {
+    grid-area: main;
+    padding: var(--space-24) var(--space-32);
+    min-width: 0;
+  }
+  .page-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-24);
+    gap: var(--space-16);
+    flex-wrap: wrap;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: var(--space-24);
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: var(--space-24);
+  }
+  .tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0 var(--space-4);
+    height: 48px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    margin-bottom: -1px;
+  }
+  .tab:hover { color: var(--color-text-primary); }
+  .tab[aria-selected="true"] {
+    color: var(--blue-700);
+    border-bottom-color: var(--blue-600);
+    font-weight: 700;
+  }
+  .tab .tab-count {
+    background: var(--obs-100);
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-pill);
+    padding: 0 var(--space-8);
+    font-size: 12px;
+    line-height: 16px;
+    min-width: 20px;
+    text-align: center;
+  }
+  .tab[aria-selected="true"] .tab-count { background: var(--blue-100); color: var(--blue-800); }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--space-12);
+    margin-bottom: var(--space-16);
+    background: var(--white);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-12);
+    padding: var(--space-16);
+  }
+  .filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    min-width: 160px;
+  }
+  .filter-field label {
+    font-size: 12px;
+    line-height: 14.5px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: var(--color-text-secondary);
+  }
+  .filter-field input, .filter-field select {
+    height: 44px;
+    padding: var(--space-12);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-12);
+    background: var(--white);
+    font-size: 14px;
+    min-width: 0;
+  }
+  .filter-actions { display: flex; gap: var(--space-8); align-self: flex-end; }
+
+  .active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+  }
+  .active-filters-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+  .filter-chip {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    background: var(--blue-100);
+    color: var(--blue-800);
+    border-radius: var(--radius-pill);
+    padding: var(--space-4) var(--space-8) var(--space-4) var(--space-12);
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+  .filter-chip button {
+    background: none;
+    border: none;
+    color: var(--blue-800);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .filter-chip button:hover { background: var(--blue-200); }
+
+  /* Buttons — Prime 6.0 geometry */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    border-radius: var(--radius-12);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: normal;
+    transition: background-color var(--motion-fast) var(--ease-standard),
+                border-color var(--motion-fast) var(--ease-standard);
+    text-decoration: none;
+  }
+  .btn-xsmall { min-height: 32px; padding: var(--space-8) var(--space-12); font-size: 12px; }
+  .btn-small  { min-height: 40px; padding: var(--space-8) var(--space-12); font-size: 12px; }
+  .btn-medium { min-height: 48px; padding: var(--space-12) var(--space-16); font-size: 16px; }
+  .btn-large  { min-height: 56px; padding: var(--space-16); font-size: 18px; }
+  /* Target size floor of 44px applies even to small visual buttons */
+  .btn-xsmall, .btn-small { min-height: 44px; }
+
+  /* Rest-state background changed from blue-600 to blue-700, see NOTES.md (text contrast). */
+  .btn-primary { background: var(--blue-700); color: var(--white); }
+  .btn-primary:hover { background: var(--blue-500); color: var(--obs-1000); }
+  .btn-primary:active { background: var(--blue-800); color: var(--white); }
+
+  .btn-secondary { background: var(--obs-100); color: var(--obs-1000); border-color: var(--color-border-default); }
+  .btn-secondary:hover { background: var(--obs-200); }
+  .btn-secondary:active { background: var(--obs-300); }
+
+  /* Rest-state background changed from crim-600 (4.50:1, borderline) to crim-700 (6.44:1), see NOTES.md. */
+  .btn-danger { background: var(--crim-700); color: var(--white); }
+  .btn-danger:hover { background: var(--crim-500); color: var(--obs-1000); }
+  .btn-danger:active { background: var(--crim-800); color: var(--white); }
+
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .icon-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius-8);
+    cursor: pointer;
+    color: var(--color-text-secondary);
+  }
+  .icon-btn:hover { background: var(--obs-100); color: var(--color-text-primary); }
+
+  /* Table */
+  .table-card {
+    background: var(--white);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-12);
+    overflow: visible;
+  }
+  .table-scroll { overflow-x: auto; }
+  table.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+  }
+  .orders-table caption { text-align: left; padding: var(--space-16); font-weight: 700; }
+  .orders-table thead th {
+    height: 40px;
+    padding: 0 var(--space-12);
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--color-text-secondary);
+    background: var(--obs-100);
+    border-bottom: 1px solid var(--color-border-subtle);
+    white-space: nowrap;
+  }
+  .orders-table thead th:first-child { border-top-left-radius: var(--radius-12); }
+  .orders-table thead th:last-child { border-top-right-radius: var(--radius-12); }
+  .orders-table tbody td {
+    padding: var(--space-12);
+    border-bottom: 1px solid var(--color-border-subtle);
+    font-size: 14px;
+    line-height: 21px;
+    vertical-align: middle;
+  }
+  .orders-table tbody tr:last-child td { border-bottom: none; }
+  .orders-table tbody tr:hover { background: var(--obs-100); }
+  .orders-table tbody tr.row-selected { background: var(--blue-100); }
+  .orders-table tbody tr.row-selected:hover { background: var(--blue-200); }
+
+  .sort-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    background: none;
+    border: none;
+    padding: var(--space-8) var(--space-4);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    min-height: 44px;
+  }
+  .sort-btn:hover { color: var(--color-text-primary); }
+  .sort-btn[aria-pressed="true"] { color: var(--blue-700); }
+  .sort-icon { display: inline-flex; flex-direction: column; line-height: 0; }
+  .sort-icon svg { display: block; }
+  .sort-icon .arrow-inactive { opacity: 0.35; }
+
+  .checkbox-cell { width: 44px; }
+  input[type="checkbox"].row-check {
+    width: 20px; height: 20px;
+    accent-color: var(--blue-600);
+    cursor: pointer;
+  }
+  /* The label is the real 44x44 hit area; the checkbox glyph inside stays visually 20x20.
+     Clicking or tapping anywhere in the label toggles the checkbox it is bound to. */
+  .checkbox-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+  }
+
+  .order-number-link {
+    color: var(--color-text-link);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .order-number-link:hover { color: var(--blue-800); }
+
+  /* Badges */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    height: 24px;
+    padding: var(--space-4) var(--space-12);
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+  }
+  .badge::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .badge-paid { background: var(--green-100); color: var(--green-900); }
+  .badge-paid::before { background: var(--green-700); }
+  .badge-pending { background: var(--gold-100); color: var(--gold-800); }
+  .badge-pending::before { background: var(--gold-700); }
+  .badge-refunded { background: var(--sari-100); color: var(--sari-800); }
+  .badge-refunded::before { background: var(--sari-700); }
+  .badge-failed { background: var(--crim-100); color: var(--crim-800); }
+  .badge-failed::before { background: var(--crim-700); }
+  .badge-archived { background: var(--obs-200); color: var(--obs-900); }
+  .badge-archived::before { background: var(--obs-700); }
+
+  .row-actions-btn {
+    position: relative;
+    width: 44px; height: 44px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: 1px solid transparent; border-radius: var(--radius-8);
+    cursor: pointer; color: var(--color-text-secondary);
+  }
+  .row-actions-btn:hover { background: var(--obs-100); color: var(--color-text-primary); }
+
+  .row-menu {
+    position: absolute;
+    background: var(--white);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-12);
+    box-shadow: 0 8px 24px rgba(23,28,31,0.16);
+    min-width: 180px;
+    padding: var(--space-8);
+    z-index: 70;
+  }
+  .row-menu[hidden] { display: none; }
+  .row-menu button {
+    display: flex; width: 100%; min-height: 44px; align-items: center;
+    padding: var(--space-8) var(--space-12); background: none; border: none;
+    border-radius: var(--radius-8); text-align: left; font-size: 14px; cursor: pointer;
+  }
+  .row-menu button:hover { background: var(--obs-100); }
+
+  /* Bulk bar */
+  .bulk-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+    background: var(--blue-900);
+    color: var(--white);
+    border-radius: var(--radius-12);
+    padding: var(--space-12) var(--space-16);
+    margin-bottom: var(--space-16);
+  }
+  .bulk-bar[hidden] { display: none; }
+  .bulk-bar-count { font-size: 14px; font-weight: 600; }
+  .bulk-bar-actions { display: flex; gap: var(--space-8); }
+  .bulk-bar .btn-secondary { background: var(--white); color: var(--obs-1000); border-color: var(--white); }
+  .bulk-bar .btn-secondary:hover { background: var(--obs-200); }
+
+  /* Pagination */
+  .pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-16);
+    padding: var(--space-16);
+  }
+  .pagination-size { display: flex; align-items: center; gap: var(--space-8); font-size: 14px; }
+  .pagination-size select {
+    height: 44px; padding: 0 var(--space-12); border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-8); background: var(--white);
+  }
+  .pagination-controls { display: flex; align-items: center; gap: var(--space-8); }
+  .pagination-controls .btn-secondary { padding: var(--space-8) var(--space-12); }
+  .pagination-status { font-size: 14px; color: var(--color-text-secondary); }
+  .pagination-total { font-size: 14px; color: var(--color-text-secondary); }
+
+  /* Modal / dialog */
+  .modal-scrim {
+    position: fixed; inset: 0;
+    background: rgba(23,28,31,0.5);
+    display: flex; align-items: center; justify-content: center;
+    padding: var(--space-24);
+    z-index: 100;
+  }
+  .modal-scrim[hidden] { display: none; }
+  .modal-dialog {
+    background: var(--white);
+    border-radius: var(--radius-12);
+    max-width: 480px;
+    width: 100%;
+    padding: var(--space-24);
+    box-shadow: 0 24px 64px rgba(23,28,31,0.32);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .modal-dialog { animation: modal-in var(--motion-slow) var(--ease-entrance); }
+  }
+  @keyframes modal-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .modal-title { margin-bottom: var(--space-12); }
+  .modal-body { margin-bottom: var(--space-24); color: var(--color-text-secondary); }
+  .modal-actions { display: flex; justify-content: flex-end; gap: var(--space-12); }
+
+  /* Settings panel (side drawer) */
+  .drawer-scrim {
+    position: fixed; inset: 0;
+    background: rgba(23,28,31,0.5);
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .drawer-scrim[hidden] { display: none; }
+  .settings-drawer {
+    background: var(--white);
+    width: 420px;
+    max-width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: var(--space-24);
+    box-shadow: -24px 0 64px rgba(23,28,31,0.24);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .settings-drawer { animation: drawer-in var(--motion-slow) var(--ease-entrance); }
+  }
+  @keyframes drawer-in {
+    from { opacity: 0; transform: translateX(16px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .drawer-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: var(--space-24);
+  }
+  .settings-section { margin-bottom: var(--space-32); }
+  .settings-section h3 { margin-bottom: var(--space-16); }
+  .settings-section-desc { color: var(--color-text-secondary); font-size: 13px; margin-bottom: var(--space-16); }
+
+  /* Toggle switch */
+  .toggle-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-16);
+    padding: var(--space-12) 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .toggle-row:last-child { border-bottom: none; }
+  .toggle-label { display: flex; flex-direction: column; gap: var(--space-4); }
+  .toggle-label .text-hint { font-size: 12px; color: var(--color-text-secondary); }
+  .switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 44px; height: 44px;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .switch input {
+    position: absolute;
+    width: 44px; height: 44px;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .switch-track {
+    width: 40px; height: 24px;
+    border-radius: 19px;
+    background: var(--obs-400);
+    position: relative;
+    transition: background-color var(--motion-fast) var(--ease-standard);
+    pointer-events: none;
+  }
+  .switch-track::after {
+    content: "";
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    transition: transform var(--motion-fast) var(--ease-standard);
+  }
+  .switch input:checked + .switch-track { background: var(--blue-600); }
+  .switch input:checked + .switch-track::after { transform: translateX(16px); }
+  .switch input:focus-visible + .switch-track {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+  }
+  .switch-state-text { font-size: 12px; font-weight: 600; color: var(--color-text-secondary); min-width: 32px; text-align: right; }
+
+  /* Numeric quantity control */
+  .qty-control {
+    display: inline-flex; align-items: stretch;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-12);
+    overflow: hidden;
+  }
+  .qty-control button {
+    width: 44px; height: 44px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--obs-100); border: none; cursor: pointer;
+    font-size: 18px; font-weight: 600;
+  }
+  .qty-control button:hover { background: var(--obs-200); }
+  .qty-control button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .qty-control input {
+    width: 56px; height: 44px;
+    border: none;
+    border-left: 1px solid var(--color-border-default);
+    border-right: 1px solid var(--color-border-default);
+    text-align: center;
+    font-size: 16px;
+    -moz-appearance: textfield;
+  }
+  .qty-control input::-webkit-outer-spin-button,
+  .qty-control input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+  /* Slider */
+  .slider-control { display: flex; flex-direction: column; gap: var(--space-8); }
+  .slider-row { display: flex; align-items: center; gap: var(--space-16); }
+  .slider-track-wrap {
+    flex: 1;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  input[type="range"].slider-input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 44px;
+    background: transparent;
+    margin: 0;
+    cursor: pointer;
+  }
+  input[type="range"].slider-input::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: var(--obs-300);
+  }
+  input[type="range"].slider-input::-moz-range-track {
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: var(--obs-300);
+  }
+  input[type="range"].slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--blue-600);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 1px var(--blue-600);
+    margin-top: -8px;
+    cursor: pointer;
+  }
+  input[type="range"].slider-input::-moz-range-thumb {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--blue-600);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 1px var(--blue-600);
+    cursor: pointer;
+  }
+  input[type="range"].slider-input:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 4px;
+  }
+  .slider-output {
+    min-width: 48px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  /* Form */
+  .form-field { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-16); }
+  .form-field label { font-size: 13px; font-weight: 600; color: var(--color-text-primary); }
+  .form-field .required-mark { color: var(--crim-800); }
+  .form-field .hint { font-size: 12px; color: var(--color-text-secondary); }
+  .form-field input, .form-field textarea {
+    padding: var(--space-12);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-12);
+    font-size: 14px;
+    background: var(--white);
+    width: 100%;
+  }
+  .form-field textarea { min-height: 96px; resize: vertical; }
+  .form-field.field-invalid input,
+  .form-field.field-invalid textarea {
+    border-color: var(--crim-700);
+    border-width: 2px;
+  }
+  .form-field .error-message {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-danger-text);
+  }
+  .form-field .error-message[hidden] { display: none; }
+
+  .form-errors-summary {
+    background: var(--crim-100);
+    border: 1px solid var(--crim-700);
+    border-radius: var(--radius-12);
+    padding: var(--space-16);
+    margin-bottom: var(--space-16);
+  }
+  .form-errors-summary[hidden] { display: none; }
+  .form-errors-summary h4 { color: var(--crim-800); margin-bottom: var(--space-8); }
+  .form-errors-summary ul { padding-left: var(--space-16); list-style: disc; }
+  .form-errors-summary a { color: var(--crim-800); font-weight: 600; }
+
+  /* Tooltip */
+  .tooltip-wrap { position: relative; display: inline-flex; }
+  .tooltip-bubble {
+    position: absolute;
+    bottom: calc(100% + var(--space-8));
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--obs-1000);
+    color: var(--white);
+    padding: var(--space-8) var(--space-12);
+    border-radius: var(--radius-12);
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    z-index: 80;
+    pointer-events: none;
+  }
+  .tooltip-bubble[hidden] { display: none; }
+  .tooltip-bubble::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--obs-1000);
+  }
+
+  /* Notifications / toasts */
+  .toast-region {
+    position: fixed;
+    top: var(--space-24);
+    right: var(--space-24);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    z-index: 200;
+    max-width: 360px;
+  }
+  .toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-12);
+    padding: var(--space-16);
+    border-radius: var(--radius-16);
+    box-shadow: 0 8px 24px rgba(23,28,31,0.24);
+    font-size: 14px;
+  }
+  .toast-success { background: var(--green-100); color: var(--green-900); border: 1px solid var(--green-700); }
+  .toast-error { background: var(--crim-100); color: var(--crim-800); border: 1px solid var(--crim-700); }
+  .toast-icon { flex-shrink: 0; margin-top: 2px; }
+  .toast-body { flex: 1; }
+  .toast-close {
+    background: none; border: none; cursor: pointer; flex-shrink: 0;
+    width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: inherit;
+    margin: -10px -10px -10px 0;
+  }
+  .toast-close:hover { background: rgba(0,0,0,0.08); }
+  @media (prefers-reduced-motion: no-preference) {
+    .toast { animation: toast-in var(--motion-base) var(--ease-entrance); }
+  }
+  @keyframes toast-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .demo-triggers { display: flex; gap: var(--space-12); flex-wrap: wrap; margin-bottom: var(--space-16); }
+
+  /* Utility */
+  .flex-row { display: flex; align-items: center; }
+  .gap-8 { gap: var(--space-8); }
+  .gap-12 { gap: var(--space-12); }
+  .empty-state {
+    text-align: center;
+    padding: var(--space-40);
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 1000px) {
+    .app-shell { grid-template-columns: 1fr; grid-template-areas: "header" "main"; }
+    .sidebar { display: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="app-shell">
+
+  <!-- ============ HEADER ============ -->
+  <header class="page-header">
+    <span class="product-name">Prime Commerce</span>
+
+    <div class="header-search">
+      <div class="header-search-field">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="5" stroke="#4E616B" stroke-width="1.5"/>
+          <path d="M11 11L14 14" stroke="#4E616B" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <label for="global-search" class="visually-hidden">Search orders, customers, and products</label>
+        <input type="search" id="global-search" name="global-search" placeholder="Search orders, customers, products…" autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="header-account">
+      <button type="button" class="account-menu-button" id="account-menu-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="account-menu">
+        <span class="account-avatar" aria-hidden="true">JD</span>
+        <span>Jordan Diaz</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#4E616B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="account-menu" id="account-menu" role="menu" aria-label="Account menu" hidden>
+        <button type="button" role="menuitem" id="open-settings-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 10a2 2 0 100-4 2 2 0 000 4z" stroke="#171C1F" stroke-width="1.3"/><path d="M13 8.6v-1.2l-1.4-.3a4.5 4.5 0 00-.5-1.2l.8-1.2-.85-.85-1.2.8a4.5 4.5 0 00-1.2-.5L8.4 3H7.2l-.3 1.4a4.5 4.5 0 00-1.2.5l-1.2-.8-.85.85.8 1.2a4.5 4.5 0 00-.5 1.2L3 7.4v1.2l1.4.3c.1.42.27.82.5 1.2l-.8 1.2.85.85 1.2-.8c.38.23.78.4 1.2.5l.3 1.4h1.2l.3-1.4c.42-.1.82-.27 1.2-.5l1.2.8.85-.85-.8-1.2c.23-.38.4-.78.5-1.2l1.4-.3z" stroke="#171C1F" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          Settings
+        </button>
+        <button type="button" role="menuitem">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="5" r="2.5" stroke="#171C1F" stroke-width="1.3"/><path d="M3 13c0-2.5 2.2-4 5-4s5 1.5 5 4" stroke="#171C1F" stroke-width="1.3" stroke-linecap="round"/></svg>
+          Profile
+        </button>
+        <button type="button" role="menuitem" id="sign-out-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 14H3.5a1 1 0 01-1-1V3a1 1 0 011-1H6" stroke="#171C1F" stroke-width="1.3" stroke-linecap="round"/><path d="M10.5 11l3-3-3-3M13.3 8H6" stroke="#171C1F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Sign out
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ SIDEBAR ============ -->
+  <nav class="sidebar" aria-label="Primary">
+    <ul class="sidebar-nav-list">
+      <li><a class="sidebar-link" href="#dashboard">
+        <svg class="icon-dot" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1" stroke="#4E616B" stroke-width="1.3"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="#4E616B" stroke-width="1.3"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="#4E616B" stroke-width="1.3"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="#4E616B" stroke-width="1.3"/></svg>
+        Dashboard
+      </a></li>
+      <li><a class="sidebar-link" href="#orders" aria-current="page">
+        <svg class="icon-dot" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="5" width="14" height="11" rx="1.5" stroke="#00419D" stroke-width="1.3"/><path d="M6 5V4a4 4 0 018 0v1" stroke="#00419D" stroke-width="1.3"/></svg>
+        Orders
+      </a></li>
+      <li><a class="sidebar-link" href="#customers">
+        <svg class="icon-dot" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="7" r="3" stroke="#4E616B" stroke-width="1.3"/><path d="M4 17c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5" stroke="#4E616B" stroke-width="1.3"/></svg>
+        Customers
+      </a></li>
+      <li><a class="sidebar-link" href="#products">
+        <svg class="icon-dot" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 7l7-4 7 4-7 4-7-4z" stroke="#4E616B" stroke-width="1.3" stroke-linejoin="round"/><path d="M3 7v6l7 4 7-4V7" stroke="#4E616B" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        Products
+      </a></li>
+      <li><a class="sidebar-link" href="#settings" id="sidebar-settings-link">
+        <svg class="icon-dot" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" stroke="#4E616B" stroke-width="1.3"/></svg>
+        Settings
+      </a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main-content" id="main-content">
+    <div class="page-title-row">
+      <h1 class="text-h3">Orders</h1>
+    </div>
+
+    <!-- Notification triggers (also used to demo error state) -->
+    <div class="demo-triggers">
+      <button type="button" class="btn btn-secondary btn-small" id="trigger-error-toast">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="#920025" stroke-width="1.3"/><path d="M8 5v3.5" stroke="#920025" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11" r="0.9" fill="#920025"/></svg>
+        Show example error notification
+      </button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs" role="tablist" aria-label="Order views">
+      <button class="tab" role="tab" id="tab-all" aria-selected="true" aria-controls="orders-panel" data-status="all">
+        All <span class="tab-count" id="count-all">0</span>
+      </button>
+      <button class="tab" role="tab" id="tab-unfulfilled" aria-selected="false" aria-controls="orders-panel" data-status="unfulfilled" tabindex="-1">
+        Unfulfilled <span class="tab-count" id="count-unfulfilled">0</span>
+      </button>
+      <button class="tab" role="tab" id="tab-refunded" aria-selected="false" aria-controls="orders-panel" data-status="refunded" tabindex="-1">
+        Refunded <span class="tab-count" id="count-refunded">0</span>
+      </button>
+      <button class="tab" role="tab" id="tab-archived" aria-selected="false" aria-controls="orders-panel" data-status="archived" tabindex="-1">
+        Archived <span class="tab-count" id="count-archived">0</span>
+      </button>
+    </div>
+
+    <div id="orders-panel" role="tabpanel" aria-labelledby="tab-all" tabindex="0">
+
+      <!-- Filter bar -->
+      <form class="filter-bar" id="filter-form">
+        <div class="filter-field">
+          <label for="filter-status">Status</label>
+          <select id="filter-status" name="status">
+            <option value="">Any status</option>
+            <option value="paid">Paid</option>
+            <option value="pending">Pending</option>
+            <option value="refunded">Refunded</option>
+            <option value="failed">Failed</option>
+            <option value="archived">Archived</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filter-date">Date range</label>
+          <select id="filter-date" name="dateRange">
+            <option value="">Any time</option>
+            <option value="7">Last 7 days</option>
+            <option value="30">Last 30 days</option>
+            <option value="90">Last 90 days</option>
+          </select>
+        </div>
+        <div class="filter-field" style="min-width:220px;">
+          <label for="filter-text">Customer or order number</label>
+          <input type="text" id="filter-text" name="text" placeholder="e.g. Alicia Marsh or #1042" />
+        </div>
+        <div class="filter-actions">
+          <button type="submit" class="btn btn-primary btn-small" id="apply-filters-btn">Apply</button>
+          <button type="button" class="btn btn-secondary btn-small" id="clear-filters-btn">Clear all</button>
+        </div>
+      </form>
+
+      <!-- Active filter chips -->
+      <div class="active-filters" id="active-filters" aria-live="polite">
+        <!-- populated by JS -->
+      </div>
+
+      <!-- Bulk bar -->
+      <div class="bulk-bar" id="bulk-bar" hidden role="region" aria-label="Bulk actions">
+        <span class="bulk-bar-count" id="bulk-bar-count" aria-live="polite">0 selected</span>
+        <div class="bulk-bar-actions">
+          <button type="button" class="btn btn-secondary btn-small" id="bulk-export-btn">Export</button>
+          <button type="button" class="btn btn-danger btn-small" id="bulk-archive-btn">Archive</button>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-card">
+        <div class="table-scroll">
+          <table class="orders-table">
+            <caption class="visually-hidden">Orders. Use the buttons in the Order number, Date, and Total column headers to sort.</caption>
+            <thead>
+              <tr>
+                <th scope="col" class="checkbox-cell">
+                  <label class="checkbox-wrap" for="select-all-check">
+                    <span class="visually-hidden">Select all orders on this page</span>
+                    <input type="checkbox" id="select-all-check" class="row-check" />
+                  </label>
+                </th>
+                <th scope="col">
+                  <button type="button" class="sort-btn" data-sort="order" aria-pressed="false">
+                    Order number
+                    <span class="sort-icon" aria-hidden="true" data-sort-icon="order"></span>
+                  </button>
+                </th>
+                <th scope="col">Customer</th>
+                <th scope="col">
+                  <button type="button" class="sort-btn" data-sort="date" aria-pressed="false">
+                    Date
+                    <span class="sort-icon" aria-hidden="true" data-sort-icon="date"></span>
+                  </button>
+                </th>
+                <th scope="col">Status</th>
+                <th scope="col">
+                  <button type="button" class="sort-btn" data-sort="total" aria-pressed="false">
+                    Total
+                    <span class="sort-icon" aria-hidden="true" data-sort-icon="total"></span>
+                  </button>
+                </th>
+                <th scope="col"><span class="visually-hidden">Row actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="orders-tbody">
+              <!-- populated by JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="empty-state" hidden>No orders match the current filters.</div>
+
+        <!-- Pagination -->
+        <div class="pagination-bar">
+          <div class="pagination-size">
+            <label for="page-size-select">Rows per page</label>
+            <select id="page-size-select">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <div class="pagination-controls">
+            <button type="button" class="btn btn-secondary btn-small" id="prev-page-btn">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2.5L4 7l5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Previous
+            </button>
+            <span class="pagination-status" id="pagination-status" aria-live="polite">Page 1 of 1</span>
+            <button type="button" class="btn btn-secondary btn-small" id="next-page-btn">
+              Next
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 2.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <span class="pagination-total" id="pagination-total">0 results</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ============ CONFIRM ARCHIVE DIALOG ============ -->
+<div class="modal-scrim" id="archive-modal-scrim" hidden>
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="archive-modal-title" aria-describedby="archive-modal-desc" id="archive-modal">
+    <h2 class="text-h4 modal-title" id="archive-modal-title">Archive orders?</h2>
+    <p class="modal-body" id="archive-modal-desc">This will archive <strong id="archive-modal-count">0</strong> orders. Archived orders move to the Archived tab and are no longer counted as active.</p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-secondary btn-medium" id="archive-cancel-btn">Cancel</button>
+      <button type="button" class="btn btn-danger btn-medium" id="archive-confirm-btn">Archive orders</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SETTINGS DRAWER ============ -->
+<div class="drawer-scrim" id="settings-drawer-scrim" hidden>
+  <div class="settings-drawer" role="dialog" aria-modal="true" aria-labelledby="settings-title" id="settings-drawer">
+    <div class="drawer-header">
+      <h2 class="text-h4" id="settings-title">Settings</h2>
+      <button type="button" class="icon-btn" id="settings-close-btn" aria-label="Close settings">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <section class="settings-section" aria-labelledby="settings-notifications-h">
+      <h3 class="text-h5" id="settings-notifications-h">Notifications</h3>
+      <div class="toggle-row">
+        <span class="toggle-label">
+          <span id="toggle-email-label">Email alerts</span>
+          <span class="text-hint">Order and payment updates by email</span>
+        </span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-email" checked aria-labelledby="toggle-email-label" role="switch" aria-checked="true" />
+          <span class="switch-track" aria-hidden="true"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">
+          <span id="toggle-sms-label">SMS alerts</span>
+          <span class="text-hint">Text message for urgent order issues</span>
+        </span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-sms" role="switch" aria-checked="false" aria-labelledby="toggle-sms-label" />
+          <span class="switch-track" aria-hidden="true"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">
+          <span id="toggle-marketing-label">Marketing emails</span>
+          <span class="text-hint">Product news and promotions</span>
+        </span>
+        <label class="switch">
+          <input type="checkbox" id="toggle-marketing" role="switch" aria-checked="false" aria-labelledby="toggle-marketing-label" />
+          <span class="switch-track" aria-hidden="true"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="settings-section" aria-labelledby="settings-limits-h">
+      <h3 class="text-h5" id="settings-limits-h">Order limits</h3>
+      <div class="form-field">
+        <label id="qty-label" for="qty-input">Low stock threshold</label>
+        <span class="hint" id="qty-hint">Alert when stock falls below this quantity.</span>
+        <div class="qty-control" role="group" aria-labelledby="qty-label">
+          <button type="button" id="qty-decrement" aria-label="Decrease low stock threshold">−</button>
+          <input type="number" id="qty-input" inputmode="numeric" value="5" min="0" max="99" aria-describedby="qty-hint" />
+          <button type="button" id="qty-increment" aria-label="Increase low stock threshold">+</button>
+        </div>
+      </div>
+
+      <div class="slider-control">
+        <label id="slider-label" for="discount-slider">Auto-discount at close of season</label>
+        <div class="slider-row">
+          <div class="slider-track-wrap">
+            <input type="range" class="slider-input" id="discount-slider" min="0" max="75" step="5" value="20"
+              aria-labelledby="slider-label" aria-valuetext="20 percent" />
+          </div>
+          <output for="discount-slider" class="slider-output" id="discount-slider-output">20%</output>
+        </div>
+        <div class="visually-hidden" role="status" aria-live="polite" id="slider-live-region"></div>
+      </div>
+    </section>
+
+    <section class="settings-section" aria-labelledby="settings-profile-h">
+      <h3 class="text-h5" id="settings-profile-h">Store contact</h3>
+      <div class="form-errors-summary" id="settings-error-summary" hidden role="alert" tabindex="-1">
+        <h4 class="text-body-sm-semibold">There is a problem</h4>
+        <ul id="settings-error-list"></ul>
+      </div>
+      <form id="settings-form" novalidate>
+        <div class="form-field" id="name-field">
+          <label for="settings-name">Name <span class="required-mark" aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+          <input type="text" id="settings-name" name="name" autocomplete="name" aria-describedby="name-error" />
+          <p class="error-message" id="name-error" hidden>Enter a name. This field is required.</p>
+        </div>
+        <div class="form-field" id="email-field">
+          <label for="settings-email">Email <span class="required-mark" aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+          <input type="email" id="settings-email" name="email" autocomplete="email" aria-describedby="email-error" />
+          <p class="error-message" id="email-error" hidden>Enter an email address in the format name@example.com.</p>
+        </div>
+        <div class="form-field" id="notes-field">
+          <label for="settings-notes">Notes</label>
+          <textarea id="settings-notes" name="notes" aria-describedby="notes-hint"></textarea>
+          <p class="hint" id="notes-hint">Optional. Visible to your team only.</p>
+        </div>
+        <div class="flex-row gap-12" style="margin-top: var(--space-24);">
+          <button type="submit" class="btn btn-primary btn-medium">Save settings</button>
+          <button type="button" class="btn btn-secondary btn-medium" id="settings-cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+
+<!-- ============ TOAST / NOTIFICATION REGION ============ -->
+<div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="false"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ============================================================
+     SEED DATA
+     ============================================================ */
+  var STATUSES = ["paid", "pending", "refunded", "failed", "archived"];
+  var STATUS_LABELS = { paid: "Paid", pending: "Pending", refunded: "Refunded", failed: "Failed", archived: "Archived" };
+
+  var seedOrders = [
+    { id: "1042", customer: "Alicia Marsh",   date: "2026-08-01", status: "paid",     total: 128.50 },
+    { id: "1041", customer: "Devon Okafor",   date: "2026-07-31", status: "pending",  total: 64.00 },
+    { id: "1040", customer: "Priya Natarajan",date: "2026-07-30", status: "paid",     total: 342.10 },
+    { id: "1039", customer: "Marcus Webb",    date: "2026-07-29", status: "failed",   total: 89.99 },
+    { id: "1038", customer: "Elena Torres",   date: "2026-07-28", status: "refunded", total: 54.25 },
+    { id: "1037", customer: "Sam Kowalski",   date: "2026-07-27", status: "paid",     total: 210.00 },
+    { id: "1036", customer: "Nadia Petrova",  date: "2026-07-26", status: "pending",  total: 76.40 },
+    { id: "1035", customer: "Owen Fitzgerald",date: "2026-07-25", status: "archived", total: 19.99 },
+    { id: "1034", customer: "Grace Lindqvist",date: "2026-07-24", status: "paid",     total: 495.00 },
+    { id: "1033", customer: "Tariq Haidari",  date: "2026-07-23", status: "paid",     total: 33.75 },
+    { id: "1032", customer: "Beatriz Souza",  date: "2026-07-22", status: "refunded", total: 122.00 },
+    { id: "1031", customer: "Colin Mackenzie",date: "2026-07-21", status: "pending",  total: 58.60 },
+    { id: "1030", customer: "Hana Suzuki",    date: "2026-07-20", status: "paid",     total: 275.30 },
+    { id: "1029", customer: "Felix Adeyemi",  date: "2026-07-19", status: "archived", total: 41.20 },
+    { id: "1028", customer: "Ingrid Solberg", date: "2026-07-18", status: "failed",   total: 99.00 },
+    { id: "1027", customer: "Ravi Chandran",  date: "2026-07-17", status: "paid",     total: 168.45 }
+  ];
+
+  /* ============================================================
+     STATE
+     ============================================================ */
+  var state = {
+    activeTab: "all",
+    filters: { status: "", dateRange: "", text: "" },
+    appliedFilters: { status: "", dateRange: "", text: "" },
+    sort: { column: null, direction: null }, // direction: 'asc' | 'desc' | null
+    selected: {},          // id -> true
+    pageSize: 10,
+    currentPage: 1
+  };
+
+  /* ============================================================
+     HELPERS
+     ============================================================ */
+  function formatCurrency(n) {
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function formatDate(iso) {
+    var d = new Date(iso + "T00:00:00");
+    return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+  }
+  function daysAgo(iso) {
+    var d = new Date(iso + "T00:00:00");
+    var now = new Date("2026-08-06T00:00:00");
+    return Math.round((now - d) / 86400000);
+  }
+
+  function getFilteredByTab(list, tab) {
+    if (tab === "all") return list;
+    if (tab === "unfulfilled") return list.filter(function (o) { return o.status === "pending" || o.status === "failed"; });
+    return list.filter(function (o) { return o.status === tab; });
+  }
+
+  function getFilteredByFilters(list, f) {
+    return list.filter(function (o) {
+      if (f.status && o.status !== f.status) return false;
+      if (f.dateRange) {
+        var maxDays = parseInt(f.dateRange, 10);
+        if (daysAgo(o.date) > maxDays) return false;
+      }
+      if (f.text) {
+        var t = f.text.toLowerCase();
+        var hay = (o.customer + " #" + o.id).toLowerCase();
+        if (hay.indexOf(t) === -1) return false;
+      }
+      return true;
+    });
+  }
+
+  function getSorted(list, sort) {
+    if (!sort.column || !sort.direction) return list;
+    var copy = list.slice();
+    copy.sort(function (a, b) {
+      var av, bv;
+      if (sort.column === "order") { av = parseInt(a.id, 10); bv = parseInt(b.id, 10); }
+      else if (sort.column === "date") { av = new Date(a.date).getTime(); bv = new Date(b.date).getTime(); }
+      else if (sort.column === "total") { av = a.total; bv = b.total; }
+      if (av < bv) return sort.direction === "asc" ? -1 : 1;
+      if (av > bv) return sort.direction === "asc" ? 1 : -1;
+      return 0;
+    });
+    return copy;
+  }
+
+  function computeViewList() {
+    var byTab = getFilteredByTab(seedOrders, state.activeTab);
+    var byFilters = getFilteredByFilters(byTab, state.appliedFilters);
+    var sorted = getSorted(byFilters, state.sort);
+    return sorted;
+  }
+
+  function updateTabCounts() {
+    document.getElementById("count-all").textContent = String(seedOrders.length);
+    document.getElementById("count-unfulfilled").textContent = String(getFilteredByTab(seedOrders, "unfulfilled").length);
+    document.getElementById("count-refunded").textContent = String(getFilteredByTab(seedOrders, "refunded").length);
+    document.getElementById("count-archived").textContent = String(getFilteredByTab(seedOrders, "archived").length);
+  }
+
+  /* ============================================================
+     RENDER: TABLE
+     ============================================================ */
+  var tbody = document.getElementById("orders-tbody");
+  var emptyState = document.getElementById("empty-state");
+
+  function renderSortIcons() {
+    ["order", "date", "total"].forEach(function (col) {
+      var iconSpan = document.querySelector('[data-sort-icon="' + col + '"]');
+      var btn = document.querySelector('.sort-btn[data-sort="' + col + '"]');
+      var dir = state.sort.column === col ? state.sort.direction : null;
+      btn.setAttribute("aria-pressed", dir ? "true" : "false");
+      var label = col.charAt(0).toUpperCase() + col.slice(1);
+      if (col === "order") label = "Order number";
+      var stateText = dir === "asc" ? "sorted ascending" : dir === "desc" ? "sorted descending" : "not sorted";
+      btn.setAttribute("aria-label", label + ", " + stateText + ". Activate to change sort.");
+      var svg = "";
+      if (dir === "asc") {
+        svg = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 8V2M2 5l3-3 3 3" stroke="#0056D0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      } else if (dir === "desc") {
+        svg = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5l3 3 3-3" stroke="#0056D0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      } else {
+        svg = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="arrow-inactive"><path d="M5 1v8M2.5 3.2L5 1l2.5 2.2M2.5 6.8L5 9l2.5-2.2" stroke="#667A85" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      }
+      iconSpan.innerHTML = svg;
+    });
+  }
+
+  function renderTable() {
+    var fullList = computeViewList();
+    var total = fullList.length;
+    var totalPages = Math.max(1, Math.ceil(total / state.pageSize));
+    if (state.currentPage > totalPages) state.currentPage = totalPages;
+    if (state.currentPage < 1) state.currentPage = 1;
+
+    var startIdx = (state.currentPage - 1) * state.pageSize;
+    var pageItems = fullList.slice(startIdx, startIdx + state.pageSize);
+
+    tbody.innerHTML = "";
+    if (pageItems.length === 0) {
+      emptyState.hidden = false;
+    } else {
+      emptyState.hidden = true;
+    }
+
+    pageItems.forEach(function (order) {
+      var tr = document.createElement("tr");
+      var isSelected = !!state.selected[order.id];
+      if (isSelected) tr.classList.add("row-selected");
+
+      var tdCheck = document.createElement("td");
+      tdCheck.className = "checkbox-cell";
+      tdCheck.innerHTML =
+        '<label class="checkbox-wrap" for="row-check-' + order.id + '"><span class="visually-hidden">Select order ' + order.id + ', ' + order.customer + '</span>' +
+        '<input type="checkbox" class="row-check" id="row-check-' + order.id + '" data-order-id="' + order.id + '"' + (isSelected ? " checked" : "") + '></label>';
+      tr.appendChild(tdCheck);
+
+      var tdOrder = document.createElement("td");
+      tdOrder.innerHTML = '<a href="#order-' + order.id + '" class="order-number-link">#' + order.id + '</a>';
+      tr.appendChild(tdOrder);
+
+      var tdCustomer = document.createElement("td");
+      tdCustomer.textContent = order.customer;
+      tr.appendChild(tdCustomer);
+
+      var tdDate = document.createElement("td");
+      var timeEl = document.createElement("time");
+      timeEl.setAttribute("datetime", order.date);
+      timeEl.textContent = formatDate(order.date);
+      tdDate.appendChild(timeEl);
+      tr.appendChild(tdDate);
+
+      var tdStatus = document.createElement("td");
+      tdStatus.innerHTML = '<span class="badge badge-' + order.status + '">' + STATUS_LABELS[order.status] + '</span>';
+      tr.appendChild(tdStatus);
+
+      var tdTotal = document.createElement("td");
+      tdTotal.textContent = formatCurrency(order.total);
+      tr.appendChild(tdTotal);
+
+      var tdActions = document.createElement("td");
+      tdActions.style.position = "relative";
+      tdActions.innerHTML =
+        '<div class="tooltip-wrap">' +
+        '<button type="button" class="row-actions-btn" data-row-menu-trigger="' + order.id + '" aria-haspopup="true" aria-expanded="false" aria-label="Actions for order ' + order.id + '" data-tooltip="row-actions-tip-' + order.id + '">' +
+        '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="3.2" r="1.3" fill="currentColor"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/><circle cx="8" cy="12.8" r="1.3" fill="currentColor"/></svg>' +
+        '</button>' +
+        '<span class="tooltip-bubble" role="tooltip" id="row-actions-tip-' + order.id + '" hidden>More actions</span>' +
+        '<div class="row-menu" id="row-menu-' + order.id + '" role="menu" aria-label="Actions for order ' + order.id + '" hidden>' +
+        '<button type="button" role="menuitem" data-row-action="view" data-order-id="' + order.id + '">View order</button>' +
+        '<button type="button" role="menuitem" data-row-action="archive" data-order-id="' + order.id + '">Archive</button>' +
+        '<button type="button" role="menuitem" data-row-action="refund" data-order-id="' + order.id + '">Refund</button>' +
+        '</div>' +
+        '</div>';
+      tr.appendChild(tdActions);
+
+      tbody.appendChild(tr);
+    });
+
+    // Pagination status
+    var startDisplay = total === 0 ? 0 : startIdx + 1;
+    var endDisplay = Math.min(startIdx + state.pageSize, total);
+    document.getElementById("pagination-status").textContent = "Page " + state.currentPage + " of " + totalPages;
+    document.getElementById("pagination-total").textContent =
+      total === 0 ? "0 results" : (startDisplay + "–" + endDisplay + " of " + total + " results");
+    document.getElementById("prev-page-btn").disabled = state.currentPage <= 1;
+    document.getElementById("next-page-btn").disabled = state.currentPage >= totalPages;
+
+    updateSelectAllState(pageItems);
+    updateBulkBar();
+    renderSortIcons();
+    attachRowListeners();
+    updateTabCounts();
+  }
+
+  function updateSelectAllState(pageItems) {
+    var selectAll = document.getElementById("select-all-check");
+    if (pageItems.length === 0) {
+      selectAll.checked = false;
+      selectAll.indeterminate = false;
+      return;
+    }
+    var selectedCount = pageItems.filter(function (o) { return state.selected[o.id]; }).length;
+    if (selectedCount === 0) {
+      selectAll.checked = false;
+      selectAll.indeterminate = false;
+    } else if (selectedCount === pageItems.length) {
+      selectAll.checked = true;
+      selectAll.indeterminate = false;
+    } else {
+      selectAll.checked = false;
+      selectAll.indeterminate = true;
+    }
+  }
+
+  function updateBulkBar() {
+    var count = Object.keys(state.selected).filter(function (id) { return state.selected[id]; }).length;
+    var bar = document.getElementById("bulk-bar");
+    var countEl = document.getElementById("bulk-bar-count");
+    if (count > 0) {
+      bar.hidden = false;
+      countEl.textContent = count + (count === 1 ? " order selected" : " orders selected");
+    } else {
+      bar.hidden = true;
+      countEl.textContent = "0 selected";
+    }
+  }
+
+  function attachRowListeners() {
+    tbody.querySelectorAll(".row-check").forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        var id = cb.getAttribute("data-order-id");
+        if (cb.checked) state.selected[id] = true; else delete state.selected[id];
+        cb.closest("tr").classList.toggle("row-selected", cb.checked);
+        var fullList = computeViewList();
+        var startIdx = (state.currentPage - 1) * state.pageSize;
+        var pageItems = fullList.slice(startIdx, startIdx + state.pageSize);
+        updateSelectAllState(pageItems);
+        updateBulkBar();
+      });
+    });
+
+    tbody.querySelectorAll("[data-row-menu-trigger]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var id = btn.getAttribute("data-row-menu-trigger");
+        var menu = document.getElementById("row-menu-" + id);
+        var isOpen = !menu.hidden;
+        closeAllRowMenus();
+        if (!isOpen) {
+          openRowMenu(btn, menu);
+        }
+      });
+    });
+
+    tbody.querySelectorAll("[data-row-action]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var action = btn.getAttribute("data-row-action");
+        var id = btn.getAttribute("data-order-id");
+        closeAllRowMenus();
+        if (action === "archive") {
+          var order = seedOrders.find(function (o) { return o.id === id; });
+          if (order) order.status = "archived";
+          renderTable();
+          showToast("success", "Order #" + id + " archived.");
+        } else if (action === "refund") {
+          var order2 = seedOrders.find(function (o) { return o.id === id; });
+          if (order2) order2.status = "refunded";
+          renderTable();
+          showToast("success", "Order #" + id + " marked as refunded.");
+        } else if (action === "view") {
+          showToast("success", "Opening order #" + id + " (demo only).");
+        }
+      });
+    });
+  }
+
+  function openRowMenu(triggerBtn, menu) {
+    var rect = triggerBtn.getBoundingClientRect();
+    var tableCard = document.querySelector(".table-card");
+    menu.hidden = false;
+    triggerBtn.setAttribute("aria-expanded", "true");
+    // position under the trigger, accounting for scroll
+    menu.style.top = (triggerBtn.offsetTop + triggerBtn.offsetHeight + 4) + "px";
+    menu.style.right = "8px";
+    menu.style.left = "auto";
+    var firstItem = menu.querySelector("button");
+    if (firstItem) firstItem.focus();
+  }
+
+  function closeAllRowMenus() {
+    document.querySelectorAll(".row-menu").forEach(function (m) { m.hidden = true; });
+    document.querySelectorAll("[data-row-menu-trigger]").forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
+  }
+
+  document.addEventListener("click", function () { closeAllRowMenus(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeAllRowMenus();
+  });
+
+  /* ============================================================
+     TABS
+     ============================================================ */
+  var tabButtons = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  function selectTab(tab) {
+    state.activeTab = tab.getAttribute("data-status");
+    state.currentPage = 1;
+    tabButtons.forEach(function (t) {
+      var selected = t === tab;
+      t.setAttribute("aria-selected", selected ? "true" : "false");
+      t.tabIndex = selected ? 0 : -1;
+    });
+    document.getElementById("orders-panel").setAttribute("aria-labelledby", tab.id);
+    renderTable();
+  }
+  tabButtons.forEach(function (tab, idx) {
+    tab.addEventListener("click", function () { selectTab(tab); });
+    tab.addEventListener("keydown", function (e) {
+      var newIdx = null;
+      if (e.key === "ArrowRight") newIdx = (idx + 1) % tabButtons.length;
+      else if (e.key === "ArrowLeft") newIdx = (idx - 1 + tabButtons.length) % tabButtons.length;
+      else if (e.key === "Home") newIdx = 0;
+      else if (e.key === "End") newIdx = tabButtons.length - 1;
+      if (newIdx !== null) {
+        e.preventDefault();
+        tabButtons[newIdx].focus();
+        selectTab(tabButtons[newIdx]);
+      }
+    });
+  });
+
+  /* ============================================================
+     SORTING (three-state)
+     ============================================================ */
+  document.querySelectorAll(".sort-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var col = btn.getAttribute("data-sort");
+      if (state.sort.column !== col) {
+        state.sort.column = col;
+        state.sort.direction = "asc";
+      } else if (state.sort.direction === "asc") {
+        state.sort.direction = "desc";
+      } else if (state.sort.direction === "desc") {
+        state.sort.column = null;
+        state.sort.direction = null;
+      } else {
+        state.sort.direction = "asc";
+      }
+      state.currentPage = 1;
+      renderTable();
+    });
+  });
+
+  /* ============================================================
+     FILTERS
+     ============================================================ */
+  var filterForm = document.getElementById("filter-form");
+  var activeFiltersEl = document.getElementById("active-filters");
+
+  function renderActiveFilters() {
+    activeFiltersEl.innerHTML = "";
+    var f = state.appliedFilters;
+    var chips = [];
+    if (f.status) chips.push({ key: "status", label: "Status: " + STATUS_LABELS[f.status] });
+    if (f.dateRange) chips.push({ key: "dateRange", label: "Date: last " + f.dateRange + " days" });
+    if (f.text) chips.push({ key: "text", label: "Search: “" + f.text + "”" });
+
+    if (chips.length === 0) {
+      activeFiltersEl.innerHTML = '<span class="active-filters-label">No filters applied</span>';
+      return;
+    }
+    var label = document.createElement("span");
+    label.className = "active-filters-label";
+    label.textContent = "Active filters:";
+    activeFiltersEl.appendChild(label);
+
+    chips.forEach(function (chip) {
+      var chipEl = document.createElement("span");
+      chipEl.className = "filter-chip";
+      var text = document.createElement("span");
+      text.textContent = chip.label;
+      chipEl.appendChild(text);
+      var removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.setAttribute("aria-label", "Remove filter: " + chip.label);
+      removeBtn.innerHTML = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+      removeBtn.addEventListener("click", function () {
+        state.appliedFilters[chip.key] = "";
+        state.filters[chip.key] = "";
+        syncFilterFormFromState();
+        state.currentPage = 1;
+        renderActiveFilters();
+        renderTable();
+      });
+      chipEl.appendChild(removeBtn);
+      activeFiltersEl.appendChild(chipEl);
+    });
+  }
+
+  function syncFilterFormFromState() {
+    document.getElementById("filter-status").value = state.filters.status;
+    document.getElementById("filter-date").value = state.filters.dateRange;
+    document.getElementById("filter-text").value = state.filters.text;
+  }
+
+  filterForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    state.filters.status = document.getElementById("filter-status").value;
+    state.filters.dateRange = document.getElementById("filter-date").value;
+    state.filters.text = document.getElementById("filter-text").value.trim();
+    state.appliedFilters = {
+      status: state.filters.status,
+      dateRange: state.filters.dateRange,
+      text: state.filters.text
+    };
+    state.currentPage = 1;
+    renderActiveFilters();
+    renderTable();
+  });
+
+  document.getElementById("clear-filters-btn").addEventListener("click", function () {
+    state.filters = { status: "", dateRange: "", text: "" };
+    state.appliedFilters = { status: "", dateRange: "", text: "" };
+    syncFilterFormFromState();
+    state.currentPage = 1;
+    renderActiveFilters();
+    renderTable();
+  });
+
+  /* ============================================================
+     SELECT ALL
+     ============================================================ */
+  document.getElementById("select-all-check").addEventListener("change", function (e) {
+    var checked = e.target.checked;
+    var fullList = computeViewList();
+    var startIdx = (state.currentPage - 1) * state.pageSize;
+    var pageItems = fullList.slice(startIdx, startIdx + state.pageSize);
+    pageItems.forEach(function (o) {
+      if (checked) state.selected[o.id] = true; else delete state.selected[o.id];
+    });
+    renderTable();
+  });
+
+  /* ============================================================
+     BULK ACTIONS
+     ============================================================ */
+  document.getElementById("bulk-export-btn").addEventListener("click", function () {
+    var count = Object.keys(state.selected).filter(function (id) { return state.selected[id]; }).length;
+    showToast("success", "Exported " + count + (count === 1 ? " order." : " orders."));
+  });
+
+  var archiveModalScrim = document.getElementById("archive-modal-scrim");
+  var archiveModal = document.getElementById("archive-modal");
+  var lastFocusedBeforeModal = null;
+
+  document.getElementById("bulk-archive-btn").addEventListener("click", function () {
+    var count = Object.keys(state.selected).filter(function (id) { return state.selected[id]; }).length;
+    if (count === 0) return;
+    document.getElementById("archive-modal-count").textContent = String(count);
+    openModal();
+  });
+
+  function openModal() {
+    lastFocusedBeforeModal = document.activeElement;
+    archiveModalScrim.hidden = false;
+    document.getElementById("archive-cancel-btn").focus();
+    document.addEventListener("keydown", modalKeydownHandler);
+  }
+  function closeModal() {
+    archiveModalScrim.hidden = true;
+    document.removeEventListener("keydown", modalKeydownHandler);
+    if (lastFocusedBeforeModal) lastFocusedBeforeModal.focus();
+  }
+  function modalKeydownHandler(e) {
+    if (e.key === "Escape") {
+      closeModal();
+      return;
+    }
+    if (e.key === "Tab") {
+      var focusables = archiveModal.querySelectorAll("button");
+      var first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  }
+  document.getElementById("archive-cancel-btn").addEventListener("click", closeModal);
+  archiveModalScrim.addEventListener("mousedown", function (e) {
+    if (e.target === archiveModalScrim) closeModal();
+  });
+  document.getElementById("archive-confirm-btn").addEventListener("click", function () {
+    var ids = Object.keys(state.selected).filter(function (id) { return state.selected[id]; });
+    ids.forEach(function (id) {
+      var order = seedOrders.find(function (o) { return o.id === id; });
+      if (order) order.status = "archived";
+      delete state.selected[id];
+    });
+    closeModal();
+    renderTable();
+    showToast("success", ids.length + (ids.length === 1 ? " order archived." : " orders archived."));
+  });
+
+  /* ============================================================
+     PAGINATION
+     ============================================================ */
+  document.getElementById("page-size-select").addEventListener("change", function (e) {
+    state.pageSize = parseInt(e.target.value, 10);
+    state.currentPage = 1;
+    renderTable();
+  });
+  document.getElementById("prev-page-btn").addEventListener("click", function () {
+    if (state.currentPage > 1) { state.currentPage -= 1; renderTable(); }
+  });
+  document.getElementById("next-page-btn").addEventListener("click", function () {
+    state.currentPage += 1;
+    renderTable();
+  });
+
+  /* ============================================================
+     TOASTS / NOTIFICATIONS
+     ============================================================ */
+  var toastRegion = document.getElementById("toast-region");
+  function showToast(kind, message) {
+    var toast = document.createElement("div");
+    toast.className = "toast toast-" + kind;
+    toast.setAttribute("role", kind === "error" ? "alert" : "status");
+    var icon = kind === "success"
+      ? '<svg class="toast-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="7.5" stroke="#103900" stroke-width="1.4"/><path d="M5.5 9.3l2.2 2.2 4.8-5" stroke="#103900" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      : '<svg class="toast-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="7.5" stroke="#920025" stroke-width="1.4"/><path d="M9 5.5v4" stroke="#920025" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="12.3" r="1" fill="#920025"/></svg>';
+    toast.innerHTML =
+      icon +
+      '<span class="toast-body">' + message + '</span>' +
+      '<button type="button" class="toast-close" aria-label="Dismiss notification"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>';
+    toastRegion.appendChild(toast);
+
+    var closeBtn = toast.querySelector(".toast-close");
+    var timeoutId = setTimeout(function () { removeToast(toast); }, 6000);
+    closeBtn.addEventListener("click", function () {
+      clearTimeout(timeoutId);
+      removeToast(toast);
+    });
+  }
+  function removeToast(toast) {
+    if (toast.parentNode) toast.parentNode.removeChild(toast);
+  }
+
+  document.getElementById("trigger-error-toast").addEventListener("click", function () {
+    showToast("error", "Something went wrong exporting your orders. Please try again.");
+  });
+
+  /* ============================================================
+     ACCOUNT MENU
+     ============================================================ */
+  var accountTrigger = document.getElementById("account-menu-trigger");
+  var accountMenu = document.getElementById("account-menu");
+  function openAccountMenu() {
+    accountMenu.hidden = false;
+    accountTrigger.setAttribute("aria-expanded", "true");
+    var first = accountMenu.querySelector("button");
+    if (first) first.focus();
+  }
+  function closeAccountMenu() {
+    accountMenu.hidden = true;
+    accountTrigger.setAttribute("aria-expanded", "false");
+  }
+  accountTrigger.addEventListener("click", function (e) {
+    e.stopPropagation();
+    if (accountMenu.hidden) openAccountMenu(); else closeAccountMenu();
+  });
+  document.addEventListener("click", function (e) {
+    if (!accountMenu.hidden && !accountMenu.contains(e.target) && e.target !== accountTrigger) {
+      closeAccountMenu();
+    }
+  });
+  accountMenu.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { closeAccountMenu(); accountTrigger.focus(); }
+  });
+  document.getElementById("sign-out-btn").addEventListener("click", function () {
+    closeAccountMenu();
+    showToast("success", "Signed out (demo only).");
+  });
+
+  /* ============================================================
+     SETTINGS DRAWER
+     ============================================================ */
+  var settingsDrawerScrim = document.getElementById("settings-drawer-scrim");
+  var settingsDrawer = document.getElementById("settings-drawer");
+  var lastFocusedBeforeDrawer = null;
+
+  function openSettingsDrawer() {
+    lastFocusedBeforeDrawer = document.activeElement;
+    closeAccountMenu();
+    settingsDrawerScrim.hidden = false;
+    document.getElementById("settings-close-btn").focus();
+    document.addEventListener("keydown", drawerKeydownHandler);
+  }
+  function closeSettingsDrawer() {
+    settingsDrawerScrim.hidden = true;
+    document.removeEventListener("keydown", drawerKeydownHandler);
+    if (lastFocusedBeforeDrawer) lastFocusedBeforeDrawer.focus();
+  }
+  function drawerKeydownHandler(e) {
+    if (e.key === "Escape") { closeSettingsDrawer(); return; }
+    if (e.key === "Tab") {
+      var focusables = settingsDrawer.querySelectorAll('button, input, select, textarea, [href]');
+      focusables = Array.prototype.filter.call(focusables, function (el) { return !el.disabled && el.offsetParent !== null; });
+      var first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  }
+  document.getElementById("open-settings-btn").addEventListener("click", openSettingsDrawer);
+  document.getElementById("sidebar-settings-link").addEventListener("click", function (e) {
+    e.preventDefault();
+    openSettingsDrawer();
+  });
+  document.getElementById("settings-close-btn").addEventListener("click", closeSettingsDrawer);
+  document.getElementById("settings-cancel-btn").addEventListener("click", closeSettingsDrawer);
+  settingsDrawerScrim.addEventListener("mousedown", function (e) {
+    if (e.target === settingsDrawerScrim) closeSettingsDrawer();
+  });
+
+  /* Toggles: keep aria-checked in sync */
+  ["toggle-email", "toggle-sms", "toggle-marketing"].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener("change", function () {
+      el.setAttribute("aria-checked", el.checked ? "true" : "false");
+    });
+  });
+
+  /* Quantity control */
+  var qtyInput = document.getElementById("qty-input");
+  document.getElementById("qty-decrement").addEventListener("click", function () {
+    var v = Math.max(0, (parseInt(qtyInput.value, 10) || 0) - 1);
+    qtyInput.value = v;
+  });
+  document.getElementById("qty-increment").addEventListener("click", function () {
+    var v = Math.min(99, (parseInt(qtyInput.value, 10) || 0) + 1);
+    qtyInput.value = v;
+  });
+
+  /* Slider with settled live-region announcement */
+  var slider = document.getElementById("discount-slider");
+  var sliderOutput = document.getElementById("discount-slider-output");
+  var sliderLiveRegion = document.getElementById("slider-live-region");
+  var sliderAnnounceTimeout = null;
+  function updateSliderDisplay() {
+    var v = slider.value;
+    sliderOutput.textContent = v + "%";
+    slider.setAttribute("aria-valuetext", v + " percent");
+  }
+  slider.addEventListener("input", function () {
+    updateSliderDisplay();
+    clearTimeout(sliderAnnounceTimeout);
+    sliderAnnounceTimeout = setTimeout(function () {
+      sliderLiveRegion.textContent = "Auto-discount set to " + slider.value + " percent.";
+    }, 700);
+  });
+  updateSliderDisplay();
+
+  /* Settings form validation */
+  var settingsForm = document.getElementById("settings-form");
+  var errorSummary = document.getElementById("settings-error-summary");
+  var errorList = document.getElementById("settings-error-list");
+
+  function setFieldError(fieldId, inputId, errorId, message) {
+    var field = document.getElementById(fieldId);
+    var errorEl = document.getElementById(errorId);
+    field.classList.add("field-invalid");
+    errorEl.textContent = message;
+    errorEl.hidden = false;
+    document.getElementById(inputId).setAttribute("aria-invalid", "true");
+  }
+  function clearFieldError(fieldId, inputId, errorId) {
+    var field = document.getElementById(fieldId);
+    var errorEl = document.getElementById(errorId);
+    field.classList.remove("field-invalid");
+    errorEl.hidden = true;
+    document.getElementById(inputId).removeAttribute("aria-invalid");
+  }
+
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  settingsForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var nameVal = document.getElementById("settings-name").value.trim();
+    var emailVal = document.getElementById("settings-email").value.trim();
+    var errors = [];
+
+    clearFieldError("name-field", "settings-name", "name-error");
+    clearFieldError("email-field", "settings-email", "email-error");
+
+    if (!nameVal) {
+      setFieldError("name-field", "settings-name", "name-error", "Enter a name. This field is required.");
+      errors.push({ id: "settings-name", label: "Name: enter a name." });
+    }
+    if (!emailVal) {
+      setFieldError("email-field", "settings-email", "email-error", "Enter an email address. This field is required.");
+      errors.push({ id: "settings-email", label: "Email: enter an email address." });
+    } else if (!isValidEmail(emailVal)) {
+      setFieldError("email-field", "settings-email", "email-error", "Enter an email address in the format name@example.com.");
+      errors.push({ id: "settings-email", label: "Email: must look like name@example.com." });
+    }
+
+    if (errors.length > 0) {
+      errorList.innerHTML = "";
+      errors.forEach(function (err) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = "#" + err.id;
+        a.textContent = err.label;
+        a.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          document.getElementById(err.id).focus();
+        });
+        li.appendChild(a);
+        errorList.appendChild(li);
+      });
+      errorSummary.hidden = false;
+      errorSummary.focus();
+    } else {
+      errorSummary.hidden = true;
+      showToast("success", "Settings saved.");
+      closeSettingsDrawer();
+    }
+  });
+
+  /* ============================================================
+     TOOLTIPS (hover + focus, dismiss on Escape)
+     ============================================================ */
+  function bindTooltip(triggerEl) {
+    var tipId = triggerEl.getAttribute("data-tooltip");
+    if (!tipId) return;
+    triggerEl.setAttribute("aria-describedby", tipId);
+    function show() {
+      var tip = document.getElementById(tipId);
+      if (tip) tip.hidden = false;
+    }
+    function hide() {
+      var tip = document.getElementById(tipId);
+      if (tip) tip.hidden = true;
+    }
+    triggerEl.addEventListener("mouseenter", show);
+    triggerEl.addEventListener("mouseleave", hide);
+    triggerEl.addEventListener("focus", show);
+    triggerEl.addEventListener("blur", hide);
+    triggerEl.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") hide();
+    });
+  }
+  // Static tooltips (bound once)
+  document.querySelectorAll("[data-tooltip]").forEach(bindTooltip);
+  // Row-action tooltips are bound dynamically inside attachRowListeners via re-query
+  var originalAttachRowListeners = attachRowListeners;
+  attachRowListeners = function () {
+    originalAttachRowListeners();
+    tbody.querySelectorAll("[data-tooltip]").forEach(bindTooltip);
+  };
+
+  /* Extra static tooltips: page size selector and select-all */
+  (function addStaticTooltips() {
+    var targets = [
+      { el: document.getElementById("page-size-select"), text: "Choose how many orders to show per page" },
+      { el: document.getElementById("select-all-check"), text: "Select or deselect every order on this page" }
+    ];
+    targets.forEach(function (t, i) {
+      if (!t.el) return;
+      var tipId = "static-tip-" + i;
+      var wrap = document.createElement("span");
+      wrap.className = "tooltip-wrap";
+      t.el.parentNode.insertBefore(wrap, t.el);
+      wrap.appendChild(t.el);
+      var tip = document.createElement("span");
+      tip.className = "tooltip-bubble";
+      tip.setAttribute("role", "tooltip");
+      tip.id = tipId;
+      tip.hidden = true;
+      tip.textContent = t.text;
+      wrap.appendChild(tip);
+      t.el.setAttribute("data-tooltip", tipId);
+      bindTooltip(t.el);
+    });
+  })();
+
+  /* ============================================================
+     INITIAL RENDER
+     ============================================================ */
+  renderActiveFilters();
+  renderTable();
+
+})();
+</script>
+</body>
+</html>

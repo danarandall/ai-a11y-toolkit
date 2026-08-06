@@ -2,7 +2,7 @@
 
 Evidence behind the claims in [ACCESSIBILITY.md](../ACCESSIBILITY.md).
 
-The toolkit tells you what to do. This folder is where I try to show that following it changes the outcome, and where I record the places it did not. All three studies were run in July 2026, against versions 1.11, 1.12, and 1.14 of the file.
+The toolkit tells you what to do. This folder is where I try to show that following it changes the outcome, and where I record the places it did not. The first three studies were run in July 2026, against versions 1.11, 1.12, and 1.14 of the file. The fourth was run in August 2026 against version 1.15.
 
 Every number below is reproducible from the artifacts in this folder. Where a result is unflattering to the toolkit, it is reported at the same length as the results that flatter it.
 
@@ -100,6 +100,39 @@ The direction replicated. The interesting part is that **the control scored four
 The baseline has moved. Models have absorbed the failures that automated tooling has flagged publicly for a decade. What has not improved is everything a scanner never flagged, because there was never a corpus of corrections to learn from. The toolkit's differentiating value has shifted accordingly, away from naming and toward contrast, state exposure, meaning not carried by color, and announcement discipline.
 
 The treatment lost the same check both arms lost: a second, dimmer text token used in exactly one place, at 3.16:1. It also introduced two problems no check caught, one of which the toolkit caused, by instructing the model to add a live region without saying how to govern one. Version 1.15 exists because of that finding.
+
+---
+
+## 4. Ceiling: how much of this can a design system do for you?
+
+**[design-system-baseline/README.md](design-system-baseline/README.md)**
+
+The first three studies ask what changes when an AI has the toolkit. This one asks a question that comes before it: if a team already builds on a well made design system, how much of the work is done for them?
+
+First, a classification of all 55 WCAG 2.2 Level A and AA criteria by what a design artifact can actually reach.
+
+| | Determines | Influences | Cannot affect |
+| --- | --- | --- | --- |
+| A Figma design kit | 3 | 14 | 38 |
+| A coded component library | 4 | 32 | 19 |
+
+At Level A, a Figma design kit determines **zero** of 31 criteria. The three it determines anywhere are 1.4.3, 1.4.11 and 2.5.8. Palette and sizes. Nothing else.
+
+Then a measurement of a real system to test the classification, using the Prime design system by Thalion, read directly from licensed source files through the Figma API across five releases. The palette turns out to be identical across 5.0, 5.1, 5.2 and 6.0, and carefully tuned: every base step sits just above 3:1, and six families land on exactly 4.50:1 one step down. It is contrast engineered. It also still puts white text on a 4.48:1 primary button in the current paid release, and drops to 3.16:1 on hover and focus.
+
+Then the same two-arm build as studies 2 and 3, both arms given the measured Prime 6.0 specification.
+
+| | Control | Treatment |
+| --- | --- | --- |
+| Rubric score | 13 of 29 | 26 of 29 |
+| Engine violations | 22 | 11 |
+| Engine violations, hand verified | 22 | 0 |
+
+The control failed 16 items. **One** was inherited from the design system. Fourteen were names, state, focus, errors, headings and bypass, none of which a Figma file can supply.
+
+Two results cut against the toolkit. Text contrast failed in **both** arms, and every failing pair in both is a Prime token pair, so the guidance reduced inherited contrast defects without eliminating them. And the text spacing overrides clip 13 elements in the treatment build against zero in the control, which is a regression the guidance caused and did not catch.
+
+All 11 engine violations reported against the treatment arm were false positives when checked against the real accessibility tree. Roughly half the raw scanner output in this study was noise.
 
 ---
 

@@ -1,0 +1,394 @@
+{
+ "Action Small/Bold": {
+  "family": "Inter",
+  "size": 12.0,
+  "weight": 700,
+  "lineHeight": 16.0,
+  "letterSpacing": 0.4
+ },
+ "Action Small/Semibold": {
+  "family": "Inter",
+  "size": 12.0,
+  "weight": 600,
+  "lineHeight": 16.0,
+  "letterSpacing": 0.4
+ },
+ "Action Small/Regular": {
+  "family": "Inter",
+  "size": 12.0,
+  "weight": 500,
+  "lineHeight": 16.0,
+  "letterSpacing": 0.4
+ },
+ "Action Medium/Bold": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 700,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.3
+ },
+ "Action Medium/Semibold": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 600,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.3
+ },
+ "Action Medium/Regular": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 500,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.3
+ },
+ "Action Large/Bold": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 700,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.25
+ },
+ "Action Large/Semibold": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 600,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.25
+ },
+ "Action Large/Regular": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 500,
+  "lineHeight": 18.0,
+  "letterSpacing": 0.25
+ },
+ "Body Medium/Regular": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 400,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.5
+ },
+ "Body Large/Regular": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 400,
+  "lineHeight": 27.0,
+  "letterSpacing": 0.5
+ },
+ "Body Medium/Semibold": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 500,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.5
+ },
+ "Body Medium/Bold": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 700,
+  "lineHeight": 16.0,
+  "letterSpacing": 0.5
+ },
+ "Body Small/Regular": {
+  "family": "Inter",
+  "size": 14.0,
+  "weight": 400,
+  "lineHeight": 21.0,
+  "letterSpacing": 0.25
+ },
+ "Caption/Regular": {
+  "family": "Inter",
+  "size": 12.0,
+  "weight": 500,
+  "lineHeight": 14.5,
+  "letterSpacing": 0.4
+ },
+ "Overline Large/Regular": {
+  "family": "Inter",
+  "size": 12.0,
+  "weight": 500,
+  "lineHeight": 14.5,
+  "letterSpacing": 1.5
+ },
+ "Overline Small/Regular": {
+  "family": "Inter",
+  "size": 10.0,
+  "weight": 500,
+  "lineHeight": 12.0,
+  "letterSpacing": 1.5
+ },
+ "Body Medium/Regular Italic": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 500,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.5
+ },
+ "Body Large/Semibold": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 500,
+  "lineHeight": 27.0,
+  "letterSpacing": 0.5
+ },
+ "Body Large/Bold": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 700,
+  "lineHeight": 27.0,
+  "letterSpacing": 0.5
+ },
+ "Body Medium/Bold Italic": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 700,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.5
+ },
+ "Body Small/Semibold": {
+  "family": "Inter",
+  "size": 14.0,
+  "weight": 500,
+  "lineHeight": 21.0,
+  "letterSpacing": 0.25
+ },
+ "Body Small/Bold": {
+  "family": "Inter",
+  "size": 14.0,
+  "weight": 700,
+  "lineHeight": 21.0,
+  "letterSpacing": 0.25
+ },
+ "Caption/Bold": {
+  "family": "Inter",
+  "size": 12.0,
+  "weight": 700,
+  "lineHeight": 14.5,
+  "letterSpacing": 0.4
+ },
+ "Overline Large/Bold": {
+  "family": "Inter",
+  "size": 12.0,
+  "weight": 700,
+  "lineHeight": 14.5,
+  "letterSpacing": 1.5
+ },
+ "Overline Small/Bold": {
+  "family": "Inter",
+  "size": 10.0,
+  "weight": 700,
+  "lineHeight": 12.0,
+  "letterSpacing": 1.5
+ },
+ "Body Large/Regular Italic": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 500,
+  "lineHeight": 27.0,
+  "letterSpacing": 0.5
+ },
+ "Body Small/Regular Italic": {
+  "family": "Inter",
+  "size": 14.0,
+  "weight": 500,
+  "lineHeight": 21.0,
+  "letterSpacing": 0.25
+ },
+ "Body Large/Bold Italic": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 700,
+  "lineHeight": 18.0,
+  "letterSpacing": 0.5
+ },
+ "Body Small/Bold Italic": {
+  "family": "Inter",
+  "size": 14.0,
+  "weight": 700,
+  "lineHeight": 21.0,
+  "letterSpacing": 0.25
+ },
+ "Heading 6/Bold": {
+  "family": "Inter",
+  "size": 14.0,
+  "weight": 700,
+  "lineHeight": 21.0,
+  "letterSpacing": 0.1
+ },
+ "Heading 6/Semibold": {
+  "family": "Inter",
+  "size": 14.0,
+  "weight": 600,
+  "lineHeight": 21.0,
+  "letterSpacing": 0.1
+ },
+ "Heading 6/Regular": {
+  "family": "Inter",
+  "size": 14.0,
+  "weight": 400,
+  "lineHeight": 21.0,
+  "letterSpacing": 0.1
+ },
+ "Heading 5/Bold": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 700,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.15
+ },
+ "Heading 5/Semibold": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 600,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.15
+ },
+ "Heading 5/Regular": {
+  "family": "Inter",
+  "size": 16.0,
+  "weight": 400,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.15
+ },
+ "Heading 4/Bold": {
+  "family": "Inter",
+  "size": 20.0,
+  "weight": 700,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.15
+ },
+ "Heading 4/Semibold": {
+  "family": "Inter",
+  "size": 20.0,
+  "weight": 600,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.15
+ },
+ "Heading 4/Regular": {
+  "family": "Inter",
+  "size": 20.0,
+  "weight": 400,
+  "lineHeight": 24.0,
+  "letterSpacing": 0.15
+ },
+ "Heading 3/Bold": {
+  "family": "Inter",
+  "size": 24.0,
+  "weight": 700,
+  "lineHeight": 29.0,
+  "letterSpacing": 0.0
+ },
+ "Heading 3/Semibold": {
+  "family": "Inter",
+  "size": 24.0,
+  "weight": 600,
+  "lineHeight": 29.0,
+  "letterSpacing": 0.0
+ },
+ "Heading 3/Regular": {
+  "family": "Inter",
+  "size": 24.0,
+  "weight": 400,
+  "lineHeight": 29.0,
+  "letterSpacing": 0.0
+ },
+ "Heading 2/Bold": {
+  "family": "Inter",
+  "size": 34.0,
+  "weight": 700,
+  "lineHeight": 41.0,
+  "letterSpacing": 0.25
+ },
+ "Heading 2/Semibold": {
+  "family": "Inter",
+  "size": 34.0,
+  "weight": 600,
+  "lineHeight": 41.0,
+  "letterSpacing": 0.25
+ },
+ "Heading 2/Regular": {
+  "family": "Inter",
+  "size": 34.0,
+  "weight": 400,
+  "lineHeight": 41.0,
+  "letterSpacing": 0.25
+ },
+ "Heading 1/Bold": {
+  "family": "Inter",
+  "size": 48.0,
+  "weight": 700,
+  "lineHeight": 58.0,
+  "letterSpacing": 0.0
+ },
+ "Heading 1/Semibold": {
+  "family": "Inter",
+  "size": 48.0,
+  "weight": 600,
+  "lineHeight": 58.0,
+  "letterSpacing": 0.0
+ },
+ "Heading 1/Regular": {
+  "family": "Inter",
+  "size": 48.0,
+  "weight": 400,
+  "lineHeight": 58.0,
+  "letterSpacing": 0.0
+ },
+ "Display Small/Bold": {
+  "family": "Inter",
+  "size": 60.0,
+  "weight": 700,
+  "lineHeight": 72.0,
+  "letterSpacing": -0.5
+ },
+ "Display Small/Semibold": {
+  "family": "Inter",
+  "size": 60.0,
+  "weight": 600,
+  "lineHeight": 72.0,
+  "letterSpacing": -0.5
+ },
+ "Display Small/Regular": {
+  "family": "Inter",
+  "size": 60.0,
+  "weight": 400,
+  "lineHeight": 72.0,
+  "letterSpacing": -0.5
+ },
+ "Display Large/Bold": {
+  "family": "Inter",
+  "size": 96.0,
+  "weight": 700,
+  "lineHeight": 116.0,
+  "letterSpacing": -1.5
+ },
+ "Display Large/Semibold": {
+  "family": "Inter",
+  "size": 96.0,
+  "weight": 600,
+  "lineHeight": 116.0,
+  "letterSpacing": -1.5
+ },
+ "Display Large/Regular": {
+  "family": "Inter",
+  "size": 96.0,
+  "weight": 400,
+  "lineHeight": 116.0,
+  "letterSpacing": -1.5
+ },
+ "\u03a9 Utility/Heading": {
+  "family": "Inter",
+  "size": 48.0,
+  "weight": 700,
+  "lineHeight": 58.1,
+  "letterSpacing": 0.0
+ },
+ "\u03a9 Utility/Content": {
+  "family": "Inter",
+  "size": 18.0,
+  "weight": 400,
+  "lineHeight": 27.0,
+  "letterSpacing": 0.5
+ }
+}
