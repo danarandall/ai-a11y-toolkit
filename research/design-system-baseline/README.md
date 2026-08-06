@@ -7,6 +7,16 @@ accessibility in mind, how much accessibility work is already done for them?
 The honest answer has a number attached to it, and the number is smaller than
 most people expect.
 
+One distinction has to come first, because the question packs two different
+things into one phrase. A design system is a file: a library of components,
+tokens and styles, adopted or purchased, and static until somebody builds with
+it. Design is a practice: deciding heading hierarchy, writing error text,
+specifying focus order, choosing how a state is signaled and annotating it for
+engineering. What follows measures the ceiling of the first one. It is not a
+claim about the second, and the build results at the end of this study point
+firmly the other way, because most of what went wrong in the unguided build was
+decided, or left undecided, before any code existed.
+
 This study uses the Prime design system by Thalion as its subject. Prime is a
 reasonable choice because it is widely used, it is well made, and its current
 release makes a specific public claim about color. Nothing here is an attack on
@@ -41,6 +51,31 @@ things do not exist until someone writes code.
 
 The full classification, criterion by criterion with the reasoning for each, is
 in [CEILING.md](CEILING.md).
+
+### The fourteen it can move without settling
+
+Determining is not the only kind of reach. A design kit influences fourteen
+further criteria: 1.3.4 orientation, 1.4.1 use of color, 1.4.4 resize text,
+1.4.5 images of text, 1.4.10 reflow, 1.4.12 text spacing, 1.4.13 content on
+hover or focus, 2.4.7 focus visible, 2.4.11 focus not obscured, 2.5.7 dragging
+movements, 3.2.3 consistent navigation, 3.2.4 consistent identification, 3.2.6
+consistent help, and 3.3.2 labels or instructions.
+
+So a design artifact touches 17 of the 55 and settles 3 of them.
+
+### What the artifact cannot hold, a designer can still specify
+
+A design file cannot contain a heading hierarchy, an error message, a focus
+order, or a text alternative. A designer can specify all four, and the build
+study later in this document is the evidence for why that matters. The unguided
+build shipped a page with no headings at all, error states with no message tied
+to the field, no bypass mechanism, and a sort control whose direction existed
+only as a visual arrow. None of those were implementation accidents. They were
+decisions nobody made.
+
+The ceiling in the table above is a property of an artifact. It is not a
+statement about how much of accessibility belongs to design, and the two should
+not be read as the same finding.
 
 ---
 
@@ -182,6 +217,12 @@ predictions before the builds is what makes it possible to say they were wrong.
 - No screen reader was used. Findings describe the accessibility tree, not what
   any particular assistive technology announces.
 - 29 rubric items is not WCAG. 26 of 29 is not conformance.
+- Nothing here measures design as a practice. The ceiling classification is
+  about what a static artifact can reach, and the build study measures what two
+  agents did with a specification. Neither is a test of what a designer
+  specifying structure, error text, focus order and alternatives can prevent,
+  and the failures recorded in the control arm suggest that is worth measuring
+  separately.
 - The author of this study wrote the toolkit used in the treatment arm. The
   mitigation is pre-registration, publication of both builds and all measurement
   code, and reporting every item where the treatment failed or regressed.

@@ -109,6 +109,8 @@ The treatment lost the same check both arms lost: a second, dimmer text token us
 
 The first three studies ask what changes when an AI has the toolkit. This one asks a question that comes before it: if a team already builds on a well made design system, how much of the work is done for them?
 
+The question hides two things inside one phrase. A design system is a file, static until somebody builds with it. Design is a practice, and it decides heading hierarchy, error text, focus order and how a state is signaled. This study measures the ceiling of the file. It is not a claim about the practice, and the build results point the other way, because most of what went wrong in the unguided build was decided, or left undecided, before any code existed.
+
 First, a classification of all 55 WCAG 2.2 Level A and AA criteria by what a design artifact can actually reach.
 
 | | Determines | Influences | Cannot affect |
@@ -116,7 +118,7 @@ First, a classification of all 55 WCAG 2.2 Level A and AA criteria by what a des
 | A Figma design kit | 3 | 14 | 38 |
 | A coded component library | 4 | 32 | 19 |
 
-At Level A, a Figma design kit determines **zero** of 31 criteria. The three it determines anywhere are 1.4.3, 1.4.11 and 2.5.8. Palette and sizes. Nothing else.
+At Level A, a Figma design kit determines **zero** of 31 criteria. The three it determines anywhere are 1.4.3, 1.4.11 and 2.5.8. Palette and sizes. It influences fourteen more, so an artifact touches 17 of the 55 and settles 3.
 
 Then a measurement of a real system to test the classification, using the Prime design system by Thalion, read directly from licensed source files through the Figma API across five releases. The palette turns out to be identical across 5.0, 5.1, 5.2 and 6.0, and carefully tuned: every base step sits just above 3:1, and six families land on exactly 4.50:1 one step down. It is contrast engineered. It also still puts white text on a 4.48:1 primary button in the current paid release, and drops to 3.16:1 on hover and focus.
 
