@@ -4,6 +4,8 @@
 // different states. This version verifies the rendered state before measuring.
 const { chromium } = require('playwright');
 const fs = require('fs');
+const path = require('path');
+const STUDY = path.resolve(__dirname, '..');
 
 const ARMS = [
   ['control', 'http://127.0.0.1:8098/control/index.html'],
@@ -92,7 +94,7 @@ const CLICK = `(()=>{const bs=Array.from(document.querySelectorAll('button'));
     }
   }
 
-  fs.writeFileSync('/home/user/workspace/preventive-test-2/contrast-results.json', JSON.stringify(all, null, 2));
+  fs.writeFileSync(path.join(STUDY,'data','contrast-results.json'), JSON.stringify(all, null, 2));
   console.log('\n===== summary =====');
   for (const a of Object.keys(all)) {
     console.log(`${a}: light ${all[a].light.failCount}/${all[a].light.total} failing, dark ${all[a].dark.failCount}/${all[a].dark.total} failing`);

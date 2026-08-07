@@ -1,6 +1,8 @@
 import json, collections
+from pathlib import Path
+STUDY = Path(__file__).resolve().parent.parent
 
-d = json.load(open("/home/user/workspace/prime-study/raw/colors.json"))
+d = json.load(open(STUDY / "data" / "raw" / "colors.json"))
 file = d["file"] if "file" in d else d
 nodes = file.get("nodes") or {}
 # get_file with ids returns {"file": {... "nodes": {id: {"document":...}}}}
@@ -56,4 +58,4 @@ for n, h, o in rows:
     print(f"  {n:<44} {h or '(unresolved)':<9} {'' if o in (1,None) else 'opacity '+str(o)}")
 
 json.dump([{"name": n, "hex": h, "opacity": o} for n, h, o in rows],
-          open("/home/user/workspace/prime-study/prime-colors.json", "w"), indent=1)
+          open(STUDY / "data" / "prime-colors.json", "w"), indent=1)

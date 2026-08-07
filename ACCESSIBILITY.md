@@ -1508,7 +1508,7 @@ That gap explains almost every accessibility failure an AI tool produces.
 
 A generation model has exactly one technology in its head: a screen operated by a mouse. It has no representation of a keyboard as a primary input, no representation of a screen reader as an output, no representation of a finger as an imprecise pointer, no representation of a magnifier showing eight percent of the viewport at once. It is not being careless. It is completing the pattern it was trained on, and that pattern assumes your hardware.
 
-When this toolkit was tested by building the same brief twice, once unguided and once with these files installed, every failure in the unguided build was a technology the model never considered. Contrast failures are the screen. Missing focus indicators are the keyboard. Unnamed graphics and absent landmarks are the screen reader. Targets under 24 pixels are the finger. See `research/preventive-test/RESULTS.md`.
+When this toolkit was tested by building the same brief twice, once unguided and once with these files installed, every failure in the unguided build was a technology the model never considered. Contrast failures are the screen. Missing focus indicators are the keyboard. Unnamed graphics and absent landmarks are the screen reader. Targets under 24 pixels are the finger. See `research/2-icon-browser/README.md`.
 
 So the discipline is simple to state. For every component you design, walk the technologies. Not the criteria, the technologies. The criteria fall out on their own.
 
@@ -1948,7 +1948,7 @@ npm i -D eslint-plugin-jsx-a11y
 
 A design system is a file. Design is a practice. The two get talked about as one thing, and the gap between them is where most accessibility defects live.
 
-Classified against all 55 WCAG 2.2 Level A and AA criteria, a Figma design kit determines 3 and influences 14. At Level A it determines none of 31. The three it settles anywhere are text contrast, non-text contrast, and target size. Palette and sizes. Accessible names, exposed state, focus order and management, error association, heading structure, bypass mechanisms, and status messages do not exist until somebody builds. A coded component library reaches further, determining 4 and influencing 32, and it still cannot decide how you assemble it. The criterion by criterion classification is in [research/design-system-baseline](research/design-system-baseline/README.md).
+Classified against all 55 WCAG 2.2 Level A and AA criteria, a Figma design kit determines 3 and influences 14. At Level A it determines none of 31. The three it settles anywhere are text contrast, non-text contrast, and target size. Palette and sizes. Accessible names, exposed state, focus order and management, error association, heading structure, bypass mechanisms, and status messages do not exist until somebody builds. A coded component library reaches further, determining 4 and influencing 32, and it still cannot decide how you assemble it. The criterion by criterion classification is in [research/4-design-system-ceiling](research/4-design-system-ceiling/README.md).
 
 What to do with that:
 

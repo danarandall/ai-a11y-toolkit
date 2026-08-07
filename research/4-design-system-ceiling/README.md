@@ -232,7 +232,7 @@ predictions before the builds is what makes it possible to say they were wrong.
 ## Reproducing it
 
 ```
-design-system-baseline/
+4-design-system-ceiling/
   CEILING.md               all 55 A and AA criteria classified, with reasoning
   BASELINE.md              Prime 4.0 free, measured
   VERSIONS.md              4.0, 5.0, 5.1, 5.2 and 6.0 compared

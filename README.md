@@ -69,9 +69,9 @@ This toolkit will not make you compliant. It will stop your AI from generating t
 
 I test the toolkit rather than assert it, and I publish the results including the parts that do not flatter it. Both studies live in [`research/`](research/).
 
-**[A field audit](research/level-icons-audit.md)** of a production application built with AI tooling and without this file installed. Nine findings, seven of which map to rules already in the toolkit. The other two were found by reading the rules by hand, because no engine reported them. Three engines scanning the same page at the same moment returned 0, 403, and 321 findings. The zero was a ruleset coverage gap, not a pass, and Section 14.3 exists because of it.
+**[A field audit](research/1-field-audit/README.md)** of a production application built with AI tooling and without this file installed. Nine findings, seven of which map to rules already in the toolkit. The other two were found by reading the rules by hand, because no engine reported them. Three engines scanning the same page at the same moment returned 0, 403, and 321 findings. The zero was a ruleset coverage gap, not a pass, and Section 14.3 exists because of it.
 
-**[A controlled test](research/preventive-test/RESULTS.md)** of the preventive claim. Two AI agents, one identical brief that never mentioned accessibility, same model, same constraints. The only difference was this file in the project root. The control scored 6 of 16 on a rubric written before either build existed. The treatment scored 15 of 16. Engine violations fell from 39 to 15, and five of the nine checks the control failed are ones no scanner can detect.
+**[A controlled test](research/2-icon-browser/README.md)** of the preventive claim. Two AI agents, one identical brief that never mentioned accessibility, same model, same constraints. The only difference was this file in the project root. The control scored 6 of 16 on a rubric written before either build existed. The treatment scored 15 of 16. Engine violations fell from 39 to 15, and five of the nine checks the control failed are ones no scanner can detect.
 
 One rubric check failed in **both** arms, silently, and the treatment's own summary claimed it had got that check right. That result is reported in full alongside the rest, because a toolkit that only publishes its wins is not evidence of anything.
 

@@ -1,6 +1,8 @@
 const { chromium } = require('playwright');
 const aChecker = require('accessibility-checker');
 const fs = require('fs');
+const path = require('path');
+const STUDY = path.resolve(__dirname, '..');
 
 const ARMS = [
   ['control', 'http://127.0.0.1:8098/control/index.html'],
@@ -160,7 +162,7 @@ const ARMS = [
     await ctx.close();
   }
 
-  fs.writeFileSync('/home/user/workspace/preventive-test-2/scan-results.json', JSON.stringify(summary, null, 2));
+  fs.writeFileSync(path.join(STUDY,'data','scan-results.json'), JSON.stringify(summary, null, 2));
   await browser.close();
   await aChecker.close();
 })();

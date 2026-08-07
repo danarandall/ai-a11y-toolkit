@@ -1,6 +1,8 @@
 import json
+from pathlib import Path
+STUDY = Path(__file__).resolve().parent.parent
 
-cols = json.load(open("/home/user/workspace/prime-study/prime-colors.json"))
+cols = json.load(open(STUDY / "data" / "prime-colors.json"))
 C = {c["name"]: c["hex"] for c in cols if c["hex"]}
 
 def lin(v):
@@ -55,4 +57,4 @@ for fam in sorted(fams):
         print(f"  {fam:<24} {best[0]:<34} {best[1]}:1")
 
 json.dump({"white_ratio": {n: ratio(C[n], WHITE) for n in C}},
-          open("/home/user/workspace/prime-study/contrast-white.json", "w"), indent=1)
+          open(STUDY / "data" / "contrast-white.json", "w"), indent=1)

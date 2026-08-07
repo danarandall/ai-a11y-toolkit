@@ -2,8 +2,9 @@ const checker = require('accessibility-checker');
 const { chromium } = require('playwright');
 const path = require('path');
 const fs = require('fs');
+const STUDY = path.resolve(__dirname, '..');
 
-const PRIME = JSON.parse(fs.readFileSync('/home/user/workspace/prime-study/colors-6.0.json'));
+const PRIME = JSON.parse(fs.readFileSync(path.join(STUDY,'data','colors-6.0.json')));
 const TOK = {}; for (const [k, v] of Object.entries(PRIME)) TOK[v.toUpperCase()] = k;
 
 function lin(v) { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }

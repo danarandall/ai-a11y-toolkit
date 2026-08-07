@@ -1,6 +1,7 @@
 const { chromium } = require('playwright');
 const path = require('path'); const fs = require('fs');
-const PRIME = JSON.parse(fs.readFileSync('/home/user/workspace/prime-study/colors-6.0.json'));
+const STUDY = path.resolve(__dirname, '..');
+const PRIME = JSON.parse(fs.readFileSync(path.join(STUDY,'data','colors-6.0.json')));
 const TOK = {}; for (const [k, v] of Object.entries(PRIME)) TOK[v.toUpperCase()] = k;
 
 (async () => {

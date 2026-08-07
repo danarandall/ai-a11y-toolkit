@@ -3,6 +3,8 @@
 // after the interactions the brief asks for.
 const { chromium } = require('playwright');
 const fs = require('fs');
+const path = require('path');
+const STUDY = path.resolve(__dirname, '..');
 
 const ARMS = [
   ['control', 'http://127.0.0.1:8098/control/index.html'],
@@ -225,6 +227,6 @@ async function interactionPass(page) {
     console.log('interactions:', JSON.stringify(all[label].interactions, null, 1).slice(0, 4000));
   }
 
-  fs.writeFileSync('/home/user/workspace/preventive-test-2/audit-results.json', JSON.stringify(all, null, 2));
+  fs.writeFileSync(path.join(STUDY,'data','audit-results.json'), JSON.stringify(all, null, 2));
   await browser.close();
 })();

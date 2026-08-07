@@ -2,14 +2,15 @@ import * as esbuild from 'esbuild';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ROOT = '/home/user/workspace/preventive-test-2';
+const ROOT = STUDY;
 const ARMS = ['control', 'treatment'];
 
 const MAIN = `import React from 'react';
 import { createRoot } from 'react-dom/client';
-import DoughCalculator from './DoughCalculator';
-import './styles.css';
-createRoot(document.getElementById('root')).render(React.createElement(DoughCalculator));
+import IconBrowser from './IconBrowser';
+import { fileURLToPath } from 'node:url';
+const STUDY = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+createRoot(document.getElementById('root')).render(React.createElement(IconBrowser));
 `;
 
 // Identical shell for both arms. Deliberately minimal: it supplies no landmarks,
@@ -20,7 +21,7 @@ const HTML = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dana's Dough Baker's Calculator</title>
+<title>Icon Browser</title>
 <link rel="stylesheet" href="./bundle.css">
 </head>
 <body>

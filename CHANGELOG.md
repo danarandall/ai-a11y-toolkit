@@ -4,18 +4,18 @@
 
 ### Updated 7 August 2026, file version 1.16
 
-Changes driven by a fourth study, which asks a question that comes before the first three: if a team already builds on a well made design system, how much of the work is already done for them? Method, measurements and both builds in [research/design-system-baseline](research/design-system-baseline/README.md).
+Changes driven by a fourth study, which asks a question that comes before the first three: if a team already builds on a well made design system, how much of the work is already done for them? Method, measurements and both builds in [research/4-design-system-ceiling](research/4-design-system-ceiling/README.md).
 
 - **Section 12 rebuilt around adopting a design system.** It was the thinnest section in the file and the one most exposed to a belief that turns out to be measurably wrong. Adds the classification of all 55 WCAG 2.2 Level A and AA criteria by what a design artifact can reach, which is 3 determined and 14 influenced, and none of the 31 at Level A. Adds the practical consequences: measure the palette you inherited rather than trusting the claim attached to it, check hover, focus and active rather than only the resting state, and treat the kit as a floor for three things and evidence of nothing else.
 - **New guidance in Section 12 on tokens.** Record the measured ratio on the token rather than the intent behind it. Names persist across releases while values move underneath them.
 - The distinction between a design system, which is a file, and design, which is a practice, is now stated explicitly. The ceiling result describes the reach of an artifact. It is not an argument that accessibility work in design matters less, and the study's own build results point the other way.
-- American spellings completed. The 1.15 note claimed this was applied across the repository; four files still carried British forms and now do not. The study 1 record in `research/preventive-test` is left as published, since it is a pre-registered document.
+- American spellings completed. The 1.15 note claimed this was applied across the repository; four files still carried British forms and now do not. The study 1 record in `research/2-icon-browser` is left as published, since it is a pre-registered document.
 
 ## 2026.07
 
 ### Updated 31 July 2026, file version 1.15
 
-Changes made after a second controlled A/B build test, this one against a consumer-facing calculator with live numeric output, a slider, form validation, and a data table. Full method and results in [research/preventive-test-2](research/preventive-test-2/RESULTS.md). Every addition below comes from a defect that test surfaced, including two the toolkit itself caused.
+Changes made after a second controlled A/B build test, this one against a consumer-facing calculator with live numeric output, a slider, form validation, and a data table. Full method and results in [research/3-dough-calculator](research/3-dough-calculator/README.md). Every addition below comes from a defect that test surfaced, including two the toolkit itself caused.
 
 - **New in Section 11, live regions on a continuously changing value.** Version 1.14 told models to announce dynamic changes through a live region. It did not say how to govern one. The test build did exactly as instructed and produced a region that rewrites a full sentence on every slider step, which queues up to fifty announcements during one drag and is worse for the user than silence. Adds a settle-delay pattern, `aria-atomic` guidance, and the list of surfaces this applies to. This failure passes every automated engine, because the markup is correct.
 - **New in Section 10, range inputs and sliders.** `aria-valuetext` was absent from the file entirely, so a hydration slider announced "75" with no unit in both arms of the test. Also covers the difference between styling a range's track and sizing the input itself: the control build shipped a slider whose input box was six pixels tall, which fails 2.5.8 while looking correct on screen.

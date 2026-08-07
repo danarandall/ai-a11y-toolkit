@@ -145,7 +145,7 @@ These three findings, plus the control's unguarded count-up animation, were writ
 ## 8. Reproducing this
 
 ```
-research/preventive-test-2/
+research/3-dough-calculator/
   BRIEF.md                 the brief, identical for both arms
   RUBRIC.md                the rubric, committed before either build
   control/src/             control output, unmodified

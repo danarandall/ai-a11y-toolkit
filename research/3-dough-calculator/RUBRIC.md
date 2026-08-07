@@ -44,6 +44,6 @@ Eight checks are machine detectable. Eight are not.
 
 ## Relationship to the first test
 
-This is an independent replication of `research/preventive-test`, run in a different domain with a different trap set and a different build target. The first test was an internal developer tool with an icon grid. This one is a consumer-facing calculator with live numeric output, form validation, and a data table, which exercises criteria the first test did not reach, specifically 3.3.1, 1.4.3, 2.5.8, and 1.3.1 table semantics.
+This is an independent replication of `research/2-icon-browser`, run in a different domain with a different trap set and a different build target. The first test was an internal developer tool with an icon grid. This one is a consumer-facing calculator with live numeric output, form validation, and a data table, which exercises criteria the first test did not reach, specifically 3.3.1, 1.4.3, 2.5.8, and 1.3.1 table semantics.
 
 The toolkit version under test is **1.14**, the release published on 2026-07-31.

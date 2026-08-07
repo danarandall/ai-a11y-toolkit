@@ -1,7 +1,9 @@
 import json, subprocess, sys, os, time
+from pathlib import Path
+STUDY = Path(__file__).resolve().parent.parent
 
 FILE_KEY = "qcLb23k17Jp6icsxsXA35y"
-OUT = "/home/user/workspace/prime-study/raw"
+OUT = str(STUDY / "data" / "raw")
 os.makedirs(OUT, exist_ok=True)
 
 PAGES = {

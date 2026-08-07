@@ -6,11 +6,18 @@ The toolkit tells you what to do. This folder is where I try to show that follow
 
 Every number below is reproducible from the artifacts in this folder. Where a result is unflattering to the toolkit, it is reported at the same length as the results that flatter it.
 
+| Study | Question | Result |
+| --- | --- | --- |
+| [1. Field audit](1-field-audit/README.md) | Does the toolkit find real defects in production code? | 9 findings, 7 already covered by the rules |
+| [2. Icon browser](2-icon-browser/README.md) | Does it change what an AI builds? | 6 of 16 without, 15 of 16 with |
+| [3. Dough calculator](3-dough-calculator/README.md) | Does it hold in a different domain? | 10 of 16 without, 15 of 16 with |
+| [4. Design system ceiling](4-design-system-ceiling/README.md) | How much can a design system do for you? | 13 of 29 without, 26 of 29 with. A design kit settles 3 of 55 criteria |
+
 ---
 
 ## 1. Field audit: does the toolkit find real defects?
 
-**[level-icons-audit.md](level-icons-audit.md)**
+**[1-field-audit/README.md](1-field-audit/README.md)**
 
 An accessibility audit of a production application that was built with AI tooling and without the toolkit installed. WCAG 2.2 Level AA, three automated engines, with every reported finding hand-verified in the live DOM.
 
@@ -32,7 +39,7 @@ The live URL and the working account handle are withheld, because the applicatio
 
 ## 2. Controlled test: does the toolkit change what an AI builds?
 
-**[preventive-test/RESULTS.md](preventive-test/RESULTS.md)**
+**[2-icon-browser/README.md](2-icon-browser/README.md)**
 
 The audit above tests the toolkit as a checklist applied to finished code. That is not the claim the toolkit makes. The claim is preventive: install it, and the AI builds accessibly in the first place.
 
@@ -53,23 +60,28 @@ One check failed in both arms. The treatment defined a border token at 1.4:1 aga
 
 ### Reproducing it
 
+Every study folder follows the same shape.
+
 ```
-preventive-test/
+<study>/
+  README.md             the study itself, method and findings
   BRIEF.md              the brief both agents received, reproduced verbatim
-  RUBRIC.md             sixteen checks, written before either build existed
-  control/src/          built from the brief alone
-  treatment/src/        built from the brief plus the toolkit
-  harness/build.mjs     bundles both arms with an identical HTML shell
-  harness/scan.js       renders, measures the DOM, runs the engine
-  contrast.py           computes the non-text contrast ratios
-  scan-results.json     raw engine and DOM output for both arms
+  RUBRIC.md             the checks, written before either build existed
+  control/              built from the brief alone
+  treatment/            built from the brief plus the toolkit
+  harness/              build, scan and measurement scripts
+  data/                 raw engine, DOM and contrast output
 ```
+
+Study 1 is an audit rather than a two-arm build, so it is a README alone. Every
+harness script resolves paths relative to its own study folder, so a fresh clone
+runs without editing anything.
 
 `BRIEF.md` is published exactly as it was given to both agents, including its punctuation, which does not follow the style rules used elsewhere in this repository. It is evidence rather than guidance, so it has not been edited after the run.
 
-The same applies to `preventive-test-2/BRIEF.md`, and to everything the agents themselves produced in every study: the build source in each `control/` and `treatment/` directory, and the `NOTES.md` files in study 4. Those carry the models' own punctuation and spelling, including em dashes and British forms that appear nowhere in the authored files. Normalizing them would mean editing the evidence.
+The same applies to `3-dough-calculator/BRIEF.md`, and to everything the agents themselves produced in every study: the build source in each `control/` and `treatment/` directory, and the `NOTES.md` files in study 4. Those carry the models' own punctuation and spelling, including em dashes and British forms that appear nowhere in the authored files. Normalizing them would mean editing the evidence.
 
-One more record is left as published rather than corrected. `preventive-test/RESULTS.md` and `preventive-test/RUBRIC.md` use British spellings throughout. The rubric was pre-registered before study 2 was run, so rewriting it afterward would quietly change a document whose whole value is that it was fixed in advance. The results file is left to match it.
+One more record is left as published rather than corrected. `2-icon-browser/README.md` and `2-icon-browser/RUBRIC.md` use British spellings throughout. The rubric was pre-registered before study 2 was run, so rewriting it afterward would quietly change a document whose whole value is that it was fixed in advance. The results file is left to match it.
 
 ```bash
 npm i react@18 react-dom@18 esbuild
@@ -83,7 +95,7 @@ python3 contrast.py
 
 ## 3. Replication: does the result hold in a different domain?
 
-**[preventive-test-2/RESULTS.md](preventive-test-2/RESULTS.md)**
+**[3-dough-calculator/README.md](3-dough-calculator/README.md)**
 
 The same design as study 2, run against version 1.14 in a different domain with a different trap set: a consumer-facing baker's percentage calculator with live numeric output, form validation, a slider, and a data table. Those exercise criteria the first test never reached, specifically 3.3.1, 1.4.3, 2.5.8, and table semantics under 1.3.1.
 
@@ -107,7 +119,7 @@ The treatment lost the same check both arms lost: a second, dimmer text token us
 
 ## 4. Ceiling: how much of this can a design system do for you?
 
-**[design-system-baseline/README.md](design-system-baseline/README.md)**
+**[4-design-system-ceiling/README.md](4-design-system-ceiling/README.md)**
 
 The first three studies ask what changes when an AI has the toolkit. This one asks a question that comes before it: if a team already builds on a well made design system, how much of the work is done for them?
 
