@@ -2,7 +2,7 @@
 
 **How to make your AI build more accessible things.** Part of the AI A11y Toolkit by Dana Randall.
 
-Release 2026.07. Latest version of all three files: https://danarandall.com/ai-a11y-toolkit
+Release 2026.08. Latest version of all three files: https://danarandall.com/ai-a11y-toolkit
 Something not working in your tool? Tell me: https://danarandall.com/ai-a11y-toolkit#feedback
 
 You do not need to be a developer to use this. If you are building with Lovable, Base44, Bolt, v0, Figma Make, Replit, Cursor, Claude Code, ChatGPT, or anything similar, this file tells you where to put the rules so your AI actually follows them.
@@ -312,4 +312,4 @@ Adapted from the AI A11y Toolkit by Dana Randall, licensed CC BY 4.0.
 https://github.com/danarandall/ai-a11y-toolkit
 ```
 
-Release 2026.07. Author: Dana Randall. Target standard: WCAG 2.2 Level AA.
+Release 2026.08. Author: Dana Randall. Target standard: WCAG 2.2 Level AA.

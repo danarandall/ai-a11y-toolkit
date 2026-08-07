@@ -4,9 +4,9 @@
 
 Target standard: WCAG 2.2, Level AA
 Author: Dana Randall
-Version: 1.15
-Toolkit release: 2026.07
-Last updated: 2026-07-31
+Version: 1.16
+Toolkit release: 2026.08
+Last updated: 2026-08-07
 
 Latest version of this file: https://danarandall.com/ai-a11y-toolkit
 Using this, or found something that does not work? https://danarandall.com/ai-a11y-toolkit#feedback
@@ -1944,6 +1944,19 @@ npm i -D eslint-plugin-jsx-a11y
 
 ## Section 12: For design tools and AI prompting
 
+### If you are adopting a design system
+
+A design system is a file. Design is a practice. The two get talked about as one thing, and the gap between them is where most accessibility defects live.
+
+Classified against all 55 WCAG 2.2 Level A and AA criteria, a Figma design kit determines 3 and influences 14. At Level A it determines none of 31. The three it settles anywhere are text contrast, non-text contrast, and target size. Palette and sizes. Accessible names, exposed state, focus order and management, error association, heading structure, bypass mechanisms, and status messages do not exist until somebody builds. A coded component library reaches further, determining 4 and influencing 32, and it still cannot decide how you assemble it. The criterion by criterion classification is in [research/design-system-baseline](research/design-system-baseline/README.md).
+
+What to do with that:
+
+- Measure the palette you inherited instead of trusting the claim attached to it. In one current, well made, paid system measured for that study, every base color step cleared 3:1 and not one reached 4.5:1, across four releases and four years. (1.4.3)
+- Check interaction states, not just resting states. Contrast should hold or rise on hover, focus, and active. The same system's primary button shipped white text at 4.48:1 at rest and dropped to 3.16:1 on hover and focus, so contrast fell exactly when the user was engaging with it. Measure all four states. (1.4.3, 1.4.11)
+- Treat the kit as a floor for the three things it settles and assume nothing about the other 52.
+- Do not let adoption replace design review. The defects a design system cannot reach are precisely the ones that are cheapest to catch before code exists, and they are decisions somebody has to make rather than accidents that appear at implementation time.
+
 ### Figma and design files
 
 - Use auto layout so reflow behavior is expressible rather than pixel-pinned.
@@ -1952,6 +1965,7 @@ npm i -D eslint-plugin-jsx-a11y
 - Order layers to match intended reading order. Design tool layer order and generated DOM order are correlated.
 - Annotate with a handoff plugin or a dedicated annotation layer covering headings, landmarks, tab order, alt text, and focus states. In an AI workflow this annotation is not a note to a developer, it is the input the tool builds from, so it is worth more than it used to be. Section 9.3 has a format for it.
 - Include the keyboard flow in prototypes, not just click paths.
+- Record the measured contrast ratio on the token itself rather than the intent behind it. A token named for accessibility is not evidence, and values drift between releases while names do not.
 
 ### Prompting AI tools for UI
 

@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026.08
+
+### Updated 7 August 2026, file version 1.16
+
+Changes driven by a fourth study, which asks a question that comes before the first three: if a team already builds on a well made design system, how much of the work is already done for them? Method, measurements and both builds in [research/design-system-baseline](research/design-system-baseline/README.md).
+
+- **Section 12 rebuilt around adopting a design system.** It was the thinnest section in the file and the one most exposed to a belief that turns out to be measurably wrong. Adds the classification of all 55 WCAG 2.2 Level A and AA criteria by what a design artifact can reach, which is 3 determined and 14 influenced, and none of the 31 at Level A. Adds the practical consequences: measure the palette you inherited rather than trusting the claim attached to it, check hover, focus and active rather than only the resting state, and treat the kit as a floor for three things and evidence of nothing else.
+- **New guidance in Section 12 on tokens.** Record the measured ratio on the token rather than the intent behind it. Names persist across releases while values move underneath them.
+- The distinction between a design system, which is a file, and design, which is a practice, is now stated explicitly. The ceiling result describes the reach of an artifact. It is not an argument that accessibility work in design matters less, and the study's own build results point the other way.
+- American spellings completed. The 1.15 note claimed this was applied across the repository; four files still carried British forms and now do not. The study 1 record in `research/preventive-test` is left as published, since it is a pre-registered document.
+
 ## 2026.07
 
 ### Updated 31 July 2026, file version 1.15

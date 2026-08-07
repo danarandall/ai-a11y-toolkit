@@ -17,7 +17,7 @@ Contrast is sRGB relative luminance per WCAG 2.x. Large text is treated as
 
 ### None of the eleven "500 (base)" steps reaches 4.5:1 on white
 
-The step labelled "(base)" is the default a designer reaches for.
+The step labeled "(base)" is the default a designer reaches for.
 
 | Token | Hex | On white | As normal text | As a non-text boundary (3:1) |
 | --- | --- | --- | --- | --- |

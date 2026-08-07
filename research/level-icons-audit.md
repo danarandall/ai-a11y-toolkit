@@ -58,11 +58,11 @@ Ordered by severity. Every count was confirmed by querying the live DOM directly
 
 Icon markup is injected with `dangerouslySetInnerHTML`. Of 581 SVG elements rendered, 259 carry `aria-hidden="true"`, none carry a `<title>`, and none set `focusable="false"`. That leaves 321 unnamed graphics sitting in the accessibility tree.
 
-There is a mitigating detail worth stating honestly, because it changes the priority. 580 of the 581 SVGs sit inside an ancestor that already has an accessible name, usually a button labelled something like `Download Colorful light SVG`. A screen reader user who lands on that button hears a useful name. The unnamed SVG does not block them.
+There is a mitigating detail worth stating honestly, because it changes the priority. 580 of the 581 SVGs sit inside an ancestor that already has an accessible name, usually a button labeled something like `Download Colorful light SVG`. A screen reader user who lands on that button hears a useful name. The unnamed SVG does not block them.
 
 What it does is pollute. Every unnamed graphic adds a node to the tree, so browsing the library element by element, or by graphic, produces hundreds of anonymous entries. It also means the icons themselves carry no description anywhere, which matters for a product whose entire purpose is icons.
 
-**Fix.** At each injection site, mark the SVG decorative and let the labelled ancestor carry the meaning:
+**Fix.** At each injection site, mark the SVG decorative and let the labeled ancestor carry the meaning:
 
 ```tsx
 // Before
@@ -81,7 +81,7 @@ const decorative = svg.replace(
 
 `focusable="false"` matters independently: without it, legacy engines place SVG elements in the tab order.
 
-**Toolkit rule:** Section 3 requires that every non-text element either carries a name or is explicitly hidden, and that injected markup is normalised at the injection point rather than trusted from the source.
+**Toolkit rule:** Section 3 requires that every non-text element either carries a name or is explicitly hidden, and that injected markup is normalized at the injection point rather than trusted from the source.
 
 ---
 
@@ -269,7 +269,7 @@ It checks only that environment variables exist. It never contacts the database.
 .eq("handle", handle)
 ```
 
-A handle stored as `Alex` returns its full library. The same handle typed `alex` returns zero, with no error and no hint. Anyone who types their handle with different capitalization is shown an empty library and a "No icons match" message, and will reasonably conclude their work is gone. Normalise on write and on read.
+A handle stored as `Alex` returns its full library. The same handle typed `alex` returns zero, with no error and no hint. Anyone who types their handle with different capitalization is shown an empty library and a "No icons match" message, and will reasonably conclude their work is gone. Normalize on write and on read.
 
 ---
 

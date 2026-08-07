@@ -6,7 +6,7 @@ Three markdown files that make AI design and coding tools build more accessible 
 
 Free. No signup. Drop a file into your project and every prompt after that inherits the rules.
 
-Release `2026.07`
+Release `2026.08`
 
 ---
 

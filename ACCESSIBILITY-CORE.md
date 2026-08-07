@@ -1,6 +1,6 @@
 # Accessibility rules (core)
 
-Part of the AI A11y Toolkit by Dana Randall. Release 2026.07. Current version and the full reference: https://danarandall.com/ai-a11y-toolkit
+Part of the AI A11y Toolkit by Dana Randall. Release 2026.08. Current version and the full reference: https://danarandall.com/ai-a11y-toolkit
 
 Condensed from ACCESSIBILITY.md. Target: WCAG 2.2 Level AA. Use this short version where a platform caps how much text you can save. Use the full file where you can commit a file to a repo.
 
@@ -27,9 +27,9 @@ If you do not know which design system, component library, or token set this pro
 - Error messages appear in text next to the field, say what is wrong and how to fix it, and never clear the user's input.
 - Use the project's design tokens. No arbitrary hex values or magic numbers.
 
-Normalise any markup you inject. Anything passed through `dangerouslySetInnerHTML`, `v-html`, or `innerHTML` is invisible to linting, so decide at the injection point whether it is decorative or meaningful. Decorative injected SVG gets `aria-hidden="true"` and `focusable="false"`. Meaningful content gets a name on a wrapper you control.
+Normalize any markup you inject. Anything passed through `dangerouslySetInnerHTML`, `v-html`, or `innerHTML` is invisible to linting, so decide at the injection point whether it is decorative or meaningful. Decorative injected SVG gets `aria-hidden="true"` and `focusable="false"`. Meaningful content gets a name on a wrapper you control.
 
-Audit colour tokens as data, not only as screens. Compute every documented foreground and background pair in every theme. Judge text pairs at 4.5:1, and judge control boundaries, focus rings, icons, and state indicators at 3:1 under 1.4.11. Border and input tokens are the ones reviewers miss, because a faint boundary is far less obvious than faint body text.
+Audit color tokens as data, not only as screens. Compute every documented foreground and background pair in every theme. Judge text pairs at 4.5:1, and judge control boundaries, focus rings, icons, and state indicators at 3:1 under 1.4.11. Border and input tokens are the ones reviewers miss, because a faint boundary is far less obvious than faint body text.
 
 ## Never
 
