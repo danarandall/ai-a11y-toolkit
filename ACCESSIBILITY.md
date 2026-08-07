@@ -1921,7 +1921,7 @@ npm i -D accessibility-checker @testing-library/react
 # Command line scanning of a URL list or sitemap
 npm i -D pa11y pa11y-ci
 
-# Optional third engine, if your organisation uses the Level Access platform
+# Optional third engine, if your organization uses the Level Access platform
 npm i -D @userway/a11y-playwright
 
 # Linting
@@ -2060,7 +2060,7 @@ npm i -D accessibility-checker   # open source IBM Equal Access engine
 npm i -D pa11y pa11y-ci          # breadth scanning across a URL list or sitemap
 npm i -D eslint-plugin-jsx-a11y  # catches a class of errors before the page renders
 
-# Optional, if your organisation uses the Level Access platform
+# Optional, if your organization uses the Level Access platform
 npm i -D @userway/a11y-playwright
 ```
 

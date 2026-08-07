@@ -21,7 +21,7 @@ print("root:", root.get("name") if root else None, root.get("type") if root else
 def hexof(c):
     return "#%02X%02X%02X" % (round(c["r"]*255), round(c["g"]*255), round(c["b"]*255))
 
-# style id -> observed fill colour
+# style id -> observed fill color
 style_fill = {}
 counts = collections.Counter()
 
@@ -41,7 +41,7 @@ if root:
     walk(root)
 
 print("node types:", dict(counts.most_common(8)))
-print("styles resolved to a colour:", len(style_fill))
+print("styles resolved to a color:", len(style_fill))
 
 rows = []
 for sid, meta in styles_map.items():

@@ -67,7 +67,9 @@ preventive-test/
 
 `BRIEF.md` is published exactly as it was given to both agents, including its punctuation, which does not follow the style rules used elsewhere in this repository. It is evidence rather than guidance, so it has not been edited after the run.
 
-The same applies to `preventive-test-2/BRIEF.md`.
+The same applies to `preventive-test-2/BRIEF.md`, and to everything the agents themselves produced in every study: the build source in each `control/` and `treatment/` directory, and the `NOTES.md` files in study 4. Those carry the models' own punctuation and spelling, including em dashes and British forms that appear nowhere in the authored files. Normalizing them would mean editing the evidence.
+
+One more record is left as published rather than corrected. `preventive-test/RESULTS.md` and `preventive-test/RUBRIC.md` use British spellings throughout. The rubric was pre-registered before study 2 was run, so rewriting it afterward would quietly change a document whose whole value is that it was fixed in advance. The results file is left to match it.
 
 ```bash
 npm i react@18 react-dom@18 esbuild
