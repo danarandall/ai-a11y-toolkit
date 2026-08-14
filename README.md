@@ -24,13 +24,17 @@ Pasting accessibility rules into chat does not fix it, because chat context deca
 | --- | --- | --- |
 | [`START-HERE.md`](START-HERE.md) | 19 KB | You want the install steps. Covers 15 AI platforms, exact filenames, exact settings fields, and what to do when the tool ignores the rules. |
 | [`ACCESSIBILITY-CORE.md`](ACCESSIBILITY-CORE.md) | 9 KB | You are pasting into a field with a character limit. Sized to fit Lovable Project Knowledge at 10,000 characters and Windsurf workspace rules at 12,000. |
-| [`ACCESSIBILITY.md`](ACCESSIBILITY.md) | 167 KB | You can commit a file to a repo or upload to project knowledge. The full reference, 18 sections, all 55 Level A and AA success criteria in build terms. |
+| [`ACCESSIBILITY.md`](ACCESSIBILITY.md) | 167 KB | You can commit a file to a repo, upload to project knowledge, or drop it in the Figma Make `guidelines` folder. The full reference, 18 sections, all 55 Level A and AA success criteria in build terms. |
 | [`skills/ai-a11y-toolkit`](skills/) | 190 KB | Your coding agent supports agent skills. Same content, split so the agent loads the routing file always and pulls in one reference file per task. Works in Claude Code, Cursor, and Codex. |
-| [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) | 55 KB | You are working in Figma. One self-contained file for custom skills in the Figma agent and Figma Make, published on the [Figma Community](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa). |
+| [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) | 55 KB | You are in a Figma Design file, where a custom skill is the only route. One self-contained file, also on the [Figma Community](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa). Works in Figma Make too. |
 
 ## Quick start
 
-**If you are working in Figma**, in either the Figma agent or Figma Make, install it as a custom skill. It is published on the Figma Community as [AI A11y Toolkit](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa), and once added it stays available across all your files. Invoke it with `/ai-a11y-toolkit` when you are designing a screen, choosing colors, reviewing a component, or building in Make. See [`skills/README.md`](skills/README.md) for the install steps and the seat requirements.
+**If you are working in a Figma Design file**, add [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) as a custom skill. In the prompt box, select **Skills**, then **Add skill**, then upload the file. It is also on the Figma Community as [AI A11y Toolkit](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa) if you would rather copy it from there, though neither route is a one click install. Once added it stays available across all your files. Invoke it with `/ai-a11y-toolkit` when you are designing a screen, choosing colors, or reviewing a component.
+
+**If you are working in Figma Make**, the custom skill above works, but the better route is the `guidelines` folder in Code view, which accepts uploaded markdown and has no stated size limit. Upload the full [`ACCESSIBILITY.md`](ACCESSIBILITY.md) there and you get the complete reference rather than the condensed 55 KB skill.
+
+Either way, see [`START-HERE.md`](START-HERE.md) for the click by click steps and the seat requirements.
 
 **If you are using a chat-based builder** such as Lovable, Base44, Bolt, v0, or Replit, paste `ACCESSIBILITY-CORE.md` into the project knowledge or custom instructions field. Do not paste it into the chat.
 

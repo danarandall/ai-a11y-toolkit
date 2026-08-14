@@ -226,7 +226,7 @@ chosen yet.
 
 ## What this study does not show
 
-The limits listed in the [research README](../README.md) all apply. Three more are
+The limits listed in the [research README](../README.md) all apply. Four more are
 specific to this study.
 
 - **The arms built different pages.** Four checks are unscoreable on the control for
@@ -238,5 +238,12 @@ specific to this study.
 - **No source code.** A published Make site is measurable but not readable, so
   everything here is observed from the running DOM rather than from the code the
   agent wrote. `control/` and `treatment/` directories do not exist for this study.
+- **Only one of the two Make routes was tested.** The treatment used the custom
+  skill, which is the condensed 55 KB build. Figma Make also has a `guidelines`
+  folder that accepts uploaded markdown with no stated size limit, which would
+  deliver the full 167 KB `ACCESSIBILITY.md`. That route is plausibly stronger,
+  because it carries every criterion rather than a selection, but it is untested
+  and this study says nothing about it. Treat 14 of 16 as the result for the
+  condensed skill, not as a ceiling for the toolkit in Make.
 
 Written by Dana Randall in a personal capacity. Licensed CC BY 4.0.

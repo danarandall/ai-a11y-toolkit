@@ -30,6 +30,11 @@ A [Figma skill for MCP](https://help.figma.com/hc/en-us/articles/39166810751895-
 installs into your coding agent, not into Figma, and lets that agent read your
 Figma files. If you are working in Figma itself, use the `figma/` build.
 
+That is about skills specifically. Figma Make separately has a `guidelines` folder
+in Code view that accepts uploaded markdown, so a file from this repository does
+reach Make by that route. See the Figma Make section of
+[`START-HERE.md`](../START-HERE.md).
+
 ## What is here
 
 ```
@@ -87,6 +92,11 @@ it from.
 Figma requires a paid plan. A Full seat can chat with the agent in Figma Design
 and Figma Make files. A View, Dev, or Collab seat can only do so in Drafts. You
 also need edit access to the file you are working in.
+
+In a Figma Design file a custom skill is the only route, because there is no
+guidelines folder there. In Figma Make you have both, and the guidelines folder
+takes the full 167 KB `ACCESSIBILITY.md` rather than this condensed build, so
+prefer it when you want the complete reference.
 
 ## Keeping the builds in sync
 

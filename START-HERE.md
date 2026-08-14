@@ -2,14 +2,14 @@
 
 **How to make your AI build more accessible things.** Part of the AI A11y Toolkit by Dana Randall.
 
-Release 2026.08. Latest version of all three files: https://danarandall.com/ai-a11y-toolkit
+Release 2026.08. Latest version of every file: https://danarandall.com/ai-a11y-toolkit
 Something not working in your tool? Tell me: https://danarandall.com/ai-a11y-toolkit#feedback
 
-You do not need to be a developer to use this. If you are building with Lovable, Base44, Bolt, v0, Figma Make, Replit, Cursor, Claude Code, ChatGPT, or anything similar, this file tells you where to put the rules so your AI actually follows them.
+You do not need to be a developer to use this. If you are building with Lovable, Base44, Bolt, v0, Figma Make, Figma Design, Replit, Cursor, Claude Code, ChatGPT, or anything similar, this file tells you where to put the rules so your AI actually follows them.
 
 The reason this is a set of files and not a list of prompts: you cannot prompt for a requirement you do not know exists. These rules sit inside your tool and apply themselves, so the thing you generate starts from a baseline without you having to know what to ask for.
 
-Verified against platform documentation in July 2026. These products change fast, so if a menu has moved, the linked documentation is the source of truth.
+Verified against platform documentation in July 2026, with the two Figma sections rechecked in August 2026. These products change fast, so if a menu has moved, the linked documentation is the source of truth.
 
 ---
 
@@ -78,7 +78,27 @@ There is also an account-level custom instructions field in Settings if you want
 
 This one is nicer than most. Open the file explorer, go to **Code view**, find the **guidelines** folder, and there is a file called `Guidelines.md` that was created empty when you started the project.
 
-You can **upload a markdown file directly into that folder**, so you can drop in the real `ACCESSIBILITY.md` rather than pasting a summary. Figma Make always reads `Guidelines.md` first, so either paste into it or reference your uploaded file from it. Figma's own guidance is that several short guideline files beat one enormous one, so splitting by topic is fine and supported ([Figma guidelines documentation](https://help.figma.com/hc/en-us/articles/33665861260823-Add-guidelines-to-Figma-Make), [Figma design system guidelines](https://developers.figma.com/docs/code/write-design-system-guidelines/)).
+You can **upload a markdown file directly into that folder**, so you can drop in the real `ACCESSIBILITY.md` rather than pasting a summary. Drag it in, or use **Upload**. You can upload more than one file, and Figma's own guidance is that several short guideline files beat one enormous one, so splitting by topic is fine and supported ([Figma guidelines documentation](https://help.figma.com/hc/en-us/articles/33665861260823-Add-guidelines-to-Figma-Make), [Figma design system guidelines](https://developers.figma.com/docs/code/write-design-system-guidelines/)).
+
+Figma does not document a read order between the files in that folder. If you upload more than one, say inside `Guidelines.md` which files you added and when Make should apply each, because Figma's guidance is to state that yourself rather than assume a priority.
+
+This is the one route that gets the complete 167 KB reference into a Figma surface. The custom skill below is a condensed 55 KB build, so if you are working in Make and you want everything, use the guidelines folder.
+
+### Figma Design
+
+There is no guidelines folder in a Figma Design file. The only route is a **custom skill**, which works in both Figma Design and Figma Make.
+
+It has to be a single `.md` file. Figma does not support the `references/`, `scripts/`, or `assets/` subfolders that agent skills normally allow, so the folder build in this repository will not load here ([Figma custom skills documentation](https://help.figma.com/hc/en-us/articles/40283639496599-Custom-skills-for-the-Figma-agent-and-Figma-Make)).
+
+Use `skills/figma/ai-a11y-toolkit.md`. Click in the prompt box, select **Skills**, then **Add skill**, then drag the file in or click **Upload a file**. Review the name and content and click **Add**. The name becomes the slash command, so invoke it with `/ai-a11y-toolkit`.
+
+Once added it stays available across all your files, so this is a one time setup rather than something you redo per project.
+
+It is also published on the [Figma Community](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa) if you would rather copy it from there. Community skills are not one click installs, so either way you are adding it by hand.
+
+Custom skills need a paid plan. A **Full seat** covers Figma Design and Figma Make files, and View, Dev, or Collab seats can only use it in Drafts. You also need edit access to the file.
+
+If your coding agent reaches Figma through the Figma MCP server, that is a different mechanism with a confusingly similar name. The skill lives in your agent, not in Figma, so use the folder build there instead.
 
 ### Replit
 
@@ -292,8 +312,10 @@ A suggested sequence, tuned for a room where people have different tools.
 | `START-HERE.md` | This file. Installation and prompts. |
 | `ACCESSIBILITY-CORE.md` | About 7,000 characters. For platform text fields with limits. |
 | `ACCESSIBILITY.md` | The full reference, 18 sections. Commit it to a repo, or read it as a human. |
+| `skills/ai-a11y-toolkit/` | For coding agents that support agent skills. A routing file plus one reference file per task. |
+| `skills/figma/ai-a11y-toolkit.md` | A single file, 55 KB. The custom skill build for Figma Design and Figma Make. |
 
-All three files, and the current release, are at https://danarandall.com/ai-a11y-toolkit
+Every file, and the current release, is at https://danarandall.com/ai-a11y-toolkit
 
 ### Two asks
 
