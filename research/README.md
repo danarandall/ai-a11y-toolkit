@@ -2,7 +2,7 @@
 
 Evidence behind the claims in [ACCESSIBILITY.md](../ACCESSIBILITY.md).
 
-The toolkit tells you what to do. This folder is where I try to show that following it changes the outcome, and where I record the places it did not. The first three studies were run in July 2026, against versions 1.11, 1.12, and 1.14 of the file. The fourth was run in August 2026 against version 1.15.
+The toolkit tells you what to do. This folder is where I try to show that following it changes the outcome, and where I record the places it did not. The first three studies were run in July 2026, against versions 1.11, 1.12, and 1.14 of the file. The fourth and fifth were run in August 2026, against versions 1.15 and 1.16.
 
 Every number below is reproducible from the artifacts in this folder. Where a result is unflattering to the toolkit, it is reported at the same length as the results that flatter it.
 
@@ -12,6 +12,7 @@ Every number below is reproducible from the artifacts in this folder. Where a re
 | [2. Icon browser](2-icon-browser/README.md) | Does it change what an AI builds? | 6 of 16 without, 15 of 16 with |
 | [3. Dough calculator](3-dough-calculator/README.md) | Does it hold in a different domain? | 10 of 16 without, 15 of 16 with |
 | [4. Design system ceiling](4-design-system-ceiling/README.md) | How much can a design system do for you? | 13 of 29 without, 26 of 29 with. A design kit settles 3 of 55 criteria |
+| [5. Figma Make and Figma Design](5-figma-make/README.md) | Does it work in a design tool, not a code editor? | Build: 8 of 16 without, 14 of 16 with. Design file: 1 of 3 without, 3 of 3 with |
 
 ---
 
@@ -152,12 +153,55 @@ All 11 engine violations reported against the treatment arm were false positives
 
 ---
 
+## 5. Design tools: does it work outside a code editor?
+
+**[5-figma-make/README.md](5-figma-make/README.md)**
+
+Studies 2 through 4 all run coding agents in a sandbox. That is the narrowest part of the toolkit's stated scope, and it left the design tool guidance untested. This study runs the same paired design in Figma, using the skill as Figma actually loads it: a single file custom skill, invoked as `/ai-a11y-toolkit`, published on the [Figma Community](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa).
+
+Two arms in two surfaces. Figma Make produces a running build, so it can be scored on the full rubric. Figma Design produces a static file, so it can only be scored on what a static file reaches.
+
+**Figma Make, both arms published and measured live:**
+
+| | Control | Treatment |
+| --- | --- | --- |
+| Rubric score | 8 of 16 | 14 of 16 |
+| Engine violations, raw | 62 | 4 |
+| Engine violations, hand verified | about 18 | 2 |
+| Landmarks | 0 `header`, 0 `main` | Complete |
+| Real links, `a[href]` | **0 of 17 controls** | 13 of 14 tab stops |
+| `prefers-reduced-motion` | 0, against 26 animated elements | Present |
+
+The control's most instructive failure is that it built the entire navigation out of `button` elements and shipped zero links on the page. A single missing `main` produced 33 of its 62 engine findings on its own.
+
+**Figma Design, same prompt, same file, scored only on the three criteria a design file determines:**
+
+| Criterion | Control | Treatment |
+| --- | --- | --- |
+| 1.4.3 Text contrast | 19 of 47 pairings pass | 40 of 41 pairings pass |
+| 1.4.11 Non-text contrast | Passes | Passes |
+| 2.5.8 Target size, 44px | 0 of 6 buttons | 9 of 9 controls |
+
+That is 1 of 3 against 3 of 3, and it is a deliberately narrow result rather than another 20 check number. It is also the ceiling classification from study 4 tested from the other side. The control failed the criterion a design file most directly controls, 1.4.3, twenty-eight times, and left every criterion a design file cannot reach in exactly the same unrecorded state as the treatment. Neither arm recorded alt text, heading levels, or reading order. A file cannot annotate itself, which is the argument for design review rather than against it.
+
+Three findings cut against the toolkit.
+
+The **nav links failed in both arms**, at 17px tall in the design file and in both builds. That is now a confirmed gap in the guidance rather than a one-off.
+
+The control **wrote five good, specific alt texts unprompted**, which continues the trend from study 3. Image naming is no longer differentiating value and the toolkit should stop claiming it.
+
+Two genuine treatment findings are in **neither the rubric nor the toolkit**: an hours table with a `caption` and no `th`, and an `aria-label` on a `p` element, which is silently discarded. Both are queued for the next release.
+
+The study also produced two reusable method corrections, both of which had me reporting wrong numbers before I caught them. A programmatic `.focus()` does not match `:focus-visible`, so it shows no focus ring where a real `Tab` press shows one. And computed style contrast is wrong on these builds, because the engine cannot composite alpha over photography, which made about 6 of the control's 20 reported contrast violations false. In the design file, `strokeWeight` alone cannot distinguish a border from a divider, and reading `individualStrokeWeights` removed four boundary failures I had wrongly scored against the control.
+
+---
+
 ## What these studies do not show
 
 - **One brief, one component, one run per arm.** Run-to-run variance is unmeasured. The gap is large but a single pair of builds cannot separate the toolkit's effect from sampling noise with statistical confidence. Study 3 replicates the direction in a second domain, which is weak replication, not proof.
 - **No screen reader was used.** The announcement findings describe what the accessibility tree contains, not what any particular assistive technology says.
 - **One model family, and agents in a sandbox rather than a developer working interactively in an editor.**
-- **React and plain CSS only.** Nothing here tests the guidance for plain HTML, no-code platforms, design tools, or AI-generated content, which together are most of the toolkit's stated scope.
+- **React and plain CSS, plus one design tool.** Study 5 covers Figma Make and Figma Design. Nothing here tests the guidance for plain HTML, no-code platforms, or AI-generated content.
 - **The rubric is mine.** Written before the builds and applied identically to both, but I designed the rules and the test of the rules.
 - **Sixteen checks is not WCAG.** Fifteen of sixteen is not conformance, and neither document should be read as a conformance claim.
 

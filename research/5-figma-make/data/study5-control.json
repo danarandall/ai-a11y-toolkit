@@ -1,0 +1,1583 @@
+{
+ "url": "https://grace-number-99311548.figma.site",
+ "label": "control",
+ "dom": {
+  "landmarks": {
+   "header": 0,
+   "nav": 1,
+   "main": 0,
+   "footer": 4
+  },
+  "heads": [
+   {
+    "lvl": 1,
+    "text": "Bread worthwaking up for.",
+    "size": 86
+   },
+   {
+    "lvl": 2,
+    "text": "Signature Loaves",
+    "size": 48
+   },
+   {
+    "lvl": 3,
+    "text": "Country White",
+    "size": 24
+   },
+   {
+    "lvl": 3,
+    "text": "Dark Rye",
+    "size": 24
+   },
+   {
+    "lvl": 3,
+    "text": "Seeded Miche",
+    "size": 24
+   },
+   {
+    "lvl": 2,
+    "text": "We do one thing, slowly.",
+    "size": 44
+   },
+   {
+    "lvl": 2,
+    "text": "The Process",
+    "size": 48
+   },
+   {
+    "lvl": 3,
+    "text": "Feed the starter",
+    "size": 18
+   },
+   {
+    "lvl": 3,
+    "text": "Mix & autolyse",
+    "size": 18
+   },
+   {
+    "lvl": 3,
+    "text": "Fold & ferment",
+    "size": 18
+   },
+   {
+    "lvl": 3,
+    "text": "Shape & retard",
+    "size": 18
+   },
+   {
+    "lvl": 3,
+    "text": "Score & bake",
+    "size": 18
+   },
+   {
+    "lvl": 2,
+    "text": "Find Us",
+    "size": 48
+   }
+  ],
+  "skips": 0,
+  "imgs": [
+   {
+    "alt": "A golden sourdough loaf resting on a wooden counter",
+    "hasAttr": true,
+    "src": "photo-1686154596696-d6f594a98af9?w=600&h",
+    "role": null,
+    "w": 410
+   },
+   {
+    "alt": "Dark rye sourdough bread resting on natural jute",
+    "hasAttr": true,
+    "src": "photo-1549413468-cd78edb7e75c?w=600&h=72",
+    "role": null,
+    "w": 410
+   },
+   {
+    "alt": "Seeded sourdough miche loaves cooling in a bakery rack",
+    "hasAttr": true,
+    "src": "photo-1515182629504-727d7753751f?w=600&h",
+    "role": null,
+    "w": 410
+   },
+   {
+    "alt": "The interior of Levain and Co., shelves lined with freshly baked loaves",
+    "hasAttr": true,
+    "src": "photo-1644015272264-2d70518c2046?w=900&h",
+    "role": null,
+    "w": 640
+   },
+   {
+    "alt": "Freshly baked loaves cooling on racks inside Levain and Co.",
+    "hasAttr": true,
+    "src": "photo-1732565729552-994c6af761e3?w=800&h",
+    "role": null,
+    "w": 584
+   }
+  ],
+  "svgs": [
+   {
+    "hidden": false,
+    "label": null,
+    "hasTitle": false,
+    "focusable": null
+   },
+   {
+    "hidden": false,
+    "label": null,
+    "hasTitle": false,
+    "focusable": null
+   },
+   {
+    "hidden": false,
+    "label": null,
+    "hasTitle": false,
+    "focusable": null
+   },
+   {
+    "hidden": false,
+    "label": null,
+    "hasTitle": false,
+    "focusable": null
+   },
+   {
+    "hidden": false,
+    "label": null,
+    "hasTitle": false,
+    "focusable": null
+   },
+   {
+    "hidden": false,
+    "label": null,
+    "hasTitle": false,
+    "focusable": null
+   },
+   {
+    "hidden": false,
+    "label": null,
+    "hasTitle": false,
+    "focusable": null
+   },
+   {
+    "hidden": false,
+    "label": null,
+    "hasTitle": false,
+    "focusable": null
+   }
+  ],
+  "bgImgEls": [
+   {
+    "tag": "DIV",
+    "cls": "absolute inset-0 bg-[#1E140A]",
+    "role": null,
+    "label": null,
+    "w": 1280,
+    "h": 900
+   }
+  ],
+  "inter": [
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Levain & Co.",
+    "w": 109,
+    "h": 29,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Loaves",
+    "w": 62,
+    "h": 16,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Our Story",
+    "w": 94,
+    "h": 16,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "The Process",
+    "w": 110,
+    "h": 16,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Find Us",
+    "w": 67,
+    "h": 16,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Order Ahead",
+    "w": 153,
+    "h": 38,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "See the Loaves",
+    "w": 197,
+    "h": 46,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Our Story",
+    "w": 159,
+    "h": 46,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "",
+    "w": 26,
+    "h": 26,
+    "href": null,
+    "hasName": false
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Order",
+    "w": 73,
+    "h": 16,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Order",
+    "w": 73,
+    "h": 16,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Order",
+    "w": 73,
+    "h": 16,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "See how we bake",
+    "w": 168,
+    "h": 21,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Order for Pickup",
+    "w": 226,
+    "h": 44,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Instagram",
+    "w": 93,
+    "h": 24,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Newsletter",
+    "w": 102,
+    "h": 24,
+    "href": null,
+    "hasName": true
+   }
+  ],
+  "fakeBtn": [
+   {
+    "tag": "DIV",
+    "cls": ""
+   }
+  ],
+  "tc": [
+   {
+    "r": 1.1,
+    "need": 4.5,
+    "size": 19.2,
+    "wt": 400,
+    "fg": "249,244,236",
+    "bg": "242,233,216",
+    "text": "Levain & Co."
+   },
+   {
+    "r": 1.1,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "249,244,236",
+    "bg": "242,233,216",
+    "text": "Loaves"
+   },
+   {
+    "r": 1.1,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "249,244,236",
+    "bg": "242,233,216",
+    "text": "Our Story"
+   },
+   {
+    "r": 1.1,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "249,244,236",
+    "bg": "242,233,216",
+    "text": "The Process"
+   },
+   {
+    "r": 1.1,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "249,244,236",
+    "bg": "242,233,216",
+    "text": "Find Us"
+   },
+   {
+    "r": 1.1,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "249,244,236",
+    "bg": "242,233,216",
+    "text": "Order Ahead"
+   },
+   {
+    "r": 1.8,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "212,169,106",
+    "bg": "242,233,216",
+    "text": "Est. 2016 · Hoboken, NJ"
+   },
+   {
+    "r": 1.21,
+    "need": 3,
+    "size": 86,
+    "wt": 300,
+    "fg": "255,255,255",
+    "bg": "242,233,216",
+    "text": "Bread worthwaking up for."
+   },
+   {
+    "r": 1.21,
+    "need": 3,
+    "size": 86,
+    "wt": 300,
+    "fg": "255,255,255",
+    "bg": "242,233,216",
+    "text": "waking up for."
+   },
+   {
+    "r": 3.81,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "249,244,236",
+    "bg": "192,98,47",
+    "text": "See the Loaves"
+   },
+   {
+    "r": 1.21,
+    "need": 4.5,
+    "size": 12,
+    "wt": 300,
+    "fg": "255,255,255",
+    "bg": "242,233,216",
+    "text": "Our Story"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "What we bake"
+   },
+   {
+    "r": 15.02,
+    "need": 3,
+    "size": 48,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Signature Loaves"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Baked every morning Tues–Sun. We sell ou"
+   },
+   {
+    "r": 15.02,
+    "need": 3,
+    "size": 24,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Country White"
+   },
+   {
+    "r": 3.46,
+    "need": 4.5,
+    "size": 14,
+    "wt": 600,
+    "fg": "192,98,47",
+    "bg": "242,233,216",
+    "text": "$12"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Open crumb. Crisp crust."
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Our flagship: 78% hydration, 24-hour col"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "900g"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Order"
+   },
+   {
+    "r": 15.02,
+    "need": 3,
+    "size": 24,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Dark Rye"
+   },
+   {
+    "r": 3.46,
+    "need": 4.5,
+    "size": 14,
+    "wt": 600,
+    "fg": "192,98,47",
+    "bg": "242,233,216",
+    "text": "$14"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Dense. Earthy. Complex."
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "40% whole rye, caraway seeds, and a stif"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "800g"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Order"
+   },
+   {
+    "r": 15.02,
+    "need": 3,
+    "size": 24,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Seeded Miche"
+   },
+   {
+    "r": 3.46,
+    "need": 4.5,
+    "size": 14,
+    "wt": 600,
+    "fg": "192,98,47",
+    "bg": "242,233,216",
+    "text": "$16"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Nutty. Rustic. Full-flavored."
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "A large country loaf rolled in sunflower"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "1.2kg"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Order"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "Our Story"
+   },
+   {
+    "r": 13.83,
+    "need": 3,
+    "size": 44,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "234,224,204",
+    "text": "We do one thing, slowly."
+   },
+   {
+    "r": 13.83,
+    "need": 3,
+    "size": 44,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "234,224,204",
+    "text": "slowly."
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "Levain & Co. started in a home kitchen i"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "We still use the same starter — fed twic"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "We do not use commercial yeast. We do no"
+   },
+   {
+    "r": 13.83,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "30,20,10",
+    "bg": "234,224,204",
+    "text": "See how we bake"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "How it happens"
+   },
+   {
+    "r": 15.02,
+    "need": 3,
+    "size": 48,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "The Process"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 18,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Feed the starter"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Every morning at 5am we feed our 9-year-"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 18,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Mix & autolyse"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Flour and water rest together before the"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 18,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Fold & ferment"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "A series of stretch-and-folds over 4–6 h"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 18,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Shape & retard"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Loaves are hand-shaped and placed in lin"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 18,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Score & bake"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Into a 500°F deck oven with steam. The s"
+   },
+   {
+    "r": 8.35,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "212,169,106",
+    "bg": "30,20,10",
+    "text": "Priya M."
+   },
+   {
+    "r": 8.35,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "212,169,106",
+    "bg": "30,20,10",
+    "text": "Tom K."
+   },
+   {
+    "r": 8.35,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "212,169,106",
+    "bg": "30,20,10",
+    "text": "Celeste R."
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "Come see us"
+   },
+   {
+    "r": 13.83,
+    "need": 3,
+    "size": 48,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "234,224,204",
+    "text": "Find Us"
+   },
+   {
+    "r": 13.83,
+    "need": 4.5,
+    "size": 14,
+    "wt": 600,
+    "fg": "30,20,10",
+    "bg": "234,224,204",
+    "text": "Location"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "214 Washington StreetHoboken, NJ 07030"
+   },
+   {
+    "r": 13.83,
+    "need": 4.5,
+    "size": 14,
+    "wt": 600,
+    "fg": "30,20,10",
+    "bg": "234,224,204",
+    "text": "Hours"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "Tuesday – Friday"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "7am – sellout"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "Saturday – Sunday"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "7am – sellout"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "Monday"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "Closed"
+   },
+   {
+    "r": 13.83,
+    "need": 4.5,
+    "size": 14,
+    "wt": 600,
+    "fg": "30,20,10",
+    "bg": "234,224,204",
+    "text": "Phone & Orders"
+   },
+   {
+    "r": 5.63,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "234,224,204",
+    "text": "(201) 555-0182"
+   },
+   {
+    "r": 3.81,
+    "need": 4.5,
+    "size": 12,
+    "wt": 500,
+    "fg": "249,244,236",
+    "bg": "192,98,47",
+    "text": "Order for Pickup"
+   },
+   {
+    "r": 15.02,
+    "need": 4.5,
+    "size": 16,
+    "wt": 300,
+    "fg": "30,20,10",
+    "bg": "242,233,216",
+    "text": "Levain & Co."
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "© 2026 Levain & Co. · All loaves baked w"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 16,
+    "wt": 500,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Instagram"
+   },
+   {
+    "r": 6.12,
+    "need": 4.5,
+    "size": 16,
+    "wt": 500,
+    "fg": "107,80,64",
+    "bg": "242,233,216",
+    "text": "Newsletter"
+   }
+  ],
+  "nt": [
+   {
+    "name": "Levain & Co.",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Loaves",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Our Story",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "The Process",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Find Us",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Order Ahead",
+    "borderWidth": 1,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "See the Loaves",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": 3.46
+   },
+   {
+    "name": "Our Story",
+    "borderWidth": 1,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Order",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Order",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Order",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "See how we bake",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Order for Pickup",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": 3.19
+   },
+   {
+    "name": "Instagram",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   },
+   {
+    "name": "Newsletter",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": null
+   }
+  ],
+  "fields": [],
+  "skip": null,
+  "live": [],
+  "anim": 26,
+  "title": "Sourdough Bakery Land - no a11ying Page",
+  "lang": "en"
+ },
+ "prm": 0,
+ "focus": [
+  {
+   "name": "Levain & Co.",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Loaves",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Our Story",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "The Process",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Find Us",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Order Ahead",
+   "changed": true,
+   "outline": "auto 3px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "See the Loaves",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Our Story",
+   "changed": true,
+   "outline": "auto 3px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "submit",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Order",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Order",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Order",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "See how we bake",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Order for Pickup",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Instagram",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Newsletter",
+   "changed": true,
+   "outline": "auto 1px oklab(0.59897 0.0936962 0.0992696 / 0.5)",
+   "shadow": "none"
+  }
+ ],
+ "reflow320": {
+  "scrollW": 320,
+  "clientW": 320,
+  "overflowing": []
+ },
+ "reflow200": {
+  "scrollW": 640,
+  "clientW": 640
+ },
+ "formTest": {
+  "ran": false
+ },
+ "pageErrors": [],
+ "engine": {
+  "counts": {
+   "ignored": 0,
+   "elements": 66,
+   "elementsViolation": 58,
+   "elementsViolationReview": 65,
+   "violation": 62,
+   "potentialviolation": 15,
+   "recommendation": 1,
+   "potentialrecommendation": 0,
+   "manual": 1,
+   "pass": 1164
+  },
+  "violations": [
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.10 with its background is less than the WCAG AA minimum requirements for text of size 19.2px and weight of 400",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[1]/button[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.10 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 500",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[1]/div[1]/button[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.10 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 500",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[1]/div[1]/button[2]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.10 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 500",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[1]/div[1]/button[3]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.10 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 500",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[1]/div[1]/button[4]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.10 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 500",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[1]/div[1]/button[5]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[3]/p[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.80 with its background is less than the WCAG AA minimum requirements for text of size 10px and weight of 400",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[3]/p[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.21 with its background is less than the WCAG AA minimum requirements for text of size 86px and weight of 300",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[3]/h1[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.21 with its background is less than the WCAG AA minimum requirements for text of size 86px and weight of 300",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[3]/h1[1]/em[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[3]/div[1]/button[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 3.81 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 500",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[3]/div[1]/button[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.21 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 300",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[3]/div[1]/button[2]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/button[1]"
+   },
+   {
+    "rule": "input_label_exists",
+    "msg": "Form control element <button> has no associated label",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/button[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/button[1]/svg[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[1]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[1]/div[2]/div[1]/h3[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 3.46 with its background is less than the WCAG AA minimum requirements for text of size 14px and weight of 600",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[1]/div[2]/div[1]/span["
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[1]/div[2]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[1]/div[2]/div[2]/butto"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[1]/div[2]/div[2]/butto"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[2]/div[2]/div[1]/h3[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 3.46 with its background is less than the WCAG AA minimum requirements for text of size 14px and weight of 600",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[2]/div[2]/div[1]/span["
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[2]/div[2]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[2]/div[2]/div[2]/butto"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[2]/div[2]/div[2]/butto"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[3]/div[2]/div[1]/h3[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 3.46 with its background is less than the WCAG AA minimum requirements for text of size 14px and weight of 600",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[3]/div[2]/div[1]/span["
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[3]/div[2]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[3]/div[2]/div[2]/butto"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[2]/article[3]/div[2]/div[2]/butto"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[3]/div[1]/div[2]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[3]/div[1]/div[2]/div[1]/p[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[3]/div[1]/div[2]/button[1]/svg[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[4]/div[1]/div[1]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[4]/div[1]/div[2]/div[1]/h3[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[4]/div[1]/div[2]/div[2]/h3[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[4]/div[1]/div[2]/div[3]/h3[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[4]/div[1]/div[2]/div[4]/h3[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[4]/div[1]/div[2]/div[5]/h3[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/p[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 4.22 with its background is less than the WCAG AA minimum requirements for text of size 10px and weight of 400",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[1]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[1]/footer[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 3.04 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 400",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[1]/footer[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[2]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[2]/footer[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 3.04 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 400",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[2]/footer[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[3]/p[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[3]/footer[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 3.04 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 400",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[5]/div[1]/div[1]/blockquote[3]/footer[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/p[1]"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/div[1]/div[1]/svg[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/div[1]/div[1]/div[1]/p["
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/div[1]/div[2]/svg[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/div[1]/div[2]/div[1]/p["
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.80 with its background is less than the WCAG AA minimum requirements for text of size 14px and weight of 400",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/div[1]/div[2]/div[1]/di"
+   },
+   {
+    "rule": "svg_graphics_labelled",
+    "msg": "The SVG element has no accessible name",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/div[1]/div[3]/svg[1]"
+   },
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/div[1]/div[3]/div[1]/p["
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 3.81 with its background is less than the WCAG AA minimum requirements for text of size 12px and weight of 500",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[6]/div[1]/div[1]/button[1]"
+   }
+  ],
+  "potential": [
+   {
+    "rule": "style_color_misuse",
+    "msg": "Verify color is not used as the only visual means of conveying information"
+   },
+   {
+    "rule": "element_tabbable_unobscured",
+    "msg": "Confirm that when the element receives focus, it is not covered or, if covered by user action, can be uncovere"
+   },
+   {
+    "rule": "element_tabbable_unobscured",
+    "msg": "Confirm that when the element receives focus, it is not covered or, if covered by user action, can be uncovere"
+   },
+   {
+    "rule": "element_tabbable_unobscured",
+    "msg": "Confirm that when the element receives focus, it is not covered or, if covered by user action, can be uncovere"
+   },
+   {
+    "rule": "element_tabbable_unobscured",
+    "msg": "Confirm that when the element receives focus, it is not covered or, if covered by user action, can be uncovere"
+   },
+   {
+    "rule": "element_tabbable_unobscured",
+    "msg": "Confirm that when the element receives focus, it is not covered or, if covered by user action, can be uncovere"
+   },
+   {
+    "rule": "element_tabbable_unobscured",
+    "msg": "Confirm that when the element receives focus, it is not covered or, if covered by user action, can be uncovere"
+   },
+   {
+    "rule": "style_focus_visible",
+    "msg": "Check the keyboard focus indicator is visible when using CSS declaration for 'border' or 'outline'"
+   },
+   {
+    "rule": "text_sensory_misuse",
+    "msg": "Confirm the user instruction is still understandable without the word(s) 'large'"
+   },
+   {
+    "rule": "text_sensory_misuse",
+    "msg": "Confirm the user instruction is still understandable without the word(s) 'tiny'"
+   },
+   {
+    "rule": "text_sensory_misuse",
+    "msg": "Confirm the user instruction is still understandable without the word(s) 'Shape'"
+   },
+   {
+    "rule": "text_sensory_misuse",
+    "msg": "Confirm the user instruction is still understandable without the word(s) 'hand-shaped'"
+   },
+   {
+    "rule": "blockquote_cite_exists",
+    "msg": "Verify that <blockquote> should have a 'cite' attribute and not be used for indentation only"
+   },
+   {
+    "rule": "blockquote_cite_exists",
+    "msg": "Verify that <blockquote> should have a 'cite' attribute and not be used for indentation only"
+   },
+   {
+    "rule": "blockquote_cite_exists",
+    "msg": "Verify that <blockquote> should have a 'cite' attribute and not be used for indentation only"
+   }
+  ]
+ }
+}

@@ -1,0 +1,933 @@
+{
+ "url": "https://tutu-invert-07297733.figma.site",
+ "label": "treatment",
+ "dom": {
+  "landmarks": {
+   "header": 1,
+   "nav": 2,
+   "main": 1,
+   "footer": 4
+  },
+  "heads": [
+   {
+    "lvl": 1,
+    "text": "Bread that takesas long as it takes.",
+    "size": 72
+   },
+   {
+    "lvl": 2,
+    "text": "This week's loaves",
+    "size": 36
+   },
+   {
+    "lvl": 3,
+    "text": "Country Sourdough",
+    "size": 24
+   },
+   {
+    "lvl": 3,
+    "text": "Dark Rye",
+    "size": 24
+   },
+   {
+    "lvl": 3,
+    "text": "Seeded Batard",
+    "size": 24
+   },
+   {
+    "lvl": 3,
+    "text": "Einkorn Miche",
+    "size": 24
+   },
+   {
+    "lvl": 2,
+    "text": "How we bake",
+    "size": 36
+   },
+   {
+    "lvl": 3,
+    "text": "Mill & Mix",
+    "size": 18
+   },
+   {
+    "lvl": 3,
+    "text": "Long Ferment",
+    "size": 18
+   },
+   {
+    "lvl": 3,
+    "text": "Bake Hot",
+    "size": 18
+   },
+   {
+    "lvl": 3,
+    "text": "Cool & Go",
+    "size": 18
+   },
+   {
+    "lvl": 2,
+    "text": "From the neighborhood",
+    "size": 36
+   },
+   {
+    "lvl": 2,
+    "text": "Find us",
+    "size": 36
+   },
+   {
+    "lvl": 2,
+    "text": "Sunday preview,in your inbox.",
+    "size": 36
+   }
+  ],
+  "skips": 0,
+  "imgs": [
+   {
+    "alt": "A round sourdough loaf resting on woven jute, scored with a wheat-stalk pattern across its deeply blistered golden-brown crust",
+    "hasAttr": true,
+    "src": "photo-1549413468-cd78edb7e75c?w=920&h=11",
+    "role": null,
+    "w": 460
+   },
+   {
+    "alt": "A baker stretching a smooth round of white dough across a floured wooden worktable, hands dusted with flour",
+    "hasAttr": true,
+    "src": "photo-1612884610549-ce221d92514a?w=800&h",
+    "role": null,
+    "w": 584
+   }
+  ],
+  "svgs": [],
+  "bgImgEls": [],
+  "inter": [
+   {
+    "tag": "A",
+    "type": null,
+    "name": "Skip to main content",
+    "w": 1,
+    "h": 1,
+    "href": "#main-content",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "Wild Ferment Bakery — home",
+    "w": 118,
+    "h": 28,
+    "href": "/",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "Breads",
+    "w": 46,
+    "h": 18,
+    "href": "#breads",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "How we bake",
+    "w": 87,
+    "h": 18,
+    "href": "#process",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "Find us",
+    "w": 48,
+    "h": 18,
+    "href": "#hours",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "Order ahead",
+    "w": 124,
+    "h": 44,
+    "href": "#newsletter",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "This week's loaves",
+    "w": 195,
+    "h": 44,
+    "href": "#breads",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "How we bake",
+    "w": 160,
+    "h": 44,
+    "href": "#process",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "Join the list",
+    "w": 73,
+    "h": 18,
+    "href": "#newsletter",
+    "hasName": true
+   },
+   {
+    "tag": "INPUT",
+    "type": "email",
+    "name": "",
+    "w": 592,
+    "h": 44,
+    "href": null,
+    "hasName": false
+   },
+   {
+    "tag": "BUTTON",
+    "type": "submit",
+    "name": "Join the list",
+    "w": 592,
+    "h": 44,
+    "href": null,
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "This week's breads",
+    "w": 123,
+    "h": 18,
+    "href": "#breads",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "How we bake",
+    "w": 87,
+    "h": 18,
+    "href": "#process",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "Find us",
+    "w": 46,
+    "h": 18,
+    "href": "#hours",
+    "hasName": true
+   },
+   {
+    "tag": "A",
+    "type": null,
+    "name": "Join the list",
+    "w": 73,
+    "h": 18,
+    "href": "#newsletter",
+    "hasName": true
+   }
+  ],
+  "fakeBtn": [
+   {
+    "tag": "DIV",
+    "cls": ""
+   }
+  ],
+  "tc": [
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 16,
+    "wt": 400,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Skip to main content"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 20,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Wild Ferment"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 14,
+    "wt": 600,
+    "fg": "244,238,224",
+    "bg": "184,69,21",
+    "text": "Order ahead"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Open Tue – Sat · 7 am until sold out"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 72,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Bread that takesas long as it takes."
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 16,
+    "wt": 600,
+    "fg": "244,238,224",
+    "bg": "184,69,21",
+    "text": "This week's loaves"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 16,
+    "wt": 600,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "How we bake"
+   },
+   {
+    "r": 1.34,
+    "need": 4.5,
+    "size": 10,
+    "wt": 400,
+    "fg": "244,238,224",
+    "bg": "216,207,189",
+    "text": "Country Sourdough — Today"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 36,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "This week's loaves"
+   },
+   {
+    "r": 5.55,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "106,93,71",
+    "bg": "244,238,224",
+    "text": "Baked fresh daily · limited quantities"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 24,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Country Sourdough"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 20,
+    "wt": 500,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "$9"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 11,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Daily"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 24,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Dark Rye"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 20,
+    "wt": 500,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "$11"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 11,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Pre-order"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 24,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Seeded Batard"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 20,
+    "wt": 500,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "$12"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 11,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Fri – Sat"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 24,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Einkorn Miche"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 20,
+    "wt": 500,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "$14"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 11,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Saturday"
+   },
+   {
+    "r": 5.55,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "106,93,71",
+    "bg": "244,238,224",
+    "text": "Availability changes week to week. Join "
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Join the list"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 36,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "How we bake"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 14,
+    "wt": 700,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "01"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 18,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Mill & Mix"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 14,
+    "wt": 700,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "02"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 18,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Long Ferment"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 14,
+    "wt": 700,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "03"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 18,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Bake Hot"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 14,
+    "wt": 700,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "04"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 18,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Cool & Go"
+   },
+   {
+    "r": 14.59,
+    "need": 3,
+    "size": 36,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "236,229,211",
+    "text": "From the neighborhood"
+   },
+   {
+    "r": 14.59,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "28,19,8",
+    "bg": "236,229,211",
+    "text": "Margot L."
+   },
+   {
+    "r": 5.11,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "106,93,71",
+    "bg": "236,229,211",
+    "text": "Customer since 2021"
+   },
+   {
+    "r": 14.59,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "28,19,8",
+    "bg": "236,229,211",
+    "text": "Sione T."
+   },
+   {
+    "r": 5.11,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "106,93,71",
+    "bg": "236,229,211",
+    "text": "Customer since 2022"
+   },
+   {
+    "r": 14.59,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "28,19,8",
+    "bg": "236,229,211",
+    "text": "Priya K."
+   },
+   {
+    "r": 5.11,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "106,93,71",
+    "bg": "236,229,211",
+    "text": "Customer since 2020"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 36,
+    "wt": 700,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Find us"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Address"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 16,
+    "wt": 400,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "2847 NE Alberta StPortland, OR 97211"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Hours"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 14,
+    "wt": 400,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Wild Ferment Bakery hours by day of the "
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Tuesday – Thursday"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Friday"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Saturday"
+   },
+   {
+    "r": 15.84,
+    "need": 4.5,
+    "size": 14,
+    "wt": 500,
+    "fg": "28,19,8",
+    "bg": "244,238,224",
+    "text": "Sunday – Monday"
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 12,
+    "wt": 400,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Good to know"
+   },
+   {
+    "r": 4.65,
+    "need": 3,
+    "size": 36,
+    "wt": 700,
+    "fg": "244,238,224",
+    "bg": "184,69,21",
+    "text": "Sunday preview,in your inbox."
+   },
+   {
+    "r": 4.65,
+    "need": 4.5,
+    "size": 16,
+    "wt": 600,
+    "fg": "184,69,21",
+    "bg": "244,238,224",
+    "text": "Join the list"
+   },
+   {
+    "r": 15.84,
+    "need": 3,
+    "size": 20,
+    "wt": 700,
+    "fg": "244,238,224",
+    "bg": "28,19,8",
+    "text": "Wild Ferment"
+   }
+  ],
+  "nt": [
+   {
+    "name": "",
+    "borderWidth": 2,
+    "borderRatio": null,
+    "fillRatio": 4.65
+   },
+   {
+    "name": "Join the list",
+    "borderWidth": 0,
+    "borderRatio": null,
+    "fillRatio": 4.65
+   }
+  ],
+  "fields": [
+   {
+    "type": "email",
+    "id": "email-input",
+    "hasLabelEl": true,
+    "wrapLabel": false,
+    "aria": null,
+    "placeholder": "you@example.com",
+    "autocomplete": "email",
+    "describedby": null,
+    "required": true
+   }
+  ],
+  "skip": {
+   "text": "Skip to main content",
+   "href": "#main-content"
+  },
+  "live": [],
+  "anim": 17,
+  "title": "Research Test -- Figma Make",
+  "lang": "en"
+ },
+ "prm": 1,
+ "focus": [
+  {
+   "name": "Skip to main content",
+   "changed": true,
+   "outline": "solid 2px rgb(28, 19, 8)",
+   "shadow": "none"
+  },
+  {
+   "name": "Wild Ferment Bakery — home",
+   "changed": true,
+   "outline": "solid 2px rgb(28, 19, 8)",
+   "shadow": "none"
+  },
+  {
+   "name": "Breads",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "How we bake",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Find us",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Order ahead",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "This week's loaves",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "How we bake",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Join the list",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "email",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Join the list",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "This week's breads",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "How we bake",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Find us",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  },
+  {
+   "name": "Join the list",
+   "changed": true,
+   "outline": "solid 2px oklab(0.195042 0.00798311 0.023691 / 0.5)",
+   "shadow": "none"
+  }
+ ],
+ "reflow320": {
+  "scrollW": 320,
+  "clientW": 320,
+  "overflowing": []
+ },
+ "reflow200": {
+  "scrollW": 640,
+  "clientW": 640
+ },
+ "formTest": {
+  "ran": true,
+  "added": [
+   "Please enter a valid email address, for example you@example.com."
+  ],
+  "describedby": "email-error",
+  "invalid": "true",
+  "nativeValidation": true,
+  "liveAfter": [
+   {
+    "role": "alert",
+    "live": null,
+    "text": "Please enter a valid email address, for example you@example."
+   }
+  ]
+ },
+ "pageErrors": [],
+ "engine": {
+  "counts": {
+   "ignored": 0,
+   "elements": 13,
+   "elementsViolation": 4,
+   "elementsViolationReview": 8,
+   "violation": 4,
+   "potentialviolation": 4,
+   "recommendation": 5,
+   "potentialrecommendation": 0,
+   "manual": 1,
+   "pass": 1132
+  },
+  "violations": [
+   {
+    "rule": "aria_content_in_landmark",
+    "msg": "Content is not within a landmark element",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]"
+   },
+   {
+    "rule": "aria_attribute_valid",
+    "msg": "The ARIA attributes \"aria-label\" are not valid for the element <p> with implicit ARIA role \"paragraph\"",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/main[1]/section[1]/div[1]/p[1]"
+   },
+   {
+    "rule": "text_contrast_sufficient",
+    "msg": "Text contrast of 1.34 with its background is less than the WCAG AA minimum requirements for text of size 10px and weight of 400",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/main[1]/section[1]/div[2]/div[1]"
+   },
+   {
+    "rule": "table_headers_exists",
+    "msg": "Table has no headers identified",
+    "path": "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/main[1]/section[5]/div[1]/address[1]/div[2]/tabl"
+   }
+  ],
+  "potential": [
+   {
+    "rule": "style_color_misuse",
+    "msg": "Verify color is not used as the only visual means of conveying information"
+   },
+   {
+    "rule": "element_tabbable_visible",
+    "msg": "Confirm the element should be tabbable and if so, it becomes visible when it has keyboard focus"
+   },
+   {
+    "rule": "text_block_heading",
+    "msg": "Confirm this text 'Wild Ferment' is used as a heading and if so, modify to use a heading element or role"
+   },
+   {
+    "rule": "text_block_heading",
+    "msg": "Confirm this text 'Wild Ferment' is used as a heading and if so, modify to use a heading element or role"
+   }
+  ]
+ }
+}

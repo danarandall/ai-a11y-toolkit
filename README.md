@@ -25,11 +25,14 @@ Pasting accessibility rules into chat does not fix it, because chat context deca
 | [`START-HERE.md`](START-HERE.md) | 19 KB | You want the install steps. Covers 15 AI platforms, exact filenames, exact settings fields, and what to do when the tool ignores the rules. |
 | [`ACCESSIBILITY-CORE.md`](ACCESSIBILITY-CORE.md) | 9 KB | You are pasting into a field with a character limit. Sized to fit Lovable Project Knowledge at 10,000 characters and Windsurf workspace rules at 12,000. |
 | [`ACCESSIBILITY.md`](ACCESSIBILITY.md) | 167 KB | You can commit a file to a repo or upload to project knowledge. The full reference, 18 sections, all 55 Level A and AA success criteria in build terms. |
-| [`skills/ai-a11y-toolkit`](skills/) | 190 KB | Your tool supports agent skills. Same content, split so the agent loads the routing file always and pulls in one reference file per task. Works with Claude Code, Cursor, Codex, and the Figma MCP server, with a single file build for custom skills in the Figma agent and Figma Make. |
+| [`skills/ai-a11y-toolkit`](skills/) | 190 KB | Your coding agent supports agent skills. Same content, split so the agent loads the routing file always and pulls in one reference file per task. Works in Claude Code, Cursor, and Codex. |
+| [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) | 55 KB | You are working in Figma. One self-contained file for custom skills in the Figma agent and Figma Make, published on the [Figma Community](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa). |
 
 ## Quick start
 
-**If you are using a chat-based builder** such as Lovable, Base44, Bolt, v0, Replit, or Figma Make, paste `ACCESSIBILITY-CORE.md` into the project knowledge or custom instructions field. Do not paste it into the chat.
+**If you are working in Figma**, in either the Figma agent or Figma Make, install it as a custom skill. It is published on the Figma Community as [AI A11y Toolkit](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa), and once added it stays available across all your files. Invoke it with `/ai-a11y-toolkit` when you are designing a screen, choosing colors, reviewing a component, or building in Make. See [`skills/README.md`](skills/README.md) for the install steps and the seat requirements.
+
+**If you are using a chat-based builder** such as Lovable, Base44, Bolt, v0, or Replit, paste `ACCESSIBILITY-CORE.md` into the project knowledge or custom instructions field. Do not paste it into the chat.
 
 **If you are using a code editor or agent** such as Claude Code, Cursor, Copilot, Windsurf, or Codex, commit `ACCESSIBILITY.md` to your repo and reference it from that tool's instruction file:
 
@@ -43,7 +46,9 @@ Pasting accessibility rules into chat does not fix it, because chat context deca
 | Replit | `replit.md` |
 | Gemini CLI | `GEMINI.md` |
 
-**If your tool supports agent skills**, copy [`skills/ai-a11y-toolkit`](skills/) into the skills folder your tool reads, or point your agent at this repository and ask it to install the skill from that path. For custom skills in the Figma agent or Figma Make, upload the single file build at [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) instead, because Figma accepts one Markdown file with no subdirectories. There is a smaller [core build](skills/figma/ai-a11y-toolkit-core.md) if the larger one will not save. This is the better option when it is available, because the agent loads the rules for the task in front of it rather than the whole reference.
+**If your coding agent supports agent skills**, copy [`skills/ai-a11y-toolkit`](skills/) into the skills folder your tool reads, or point your agent at this repository and ask it to install the skill from that path. This is the better option when it is available, because the agent loads the rules for the task in front of it rather than the whole reference.
+
+That folder build is for the agent you are working in. If your agent is also connected to Figma through the Figma MCP server, the skill still lives in your agent rather than in Figma, so use the folder build there and the [Figma custom skill](skills/figma/ai-a11y-toolkit.md) when you are working inside Figma itself.
 
 A plain `.md` file in `.cursor/rules/` is ignored. It has to be `.mdc` with frontmatter. That kind of detail is why `START-HERE.md` exists.
 
@@ -70,7 +75,14 @@ This toolkit will not make you compliant. It will stop your AI from generating t
 
 ## Does it actually work
 
-I test the toolkit rather than assert it, and I publish the results including the parts that do not flatter it. Both studies live in [`research/`](research/).
+I test the toolkit rather than assert it, and I publish the results including the parts that do not flatter it. Five studies live in [`research/`](research/), with the briefs, the rubrics written before the builds, both sets of generated source, the harnesses, and the raw engine output.
+
+| Study | Without | With |
+| --- | --- | --- |
+| [2. Icon browser](research/2-icon-browser/README.md) | 6 of 16 | 15 of 16 |
+| [3. Dough calculator](research/3-dough-calculator/README.md) | 10 of 16 | 15 of 16 |
+| [4. Design system ceiling](research/4-design-system-ceiling/README.md) | 13 of 29 | 26 of 29 |
+| [5. Figma Make](research/5-figma-make/README.md) | 8 of 16 | 14 of 16 |
 
 **[A field audit](research/1-field-audit/README.md)** of a production application built with AI tooling and without this file installed. Nine findings, seven of which map to rules already in the toolkit. The other two were found by reading the rules by hand, because no engine reported them. Three engines scanning the same page at the same moment returned 0, 403, and 321 findings. The zero was a ruleset coverage gap, not a pass, and Section 14.3 exists because of it.
 
@@ -78,7 +90,9 @@ I test the toolkit rather than assert it, and I publish the results including th
 
 One rubric check failed in **both** arms, silently, and the treatment's own summary claimed it had got that check right. That result is reported in full alongside the rest, because a toolkit that only publishes its wins is not evidence of anything.
 
-Everything needed to repeat or dispute either study is in that folder: the brief, the rubric, both sets of generated source, the harness, and the raw engine output.
+**[A test of the Figma custom skill](research/5-figma-make/README.md)**, because a design tool is not a code editor and nothing about the earlier results guarantees the guidance survives the move. The control shipped a landing page with **zero links on it**, every navigational control a `button`, no landmarks, and no reduced-motion handling. The treatment scored 14 of 16 against the control's 8. Both arms failed the same two checks, and both failures are ones a design system cannot reach.
+
+Two results there are worth more than the score. The control wrote five good alt texts unprompted, so the baseline has moved and the toolkit should stop claiming that ground. And the scanner misread contrast in **both** arms by up to a factor of three, because it cannot composite a partial-alpha color over a photograph.
 
 ## Contributing
 
