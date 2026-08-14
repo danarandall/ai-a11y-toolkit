@@ -13,12 +13,14 @@ There are two builds, because tools differ on what they accept.
 | Build | For | Shape |
 | --- | --- | --- |
 | `ai-a11y-toolkit/` | Claude Code, Cursor, Codex, the Figma MCP server | A routing `SKILL.md` plus thirteen reference files |
-| `figma/ai-a11y-toolkit.md` | Custom skills for the Figma agent and Figma Make | One self-contained file |
+| `figma/ai-a11y-toolkit.md` | Custom skills for the Figma agent and Figma Make | One self-contained file, 28 KB |
+| `figma/ai-a11y-toolkit-core.md` | The same, when the 28 KB file will not save | One file, 12 KB |
 
 Figma custom skills must be a single Markdown file and do not support
-`references/`, `scripts/`, or `assets/` directories, so the Figma build inlines
-the sections that carry the most weight for design work and links here for the
-rest.
+`references/`, `scripts/`, or `assets/` directories, so the Figma builds inline
+the sections that carry the most weight and link here for the rest. Figma does
+not document a size limit and a large file can fail to save, which is why there
+is a smaller core build carrying the non-negotiables and the agent directives.
 
 ## What is here
 
@@ -43,8 +45,9 @@ ai-a11y-toolkit/
 
 ```
 figma/
-  ai-a11y-toolkit.md              one file: non-negotiables, design systems, design, color,
-                                  prompting, agent directives, failure patterns, verification
+  ai-a11y-toolkit.md              non-negotiables, design file scope, prompting,
+                                  agent directives, failure patterns, verification
+  ai-a11y-toolkit-core.md         non-negotiables, design file scope, agent directives
 ```
 
 ## Installing it
@@ -58,7 +61,7 @@ skill from `skills/ai-a11y-toolkit`.
 
 For the Figma agent or Figma Make, upload `figma/ai-a11y-toolkit.md` from the
 chat sidebar: click the prompt box, select Skills, select Add skill, then upload
-the file.
+the file. If it will not save, try `figma/ai-a11y-toolkit-core.md`.
 
 ## Keeping the builds in sync
 
