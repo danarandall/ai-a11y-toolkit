@@ -52,6 +52,10 @@ IBM Equal Access `accessibility-checker` 4.0.29 driving Playwright Chromium at
 because a Make project is not a repository you can read. Reflow measured at 320x800
 and at 640 wide, which is 1280 at 200 percent zoom.
 
+All four arms received the same seven word prompt, reproduced in full in
+[BRIEF.md](BRIEF.md). It names no sections and never mentions accessibility, which
+is the whole point of it and also the source of this study's largest confound.
+
 Scored against [RUBRIC.md](RUBRIC.md), written before either Make arm was
 generated. The rubric records its own contamination: the Figma Design treatment
 had already been audited, so the pre-registration is honest about that design file
@@ -100,9 +104,9 @@ Harness in [`harness/`](harness/), raw engine and DOM output in [`data/`](data/)
 **Four checks could not be scored on the control, because the control did not build
 a newsletter form.**
 
-Same prompt, and the prompt asked for a bakery landing page without naming its
-sections. Make is not deterministic, so the two arms produced different page
-inventories. The treatment built a form and passed all four form checks. The
+Same prompt, and the whole of it was "design a landing page for a sourdough
+bakery," which names no sections. Make is not deterministic, so the two arms
+produced different page inventories. The treatment built a form and passed all four form checks. The
 control has no artifact to score against them.
 
 That is a confound, not a result. The honest comparison is **8 of 16 against 14 of

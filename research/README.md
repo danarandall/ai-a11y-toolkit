@@ -74,13 +74,20 @@ Every study folder follows the same shape.
   data/                 raw engine, DOM and contrast output
 ```
 
-Study 1 is an audit rather than a two-arm build, so it is a README alone. Every
-harness script resolves paths relative to its own study folder, so a fresh clone
-runs without editing anything.
+Study 1 is an audit rather than a two-arm build, so it is a README alone. Study 5
+has no `control/` or `treatment/` directory, because a published Figma Make site is
+measurable but not readable and a Figma Design file has no source at all. Its two
+design arms are committed as node trees in `data/` instead, which is what its audit
+scripts read. Every harness script resolves paths relative to its own study folder,
+so a fresh clone runs without editing anything.
 
 `BRIEF.md` is published exactly as it was given to both agents, including its punctuation, which does not follow the style rules used elsewhere in this repository. It is evidence rather than guidance, so it has not been edited after the run.
 
 The same applies to `3-dough-calculator/BRIEF.md`, and to everything the agents themselves produced in every study: the build source in each `control/` and `treatment/` directory, and the `NOTES.md` files in study 4. Those carry the models' own punctuation and spelling, including em dashes and British forms that appear nowhere in the authored files. Normalizing them would mean editing the evidence.
+
+`5-figma-make/BRIEF.md` is a different case. Its prompt is seven words and contains
+no punctuation to preserve, so that file is authored in house style around a quoted
+prompt rather than reproduced as a raw artifact. The prompt itself is quoted exactly.
 
 One more record is left as published rather than corrected. `2-icon-browser/README.md` and `2-icon-browser/RUBRIC.md` use British spellings throughout. The rubric was pre-registered before study 2 was run, so rewriting it afterward would quietly change a document whose whole value is that it was fixed in advance. The results file is left to match it.
 
@@ -158,6 +165,8 @@ All 11 engine violations reported against the treatment arm were false positives
 **[5-figma-make/README.md](5-figma-make/README.md)**
 
 Studies 2 through 4 all run coding agents in a sandbox. That is the narrowest part of the toolkit's stated scope, and it left the design tool guidance untested. This study runs the same paired design in Figma, using the skill as Figma actually loads it: a single file custom skill, invoked as `/ai-a11y-toolkit`, published on the [Figma Community](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa).
+
+All four arms got the same prompt, and the whole of it was "design a landing page for a sourdough bakery." Seven words, naming no sections and never mentioning accessibility. The earlier studies used long structured briefs, which is fair for a coding agent implementing a specification and wrong for a design tool, where people type a sentence. Full reasoning and the four arm matrix in [5-figma-make/BRIEF.md](5-figma-make/BRIEF.md).
 
 Two arms in two surfaces. Figma Make produces a running build, so it can be scored on the full rubric. Figma Design produces a static file, so it can only be scored on what a static file reaches.
 
