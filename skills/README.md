@@ -13,8 +13,8 @@ There are two builds, because tools differ on what they accept.
 | Build | For | Shape |
 | --- | --- | --- |
 | `ai-a11y-toolkit/` | Claude Code, Cursor, Codex, the Figma MCP server | A routing `SKILL.md` plus thirteen reference files |
-| `figma/ai-a11y-toolkit.md` | Custom skills for the Figma agent and Figma Make | One self-contained file, 28 KB |
-| `figma/ai-a11y-toolkit-core.md` | The same, when the 28 KB file will not save | One file, 12 KB |
+| `figma/ai-a11y-toolkit.md` | Custom skills for the Figma agent and Figma Make | One self-contained file, 55 KB |
+| `figma/ai-a11y-toolkit-core.md` | The same, when the 55 KB file will not save | One file, 12 KB |
 
 Figma custom skills must be a single Markdown file and do not support
 `references/`, `scripts/`, or `assets/` directories, so the Figma builds inline
@@ -45,8 +45,9 @@ ai-a11y-toolkit/
 
 ```
 figma/
-  ai-a11y-toolkit.md              non-negotiables, design file scope, prompting,
-                                  agent directives, failure patterns, verification
+  ai-a11y-toolkit.md              non-negotiables, design file scope, design systems,
+                                  designers, prompting, agent directives, failure
+                                  patterns, verification
   ai-a11y-toolkit-core.md         non-negotiables, design file scope, agent directives
 ```
 

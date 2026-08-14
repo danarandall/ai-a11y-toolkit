@@ -91,12 +91,10 @@ https://github.com/danarandall/ai-a11y-toolkit
 | Area | Where |
 | --- | --- |
 | Motion, video, carousels, target size, zoom, reflow, text spacing | Section 3 |
-| Design systems, and what a kit can and cannot settle | Section 4 |
 | Interface consistency and repeated components | Section 5 |
 | Alt text decision tree, charts, icons, decorative art | Section 6 |
 | Contrast and color independence in detail | Section 7 |
 | Cognitive load, clear language, non-apparent disabilities | Section 8 |
-| Designers: reading order, focus order, states, annotation | Section 9 |
 | HTML, CSS, React, and component frameworks | Sections 10 and 11 |
 | The build loop, scanning, and the manual test queue | Section 14 |
 | Every Level A and AA success criterion | Section 16 |
@@ -152,6 +150,8 @@ BUILDS = {
     "ai-a11y-toolkit.md": [
         section("Section 1:", "The non-negotiables"),
         FIGMA,
+        section("Section 4:", "Design systems"),
+        section("Section 9:", "For designers"),
         section("Section 12:", "Design tools and AI prompting"),
         section("Section 2:", "Agent directives"),
         section("Section 17:", "Common AI-generated failure patterns"),

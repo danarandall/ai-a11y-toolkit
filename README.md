@@ -43,7 +43,7 @@ Pasting accessibility rules into chat does not fix it, because chat context deca
 | Replit | `replit.md` |
 | Gemini CLI | `GEMINI.md` |
 
-**If your tool supports agent skills**, copy [`skills/ai-a11y-toolkit`](skills/) into the skills folder your tool reads, or point your agent at this repository and ask it to install the skill from that path. For custom skills in the Figma agent or Figma Make, upload the single file build at [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) instead, because Figma accepts one Markdown file with no subdirectories. There is a smaller [core build](skills/figma/ai-a11y-toolkit-core.md) if the first one will not save. This is the better option when it is available, because the agent loads the rules for the task in front of it rather than the whole reference.
+**If your tool supports agent skills**, copy [`skills/ai-a11y-toolkit`](skills/) into the skills folder your tool reads, or point your agent at this repository and ask it to install the skill from that path. For custom skills in the Figma agent or Figma Make, upload the single file build at [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) instead, because Figma accepts one Markdown file with no subdirectories. There is a smaller [core build](skills/figma/ai-a11y-toolkit-core.md) if the larger one will not save. This is the better option when it is available, because the agent loads the rules for the task in front of it rather than the whole reference.
 
 A plain `.md` file in `.cursor/rules/` is ignored. It has to be `.mdc` with frontmatter. That kind of detail is why `START-HERE.md` exists.
 
