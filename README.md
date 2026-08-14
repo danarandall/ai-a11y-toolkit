@@ -25,7 +25,7 @@ Pasting accessibility rules into chat does not fix it, because chat context deca
 | [`START-HERE.md`](START-HERE.md) | 19 KB | You want the install steps. Covers 15 AI platforms, exact filenames, exact settings fields, and what to do when the tool ignores the rules. |
 | [`ACCESSIBILITY-CORE.md`](ACCESSIBILITY-CORE.md) | 9 KB | You are pasting into a field with a character limit. Sized to fit Lovable Project Knowledge at 10,000 characters and Windsurf workspace rules at 12,000. |
 | [`ACCESSIBILITY.md`](ACCESSIBILITY.md) | 167 KB | You can commit a file to a repo or upload to project knowledge. The full reference, 18 sections, all 55 Level A and AA success criteria in build terms. |
-| [`skills/ai-a11y-toolkit`](skills/) | 190 KB | Your tool supports agent skills. Same content, split so the agent loads the routing file always and pulls in one reference file per task. Works with Claude Code, Cursor, Codex, and the Figma MCP server. |
+| [`skills/ai-a11y-toolkit`](skills/) | 190 KB | Your tool supports agent skills. Same content, split so the agent loads the routing file always and pulls in one reference file per task. Works with Claude Code, Cursor, Codex, and the Figma MCP server, with a single file build for custom skills in the Figma agent and Figma Make. |
 
 ## Quick start
 
@@ -43,7 +43,7 @@ Pasting accessibility rules into chat does not fix it, because chat context deca
 | Replit | `replit.md` |
 | Gemini CLI | `GEMINI.md` |
 
-**If your tool supports agent skills**, copy [`skills/ai-a11y-toolkit`](skills/) into the skills folder your tool reads, or point your agent at this repository and ask it to install the skill from that path. This is the better option when it is available, because the agent loads the rules for the task in front of it rather than the whole reference.
+**If your tool supports agent skills**, copy [`skills/ai-a11y-toolkit`](skills/) into the skills folder your tool reads, or point your agent at this repository and ask it to install the skill from that path. For custom skills in the Figma agent or Figma Make, upload the single file build at [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) instead, because Figma accepts one Markdown file with no subdirectories. This is the better option when it is available, because the agent loads the rules for the task in front of it rather than the whole reference.
 
 A plain `.md` file in `.cursor/rules/` is ignored. It has to be `.mdc` with frontmatter. That kind of detail is why `START-HERE.md` exists.
 

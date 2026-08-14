@@ -8,6 +8,18 @@ one way that matters. The agent loads `SKILL.md` and pulls in a reference file
 only when the work calls for it, so the rules for the task at hand arrive
 without the other 25,000 words competing for attention.
 
+There are two builds, because tools differ on what they accept.
+
+| Build | For | Shape |
+| --- | --- | --- |
+| `ai-a11y-toolkit/` | Claude Code, Cursor, Codex, the Figma MCP server | A routing `SKILL.md` plus thirteen reference files |
+| `figma/ai-a11y-toolkit.md` | Custom skills for the Figma agent and Figma Make | One self-contained file |
+
+Figma custom skills must be a single Markdown file and do not support
+`references/`, `scripts/`, or `assets/` directories, so the Figma build inlines
+the sections that carry the most weight for design work and links here for the
+rest.
+
 ## What is here
 
 ```
@@ -29,6 +41,12 @@ ai-a11y-toolkit/
     attribution.md                license and how to credit this work
 ```
 
+```
+figma/
+  ai-a11y-toolkit.md              one file: non-negotiables, design systems, design, color,
+                                  prompting, agent directives, failure patterns, verification
+```
+
 ## Installing it
 
 Copy the `ai-a11y-toolkit` directory into the skills folder your tool reads.
@@ -38,11 +56,22 @@ where skills live in their own environment.
 You can also point your agent at this repository and ask it to install the
 skill from `skills/ai-a11y-toolkit`.
 
-## Keeping the two in sync
+For the Figma agent or Figma Make, upload `figma/ai-a11y-toolkit.md` from the
+chat sidebar: click the prompt box, select Skills, select Add skill, then upload
+the file.
 
-The reference files are extracted verbatim from `ACCESSIBILITY.md` by
-`tools/build-skill.py`. Edit `ACCESSIBILITY.md`, then rerun the script. Do not
-hand-edit the reference files, because the next build overwrites them.
-`SKILL.md` is authored by hand and the script leaves it alone.
+## Keeping the builds in sync
+
+Both builds are generated from `ACCESSIBILITY.md`, so neither can drift from
+the source. Edit `ACCESSIBILITY.md`, then rerun both scripts:
+
+```
+python3 tools/build-skill.py
+python3 tools/build-figma-skill.py
+```
+
+Do not hand-edit anything under `ai-a11y-toolkit/references/` or
+`figma/`, because the next build overwrites it. `SKILL.md` is authored by hand
+and `tools/build-skill.py` leaves it alone.
 
 Written by Dana Randall. Licensed CC BY 4.0.
