@@ -242,18 +242,18 @@ that AA conformance actually turns on, the unguided file wins.
 
 Control controls:
 
-| Control | Size | 44px house | 24px AA |
+| Control | Width x height, px | 44px house, needs 44 in **both** | 24px AA, needs 24 in both |
 | --- | --- | --- | --- |
 | Nav "Reserve Boule" | 185 x 41 | Fails | Passes |
 | "Reserve a Boule" | 176 x 41 | Fails | Passes |
 | "Read Our Guide" | 190 x 41 | Fails | Passes |
 | "Join Club" | 120 x 41 | Fails | Passes |
 | Newsletter input | 464 x 57 | Passes | Passes |
-| Nav links, 4 | 48 to 73 x 17 | Fails | Via spacing exception |
+| Nav links, 4 | 48 to 73 **wide x 17 tall** | Fails, on the 17px height | Via spacing exception |
 
 Treatment controls:
 
-| Control | Size | 44px house | 24px AA |
+| Control | Width x height, px | 44px house, needs 44 in **both** | 24px AA, needs 24 in both |
 | --- | --- | --- | --- |
 | Order Online | 139 x 48 | Passes | Passes |
 | Reserve Your Loaf | 197 x 48 | Passes | Passes |
@@ -263,7 +263,7 @@ Treatment controls:
 | Get Directions | 174 x 48 | Passes | Passes |
 | Subscribe | 121 x 48 | Passes | Passes |
 | Email input | 487 x 48 | Passes | Passes |
-| Nav links, 5 | 36 to 105 x 17 | Fails | Fails |
+| Nav links, 5 | 36 to 105 **wide x 17 tall** | Fails, on the 17px height | Fails, on the 17px height |
 
 The control landed on 41px, three pixels short of the house standard. That is not a
 careless number, it is a plausible aesthetic default. It falls short of the
@@ -421,9 +421,16 @@ This audit was produced by an AI agent working from the node trees, and the agen
 set the bar wrong in a way that favored the toolkit it was evaluating. It took the
 toolkit's own 44 x 44 house standard, treated it as the requirement, filed it under
 the Level AA criterion number, and then reported buttons that missed it as
-accessibility failures. It scored a page whose controls are 48px as failing target
-size, and it never checked the direction of the spacing exception, which is the thing
-that reverses the result.
+accessibility failures. It never checked the direction of the spacing exception, which
+is the thing that reverses the result.
+
+To be precise about what it did not do, since a first reading of the tables above
+suggests otherwise: no target at 48px was ever scored as a failure. Every 48px
+treatment control passes both bars. The failing rows that contain a 48 are navigation
+links measuring 48 to 73 pixels **wide** and 17 pixels **tall**, and a 17px height
+misses both 44 and 24. Those tables now label the width and height explicitly,
+because reading a width as a height is an easy mistake to make and it was made during
+review of this correction.
 
 None of that was a measurement error. Every dimension it recorded was correct. It
 was a judgment error about which standard applied, and it ran in the direction of
