@@ -23,7 +23,7 @@ running page cannot be scored on the same rubric. A design file determines only 
 of the 55 WCAG 2.2 A and AA criteria, so that comparison is 1 of 3 against 3 of 3
 and is not comparable in weight to the sixteen check result below.
 
-Design control: page `Sourdough Control`, node `10:2`
+Design control: page `Page 2`, node `10:2`
 Design treatment: page `Sourdough Test`, node `0:1`
 Both in https://www.figma.com/design/K2UUFuil7G3IqbUP0ZP01F/AI-A11y-Toolkit
 
@@ -68,7 +68,8 @@ verification choices changed results, and both are documented below, because
 getting them wrong would have produced a cleaner-looking study with wrong numbers
 in it.
 
-Harness in [`harness/`](harness/), raw engine and DOM output in [`data/`](data/).
+Harness in [`harness/`](harness/), raw engine and DOM output in [`data/`](data/),
+and crops of the design file findings in [`exports/`](exports/README.md).
 
 ---
 

@@ -9,12 +9,16 @@ File: https://www.figma.com/design/K2UUFuil7G3IqbUP0ZP01F/AI-A11y-Toolkit
 | Arm | Page | Frame | Size | Nodes | Text layers |
 | --- | --- | --- | --- | --- | --- |
 | Treatment | `Sourdough Test` (`0:1`) | `levain-and-crust-landing` | 1440 x 7038 | 296 | 130 |
-| Control | `Sourdough Control` (`10:2`) | `leavened-landing-page` | 1440 x 7087 | 275 | 118 |
+| Control | `Page 2` (`10:2`) | `leavened-landing-page` | 1440 x 7087 | 275 | 118 |
 
 Audited 2026-08-14 via the Figma REST API against the full node tree, not a
 screenshot. Both arms were measured by the same script, in the same run, from each
 file's own fill, stroke, and bounding box data using the WCAG relative luminance
 formula. Nothing here is estimated.
+
+Five crops showing the findings below are in [`exports/`](exports/README.md), one
+per measured claim. They are crops rather than full pages because both files place
+photography of unestablished provenance, which that folder explains.
 
 ---
 
@@ -88,7 +92,7 @@ them.
 | `#c45b3e` on `#faf7f2`, 12px bold | 4.00:1 | 4.5:1 | 3 | "Artisan Sourdough" |
 | `#c45b3e` on `#faf7f2`, 12px | 4.00:1 | 4.5:1 | 1 | "Culinary Critic, Hearth & Table" |
 | `#c45b3e` on `#ffffff`, 12px bold | 4.27:1 | 4.5:1 | 6 | "The Slow Cycle" |
-| `#c45b3e` on `#ffffff`, 18px bold | 4.27:1 | 4.5:1 | 4 | "$9.50" |
+| `#c45b3e` on `#ffffff`, 18px bold | 4.27:1 | 4.5:1 | 4 | the four prices, "$9.50" through "$12.00" |
 | `#c45b3e` on `#ffffff`, 12px, 500 | 4.27:1 | 4.5:1 | 4 | "82% Hydration · 20% Whole Wheat" |
 
 Note the shape of it. The worst case is 3.59:1 and the best is 4.27:1. Nothing
@@ -96,7 +100,7 @@ is wildly wrong. The accent is 5% to 20% short of the threshold across the board
 which is the failure mode least likely to be caught by eye and most likely to
 survive to production. The 4.27:1 cases in particular look correct in review.
 
-Two of those rows deserve attention on their own. The `$9.50` prices are 18px
+Two of those rows deserve attention on their own. The four product prices are 18px
 bold, which sits just under the 18.66px bold large-text boundary, so they need
 4.5:1 rather than 3:1 and miss it. And the same rust at 48px passes comfortably
 at the 3:1 large-text threshold, which is why the palette reads as working: the

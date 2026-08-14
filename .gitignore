@@ -9,3 +9,8 @@ __pycache__/
 .venv/
 venv/
 ai-a11y-toolkit-skill.zip
+
+# Full page design exports carry photography whose license cannot be established.
+# See research/5-figma-make/exports/README.md. Crops are committed instead.
+research/5-figma-make/exports/*.jpg
+research/5-figma-make/exports/*.jpeg

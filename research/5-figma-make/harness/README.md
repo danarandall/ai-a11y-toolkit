@@ -60,6 +60,7 @@ python3 figma-audit-structure.py ../data/design-treatment-tree.json
 | `figma-audit-contrast-targets.py` | 1.4.3, 1.4.11, and 2.5.8, the three criteria a static file determines |
 | `figma-audit-structure.py` | Layer naming, annotation signals, font size inventory, auto layout coverage |
 | `fetch-design-tree.sh` | Refetches a tree from the Figma API, if you want to rerun against the live file |
+| `crop-evidence.py` | Cuts the evidence crops in [`../exports`](../exports/README.md), refusing any crop that overlaps a photograph |
 
 `figma-audit-contrast-targets.py` distinguishes a component boundary from a
 decorative rule by reading `individualStrokeWeights` rather than `strokeWeight`.
