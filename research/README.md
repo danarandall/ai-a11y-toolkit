@@ -12,7 +12,7 @@ Every number below is reproducible from the artifacts in this folder. Where a re
 | [2. Icon browser](2-icon-browser/README.md) | Does it change what an AI builds? | 6 of 16 without, 15 of 16 with |
 | [3. Dough calculator](3-dough-calculator/README.md) | Does it hold in a different domain? | 10 of 16 without, 15 of 16 with |
 | [4. Design system ceiling](4-design-system-ceiling/README.md) | How much can a design system do for you? | 13 of 29 without, 26 of 29 with. A design kit settles 3 of 55 criteria |
-| [5. Figma Make and Figma Design](5-figma-make/README.md) | Does it work in a design tool, not a code editor? | Build: 8 of 16 without, 14 of 16 with. Design file: 1 of 3 without, 3 of 3 with |
+| [5. Figma Make and Figma Design](5-figma-make/README.md) | Does it work in a design tool, not a code editor? | Build: 8 of 16 without, 14 of 16 with. Design file, strict AA: 1 of 3 both arms, with a 28-fold cut in failing text pairings and a target size regression |
 
 ---
 
@@ -189,9 +189,10 @@ The control's most instructive failure is that it built the entire navigation ou
 | --- | --- | --- |
 | 1.4.3 Text contrast | 19 of 47 pairings pass | 40 of 41 pairings pass |
 | 1.4.11 Non-text contrast | Passes | Passes |
-| 2.5.8 Target size, 44px | 0 of 6 buttons | 9 of 9 controls |
+| 2.5.8 Target size, 24 x 24, Level AA | Pass, by spacing exception | **Fail**, 5 crowded nav links |
+| 2.5.5 Target size, 44 x 44, Level AAA, toolkit house standard | 0 of 6 buttons | 9 of 9 controls |
 
-That is 1 of 3 against 3 of 3, and it is a deliberately narrow result rather than another 20 check number. It is also the ceiling classification from study 4 tested from the other side. The control failed the criterion a design file most directly controls, 1.4.3, twenty-eight times, and left every criterion a design file cannot reach in exactly the same unrecorded state as the treatment. Neither arm recorded alt text, heading levels, or reading order. A file cannot annotate itself, which is the argument for design review rather than against it.
+Scored strictly at Level AA that is a 1 of 3 tie, not the 1 of 3 against 3 of 3 first published here. The 44 x 44 bar the toolkit recommends is SC 2.5.5 at Level AAA, and scoring it under the 2.5.8 label overstated the result; on the actual AA criterion the control passes by the spacing exception and the treatment fails, because it fits five nav links where the control fits four. The real separation is magnitude inside 1.4.3, twenty-eight failing pairings against one. Full explanation in [Scoring corrections](5-figma-make/DESIGN-FILE-AUDIT.md#scoring-corrections). It is a deliberately narrow result rather than another 20 check number. It is also the ceiling classification from study 4 tested from the other side. The control failed the criterion a design file most directly controls, 1.4.3, twenty-eight times, and left every criterion a design file cannot reach in exactly the same unrecorded state as the treatment. Neither arm recorded alt text, heading levels, or reading order. A file cannot annotate itself, which is the argument for design review rather than against it.
 
 Three findings cut against the toolkit.
 
@@ -200,6 +201,19 @@ The **nav links failed in both arms**, at 17px tall in the design file and in bo
 The control **wrote five good, specific alt texts unprompted**, which continues the trend from study 3. Image naming is no longer differentiating value and the toolkit should stop claiming it.
 
 Two genuine treatment findings are in **neither the rubric nor the toolkit**: an hours table with a `caption` and no `th`, and an `aria-label` on a `p` element, which is silently discarded. Both are queued for the next release.
+
+The study also produced the most important method finding in this repository, and it
+is about AI-assisted auditing rather than about either arm. The first pass of the
+design file audit, produced by an AI agent, scored the toolkit's own 44 x 44 house
+standard as though it were the Level AA requirement, reported misses against it as
+WCAG failures, and published a 3 of 3 result for the arm it was evaluating. Every
+measurement was correct. The bar was wrong, the label on the bar was wrong, and the
+error favored the toolkit. It was caught by a human asking whether 44 was actually
+required or merely recommended, which is a question that needs accessibility domain
+knowledge and cannot come from a consistency check, because the arithmetic was
+consistent. Correct numbers scored against the wrong standard is the AI auditing
+failure mode to watch for, and it is documented in full in
+[Scoring corrections](5-figma-make/DESIGN-FILE-AUDIT.md#scoring-corrections).
 
 The study also produced two reusable method corrections, both of which had me reporting wrong numbers before I caught them. A programmatic `.focus()` does not match `:focus-visible`, so it shows no focus ring where a real `Tab` press shows one. And computed style contrast is wrong on these builds, because the engine cannot composite alpha over photography, which made about 6 of the control's 20 reported contrast violations false. In the design file, `strokeWeight` alone cannot distinguish a border from a divider, and reading `individualStrokeWeights` removed four boundary failures I had wrongly scored against the control.
 

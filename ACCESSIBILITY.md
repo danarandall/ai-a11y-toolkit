@@ -226,7 +226,7 @@ These thirteen rules prevent most real-world accessibility failures. They apply 
 9. **Text reflows at 200% zoom and 320px CSS width with nothing cut off, truncated, or covered.** No horizontal scrolling for vertical content, no clipped or overlapping text, no fixed pixel heights on text containers, no sticky element covering content at large text sizes. (1.4.4, 1.4.10, 1.4.12)
 10. **Motion is user-controlled by default.** Honor `prefers-reduced-motion` automatically, without the user configuring anything in your product. Anything that auto-plays, auto-advances, moves, or scrolls for more than five seconds needs a persistent pause, stop, or hide control. This includes carousels, background video, animated backgrounds, marquees, tickers, and looping GIFs. Nothing flashes more than three times per second. (2.2.2, 2.3.1)
 11. **Errors are identified in text, next to the field, and describe the fix.** Not just a red border. Not just a summary at the top. Associate the message programmatically with the input. (3.3.1, 3.3.3)
-12. **Interactive targets are at least 44x44 CSS pixels.** 24x24 is the WCAG AA floor and only passes with adequate spacing. 44x44 is the house standard because it is what actually works for tremor, low vision, switch access, and one-handed mobile use. (2.5.8)
+12. **Interactive targets are at least 44x44 CSS pixels.** 24x24 is the WCAG AA floor and only passes with adequate spacing (2.5.8). 44x44 is Level AAA (2.5.5) and is the house standard here because it is what actually works for tremor, low vision, switch access, and one-handed mobile use. Falling short of 44 is a miss against this house standard, not a Level AA failure.
 13. **Dynamic changes are announced.** Anything that updates without a page load, meaning validation, filter results, cart totals, toasts, loading states, needs a live region or focus management. Silent updates do not exist for screen reader users. (4.1.3)
 
 ---
@@ -619,7 +619,7 @@ function useReducedMotion() {
 
 ### 3.5 Target size of 44x44 CSS pixels
 
-**Requirement: every interactive target is at least 44x44 CSS pixels.** WCAG 2.2 sets the AA floor at 24x24 with spacing exceptions (2.5.8), and 44x44 is the AAA-adjacent enhanced target (2.5.5). We use 44 as the house standard because 24 is a legal minimum, not a usable one.
+**Requirement: every interactive target is at least 44x44 CSS pixels.** WCAG 2.2 sets the AA floor at 24x24 with spacing exceptions (2.5.8), and 44x44 is the enhanced target in 2.5.5, which is Level AAA. We use 44 as the house standard because 24 is a legal minimum, not a usable one.
 
 - 44x44 applies to the **hit area**, not the visual glyph. A 20px icon inside a 44px padded button passes. Use padding or a pseudo-element to expand the hit area rather than scaling the icon up.
 - Applies to: icon buttons, close and dismiss buttons, carousel arrows and dot indicators, checkbox and radio inputs including their labels, table row actions, pagination links, tab stops, sliders and their handles, menu items, chips, toggles, and inline links that function as buttons.

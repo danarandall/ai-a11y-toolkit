@@ -88,7 +88,7 @@ and crops of the design file findings in [`exports/`](exports/README.md).
 | 9 | Focus visible everywhere | Pass, but only by browser default. All 16 stops get `outline: auto 1px` at offset 0, the UA ring nobody chose | Pass by design. All 14 stops get `solid 2px` at offset 2px |
 | 10 | Focus not obscured | Pass. Nav is `fixed z-50`, but no non-nav element was caught beneath it across 30 tab presses | Pass. Header `sticky z-40`, skip link `z-50` paints above it |
 | 11 | Target size, 24px floor | Pass. 8 targets are 16 to 21px tall and the 2.5.8 spacing exception applies, nearest neighbor 110px | Pass. 8 targets 18px tall, nearest neighbor 83.5px |
-| 12 | **Target size, 44px house standard** | **Fail.** 13 of 16 under 44px. Nav items 16px tall | **Fail.** 10 of 15 under 44px. Nav items 18px tall. The mobile menu is clean at 48px |
+| 12 | **Target size, 44px house standard, SC 2.5.5 Level AAA, above the AA bar scored in check 11** | **Fail.** 13 of 16 under 44px. Nav items 16px tall | **Fail.** 10 of 15 under 44px. Nav items 18px tall. The mobile menu is clean at 48px |
 | 13 | **Text contrast** | **Fail.** "Est. 2016, Hoboken NJ" gold on the hero photo at 10px/400, 3.32:1 average and 1.92:1 in its worst region. Prices rust on cream 3.46:1 at 14px/600. Both CTA labels 3.81:1 at 12px/500 | **Fail.** 52 of 53 pairings pass. The one failure is a 10px badge over a photograph, 3.81:1 in the light crust and 5.75:1 in the dark |
 | 14 | Non-text contrast | **Fail.** The "Order Ahead" ghost button's only boundary is a 1px cream border at 50 percent alpha over a photo. Painted edge measures **1.07:1** | Pass. Input fill 4.65:1, button fill 4.65:1, focus ring 15.84:1 on cream and 4.65:1 on rust |
 | 15 | Form field labelled | Not scoreable, no form was built | Pass. `label for="email-input"` |
@@ -191,7 +191,8 @@ rather than counted as rubric passes: data tables need `th scope="row"` under
 Both arms failed the same two checks, and both failures are decisions no static
 artifact can make.
 
-**The 44px target standard is per-instance padding.** Nothing in a token file
+**The 44px target standard is per-instance padding.** It is the toolkit's house
+standard, taken from SC 2.5.5 at Level AAA, not the AA bar. Nothing in a token file
 forces a navigation text link to carry vertical padding, and 2.5.8 permits 24px
 with sufficient spacing, so a conformance-driven build stops short of the house
 standard by default. Both arms landed at 16 to 18px nav items.

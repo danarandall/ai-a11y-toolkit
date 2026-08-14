@@ -34,16 +34,31 @@ than the twenty-check build studies.
 | --- | --- | --- | --- |
 | 1.4.3 Text contrast | Determines | **19 of 47 pairings pass** | **40 of 41 pairings pass** |
 | 1.4.11 Non-text contrast | Determines | All component boundaries pass | All component boundaries pass |
-| 2.5.8 Target size, 44px house standard | Determines | **0 of 6 buttons pass** | **9 of 9 controls pass** |
-| 2.5.8 Target size, 24px AA floor | Determines | Met, via spacing exception | Met |
+| 2.5.8 Target size, 24 x 24, **Level AA** | Determines | **Pass**, via the spacing exception | **Fail**, 5 nav links |
 
-**Headline: 1 of 3 versus 3 of 3 on the criteria a design file determines.**
+**Headline, scored strictly at Level AA: 1 of 3 for the control, 1 of 3 for the
+treatment.**
 
-The single decisive gap is 1.4.3. The control produced twenty-eight failing text
-pairings against the treatment's one. Both arms passed 1.4.11 for the same reason,
-so that criterion did not separate them. On 2.5.8 the separation is clean but
-narrow in absolute terms: every treatment button is 48px, every control button is
-41px or less.
+An earlier version of this file reported 1 of 3 against 3 of 3. That was wrong, and
+it was wrong in the toolkit's favor. Two corrections, both explained in
+[Scoring corrections](#scoring-corrections) below.
+
+The toolkit's 44 x 44 target requirement is a house standard drawn from
+[SC 2.5.5 Target Size (Enhanced)](https://www.w3.org/TR/WCAG22/#target-size-enhanced),
+which is **Level AAA**. It is not the AA criterion, and this file previously scored
+it under the 2.5.8 label. Measured against the house standard the separation is
+clean, 0 of 6 control buttons against 9 of 9 treatment controls, and that result is
+reported in its own section below rather than in the AA scorecard.
+
+Measured against the actual AA criterion, the direction reverses. The control's four
+nav links sit far enough apart to earn the 2.5.8 spacing exception. The treatment
+crowds five links into the same bar, so they do not. The unguided file meets 2.5.8
+and the guided file does not.
+
+The one real separation on the AA criteria is magnitude within 1.4.3. Both arms fail
+the criterion, since a single failing pairing fails it, but the control fails it
+twenty-eight times and the treatment once. That gap is large and it is genuine. It
+is not a clean sheet.
 
 Two findings outside the scored criteria are more useful than the scores.
 
@@ -207,9 +222,18 @@ script that ignores `individualStrokeWeights` will invent boundary failures.
 
 ---
 
-# 2.5.8 Target size
+# Target size
 
-Clean separation, and the mechanism is a single number.
+Two different bars, and they give opposite answers. Reported separately for that
+reason.
+
+| Bar | Level | Control | Treatment |
+| --- | --- | --- | --- |
+| 24 x 24, SC 2.5.8 | **AA** | **Pass**, by spacing exception | **Fail**, 5 crowded nav links |
+| 44 x 44, SC 2.5.5, toolkit house standard | **AAA** | **0 of 6 buttons** | **9 of 9 controls** |
+
+On the buttons alone the house standard separates the arms cleanly. On the criterion
+that AA conformance actually turns on, the unguided file wins.
 
 | Arm | Buttons at 44px or above | Button height |
 | --- | --- | --- |
@@ -241,9 +265,10 @@ Treatment controls:
 | Email input | 487 x 48 | Passes | Passes |
 | Nav links, 5 | 36 to 105 x 17 | Fails | Fails |
 
-The control landed on 41px, three pixels short. That is not a careless number, it
-is a plausible aesthetic default, and it fails the 44px standard in Section 1 of
-the toolkit while passing the 24px WCAG AA floor. The treatment landed on 48px
+The control landed on 41px, three pixels short of the house standard. That is not a
+careless number, it is a plausible aesthetic default. It falls short of the
+toolkit's 44px house standard, which is Level AAA territory, while passing the
+24 x 24 Level AA requirement. The treatment landed on 48px
 across every control including the input, which reads as a deliberate token
 rather than nine independent choices.
 
@@ -339,9 +364,9 @@ Scope limits, stated plainly:
 
 **This scores three criteria, not twenty.** A static design file determines 3 of
 the 55 WCAG 2.2 A and AA criteria, influences 14, and cannot affect 38. There is
-nothing running to evaluate. A 1 of 3 versus 3 of 3 result is not comparable in
-weight to the 8 of 16 versus 14 of 16 from the paired Figma Make builds, and it
-should not be quoted as though it were.
+nothing running to evaluate. A three criterion result, which at strict AA is a 1 of
+3 tie, is not comparable in weight to the 8 of 16 versus 14 of 16 from the paired
+Figma Make builds, and it should not be quoted as though it were.
 
 **One page per arm, one prompt, one day.** No repeat runs. Single-sample results
 on generative output show direction, not effect size.
@@ -360,3 +385,80 @@ arms are the argument for design review, not against it. A file cannot annotate
 itself.
 
 Written by Dana Randall in a personal capacity. Licensed CC BY 4.0.
+
+---
+
+# Scoring corrections
+
+This file originally reported **1 of 3 against 3 of 3** on the criteria a design
+file determines. That was wrong twice, and both errors favored the toolkit.
+
+**It scored a AAA-level bar under an AA label.** The toolkit requires 44 x 44 targets
+as a house standard. WCAG 2.2 sets Level AA at
+[24 x 24 with a spacing exception (SC 2.5.8)](https://www.w3.org/TR/WCAG22/#target-size-minimum),
+and 44 x 44 is
+[SC 2.5.5, Level AAA](https://www.w3.org/TR/WCAG22/#target-size-enhanced). Scoring
+41px buttons as a 2.5.8 failure told readers the control missed a Level AA
+requirement. It did not. It missed a stricter house standard that this project
+recommends for good reasons, and the toolkit's own Section 3.5 has always described
+it correctly.
+
+**On the real AA criterion the result reverses.** Reading this file's own measurement
+tables against 24 x 24: the control's four nav links are 100.5px to 106.5px apart
+and clear the spacing exception, so the control meets 2.5.8. The treatment's five
+links in the same bar do not, so the treatment fails it. The arm without the toolkit
+does better on the AA target size criterion.
+
+**And the treatment never had a clean sheet on 1.4.3.** One failing pairing fails a
+criterion. The treatment has one, at 2.71:1. Reporting it as a pass applied binary
+conformance to the control and magnitude to the treatment.
+
+## How this was caught
+
+Worth recording plainly, because it is the most useful thing in this file.
+
+This audit was produced by an AI agent working from the node trees, and the agent
+set the bar wrong in a way that favored the toolkit it was evaluating. It took the
+toolkit's own 44 x 44 house standard, treated it as the requirement, filed it under
+the Level AA criterion number, and then reported buttons that missed it as
+accessibility failures. It scored a page whose controls are 48px as failing target
+size, and it never checked the direction of the spacing exception, which is the thing
+that reverses the result.
+
+None of that was a measurement error. Every dimension it recorded was correct. It
+was a judgment error about which standard applied, and it ran in the direction of
+the more impressive finding.
+
+It was caught by a human asking one question: is 44 actually required, or is it just
+the minimum we recommend. That question came from a reviewer with accessibility
+domain knowledge reading a result that looked too clean. No automated check would
+have produced it, because the arithmetic was internally consistent. The number was
+right and the standard was wrong, and only someone who knows the difference between
+Level AA and Level AAA can see that.
+
+This is the practical version of a claim the toolkit makes in its scope section, that
+these tools reduce the volume of obvious defects and do not remove the need for human
+expertise. Here that applied to the evaluation itself. An AI graded its own
+intervention generously and a person with the domain knowledge caught it.
+
+If you are using AI to audit accessibility, this is the failure mode to watch. Not
+bad measurements. Correct measurements scored against the wrong bar, presented with
+enough internal consistency to look verified.
+
+Corrected scorecard, strict AA:
+
+| Criterion | Control | Treatment |
+| --- | --- | --- |
+| 1.4.3 Text contrast | Fail, 28 pairings | Fail, 1 pairing |
+| 1.4.11 Non-text contrast | Pass | Pass |
+| 2.5.8 Target size, 24 x 24 | Pass | Fail |
+| **Total** | **1 of 3** | **1 of 3** |
+
+The measurements were never wrong. Every number in this file came from the node
+trees and still stands. What was wrong was which bar they were scored against and
+which label that bar was given.
+
+The honest summary of this arm is narrower than what was first published: on the
+three criteria a design file determines, the two arms tie at 1 of 3, the toolkit
+produced a twenty-eight-fold reduction in failing text pairings, and it introduced a
+target size regression in the navigation by fitting more links into the same bar.

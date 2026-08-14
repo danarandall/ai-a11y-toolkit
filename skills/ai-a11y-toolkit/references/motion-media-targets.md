@@ -316,7 +316,7 @@ function useReducedMotion() {
 
 ### 3.5 Target size of 44x44 CSS pixels
 
-**Requirement: every interactive target is at least 44x44 CSS pixels.** WCAG 2.2 sets the AA floor at 24x24 with spacing exceptions (2.5.8), and 44x44 is the AAA-adjacent enhanced target (2.5.5). We use 44 as the house standard because 24 is a legal minimum, not a usable one.
+**Requirement: every interactive target is at least 44x44 CSS pixels.** WCAG 2.2 sets the AA floor at 24x24 with spacing exceptions (2.5.8), and 44x44 is the enhanced target in 2.5.5, which is Level AAA. We use 44 as the house standard because 24 is a legal minimum, not a usable one.
 
 - 44x44 applies to the **hit area**, not the visual glyph. A 20px icon inside a 44px padded button passes. Use padding or a pseudo-element to expand the hit area rather than scaling the icon up.
 - Applies to: icon buttons, close and dismiss buttons, carousel arrows and dot indicators, checkbox and radio inputs including their labels, table row actions, pagination links, tab stops, sliders and their handles, menu items, chips, toggles, and inline links that function as buttons.
