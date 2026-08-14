@@ -213,7 +213,7 @@ If your assistant supports connecting to a live source, for example a Figma inte
 
 ## Section 1: The non-negotiables
 
-These twelve rules prevent most real-world accessibility failures. They apply to every role, every framework, every deliverable.
+These thirteen rules prevent most real-world accessibility failures. They apply to every role, every framework, every deliverable.
 
 1. **Semantics before ARIA.** Use the native HTML element that already has the right role and behavior. `<button>`, `<a href>`, `<input>`, `<select>`, `<nav>`, `<table>`. Only reach for ARIA when no native element exists. The first rule of ARIA is not to use ARIA.
 2. **Everything works with a keyboard alone.** Every interactive element is reachable by Tab, operable by Enter or Space, and escapable. No keyboard traps. Test by unplugging the mouse. (2.1.1, 2.1.2)
