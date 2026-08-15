@@ -96,6 +96,8 @@ Once added it stays available across all your files, so this is a one time setup
 
 It is also published on the [Figma Community](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa) if you would rather copy it from there. Community skills are not one click installs, so either way you are adding it by hand.
 
+There is a second skill for the opposite direction. `skills/figma/ai-a11y-toolkit-review.md`, published as [AI A11y Toolkit: Review](https://www.figma.com/community/skill/76247), measures a file you already have instead of producing new work. It runs as `/ai-a11y-toolkit-review`, reports rather than edits, and scores only the three criteria a static design file actually determines. Add both. Figma invokes one skill per prompt, so the one you name is the one that runs, and a skill cannot hand off to the other mid-answer.
+
 Custom skills need a paid plan. A **Full seat** covers Figma Design and Figma Make files, and View, Dev, or Collab seats can only use it in Drafts. You also need edit access to the file.
 
 If your coding agent reaches Figma through the Figma MCP server, that is a different mechanism with a confusingly similar name. The skill lives in your agent, not in Figma, so use the folder build there instead.

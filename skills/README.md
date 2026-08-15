@@ -15,7 +15,7 @@ There are two builds, because tools differ on what they accept.
 | `ai-a11y-toolkit/` | Claude Code, Cursor, Codex | A routing `SKILL.md` plus thirteen reference files |
 | `figma/ai-a11y-toolkit.md` | Custom skills for the Figma agent and Figma Make | One self-contained file, 55 KB |
 | `figma/ai-a11y-toolkit-core.md` | The same, when the 55 KB file will not save | One file, 12 KB |
-| `figma/ai-a11y-toolkit-review.md` | Reviewing an existing Figma selection rather than producing new work | One file, 13 KB |
+| `figma/ai-a11y-toolkit-review.md` | Reviewing an existing Figma selection rather than producing new work | One file, 16 KB |
 
 Figma custom skills must be a single Markdown file and do not support
 `references/`, `scripts/`, or `assets/` directories, so the Figma builds inline
@@ -100,19 +100,24 @@ skill from `skills/ai-a11y-toolkit`.
 
 ### Figma
 
-The skill is published on the Figma Community, which is the shortest route:
-[AI A11y Toolkit: WCAG 2.2 AA](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa).
-Community skills are not a one click install. Open the listing, copy the
-instructions, and add them in Figma using the steps below.
+Both skills are published on the Figma Community, which is the shortest route:
+[AI A11y Toolkit: WCAG 2.2 AA](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa)
+for producing new work, and
+[AI A11y Toolkit: Review](https://www.figma.com/community/skill/76247) for
+measuring work that already exists. Community skills are not a one click
+install. Open the listing, copy the instructions, and add them in Figma using
+the steps below.
 
-To install from this repository instead, use `figma/ai-a11y-toolkit.md`. In a
-chat in Figma, click the prompt box, select Skills, select Add skill, then drag
-in the file or use Upload a file, review it, and click Add. If it will not save,
-try `figma/ai-a11y-toolkit-core.md`.
+To install from this repository instead, use `figma/ai-a11y-toolkit.md` and
+`figma/ai-a11y-toolkit-review.md`. In a chat in Figma, click the prompt box,
+select Skills, select Add skill, then drag in the file or use Upload a file,
+review it, and click Add. If the main file will not save, try
+`figma/ai-a11y-toolkit-core.md`.
 
-The skill name becomes the slash command, so it runs as `/ai-a11y-toolkit`. Once
-added it stays available across all your files rather than only the one you added
-it from.
+The skill name becomes the slash command, so they run as `/ai-a11y-toolkit` and
+`/ai-a11y-toolkit-review`. Once added they stay available across all your files
+rather than only the one you added them from. Add both. Figma invokes one skill
+per prompt, so which one you get is decided by which you name.
 
 Figma requires a paid plan. A Full seat can chat with the agent in Figma Design
 and Figma Make files. A View, Dev, or Collab seat can only do so in Drafts. You

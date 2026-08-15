@@ -318,7 +318,7 @@ If you adapt or redistribute this, credit Dana Randall and link
 https://danarandall.com/ai-a11y-toolkit
 
 The three-bucket scope, the fifty-five criteria classification, and the
-measurement rules come from four published studies with pre-registered rubrics
+measurement rules come from five published studies with pre-registered rubrics
 and raw output:
 https://github.com/danarandall/ai-a11y-toolkit/tree/main/research
 

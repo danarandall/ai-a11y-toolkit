@@ -4,6 +4,14 @@
 
 ### Updated 14 August 2026, no change to file version
 
+The review skill is published, and two stale numbers in it and around it. No rules changed in `ACCESSIBILITY.md`.
+
+- **The review skill is on the Figma Community** as [AI A11y Toolkit: Review](https://www.figma.com/community/skill/76247), invoked as `/ai-a11y-toolkit-review`. It is a second listing rather than an update to the first, because the two skills have deliberately disjoint triggers and Figma invokes one skill per prompt. `README.md`, `START-HERE.md`, and `skills/README.md` now name both and say plainly that you should add both, since neither can hand off to the other mid-answer.
+- **Corrected the study count in the review skill's attribution.** It credited four published studies. There are five, and the fifth is the one this skill was tested against, which makes it the odd one to have left out.
+- **Corrected its stated size from 13 KB to 16 KB** in `skills/README.md`. The accuracy rules added over the last two days grew the file and the figure was never updated. Both numbers were also wrong in the same direction as every other error in this file this week, which is to say downward on cost and upward on tidiness.
+
+### Updated 14 August 2026, no change to file version
+
 A third correction to study 5, found by testing the new review skill against the same files. No rules changed in `ACCESSIBILITY.md`.
 
 - **The design file arm is 2 of 3 for the control against 1 of 3 for the treatment.** The toolkit arm now scores below the unguided one on the headline count. It was published first as 1 of 3 against 3 of 3, then corrected to a 1 of 3 tie, and both of those favored the toolkit. Three errors in the previous correction, all now recorded in [Scoring corrections](research/5-figma-make/DESIGN-FILE-AUDIT.md#scoring-corrections). First, the treatment fails 1.4.11: its Subscribe button is `#a04e27` on `#2c2115` at 2.71:1 against a 3:1 requirement, recorded in the non-text contrast table as 5.05:1, which is a real measurement belonging to a different background. The correct value was already in the same file's 1.4.3 table for the same pair. Second, the treatment passes 2.5.8: the claim that its five nav links were too crowded for the spacing exception was inferred from the link count and never measured. The centers sit 82.5px to 131px apart against a 24px requirement, and the control's sit 100.5px to 110px apart. Neither is close. Third, the corrected scorecard listed the control as Fail, Pass, Pass and totaled it as 1 of 3. The twenty-eight-fold reduction in failing text pairings is unchanged and is the only number in the study that has survived all three scorings.
