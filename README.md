@@ -87,7 +87,7 @@ I test the toolkit rather than assert it, and I publish the results including th
 | [3. Dough calculator](research/3-dough-calculator/README.md) | 10 of 16 | 15 of 16 |
 | [4. Design system ceiling](research/4-design-system-ceiling/README.md) | 13 of 29 | 26 of 29 |
 | [5. Figma Make build](research/5-figma-make/README.md) | 8 of 16 | 14 of 16 |
-| [5b. Figma Design file](research/5-figma-make/DESIGN-FILE-AUDIT.md) | 1 of 3 | 3 of 3 |
+| [5b. Figma Design file](research/5-figma-make/DESIGN-FILE-AUDIT.md) | 2 of 3 | 1 of 3 |
 
 **[A field audit](research/1-field-audit/README.md)** of a production application built with AI tooling and without this file installed. Nine findings, seven of which map to rules already in the toolkit. The other two were found by reading the rules by hand, because no engine reported them. Three engines scanning the same page at the same moment returned 0, 403, and 321 findings. The zero was a ruleset coverage gap, not a pass, and Section 14.3 exists because of it.
 
@@ -99,9 +99,9 @@ One rubric check failed in **both** arms, silently, and the treatment's own summ
 
 In **Figma Make**, the control shipped a landing page with **zero links on it**, every navigational control a `button`, no landmarks, and no reduced-motion handling. The treatment scored 14 of 16 against the control's 8. Both arms failed the same two checks, and both failures are ones a design system cannot reach.
 
-In a **[Figma Design file](research/5-figma-make/DESIGN-FILE-AUDIT.md)**, scored only on the three criteria a static file actually determines, the result is 1 of 3 against 3 of 3. The control used one accent color for small labels that clears 3:1 everywhere and 4.5:1 nowhere, failing text contrast twenty-eight times, and drew every button at 41px against a 44px standard. Deliberately narrow, and the ceiling classification from study 4 tested from the other side.
+In a **[Figma Design file](research/5-figma-make/DESIGN-FILE-AUDIT.md)**, scored only on the three criteria a static file actually determines, **the toolkit arm scores below the control, 1 of 3 against 2 of 3.** Both arms fail text contrast, both pass target size, and the treatment loses non-text contrast on a single button at 2.71:1. The control used one accent color for small labels that clears 3:1 everywhere and 4.5:1 nowhere, failing text contrast twenty-eight times against the treatment's once, and that twenty-eight-fold gap is the finding that has held through three separate scorings of the file. The headline count has not. It has been published wrong twice, both times in the toolkit's favor, and [every correction is recorded](research/5-figma-make/DESIGN-FILE-AUDIT.md#scoring-corrections) rather than folded in quietly.
 
-The design result also carries the clearest finding against the toolkit in the set. **Neither** design arm recorded alt text, heading levels, or reading order, and navigation links failed target size in all four arms. A file cannot annotate itself, which is an argument for design review rather than against it.
+The design result also carries the clearest findings against the toolkit in the set. **Neither** design arm recorded alt text, heading levels, or reading order, and navigation links miss the 44px house standard in all four arms while meeting Level AA by the spacing exception. A file cannot annotate itself, which is an argument for design review rather than against it.
 
 Two results there are worth more than the score. The control wrote five good alt texts unprompted, so the baseline has moved and the toolkit should stop claiming that ground. And the scanner misread contrast in **both** arms by up to a factor of three, because it cannot composite a partial-alpha color over a photograph.
 

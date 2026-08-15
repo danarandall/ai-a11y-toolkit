@@ -12,7 +12,7 @@ Every number below is reproducible from the artifacts in this folder. Where a re
 | [2. Icon browser](2-icon-browser/README.md) | Does it change what an AI builds? | 6 of 16 without, 15 of 16 with |
 | [3. Dough calculator](3-dough-calculator/README.md) | Does it hold in a different domain? | 10 of 16 without, 15 of 16 with |
 | [4. Design system ceiling](4-design-system-ceiling/README.md) | How much can a design system do for you? | 13 of 29 without, 26 of 29 with. A design kit settles 3 of 55 criteria |
-| [5. Figma Make and Figma Design](5-figma-make/README.md) | Does it work in a design tool, not a code editor? | Build: 8 of 16 without, 14 of 16 with. Design file, strict AA: 1 of 3 both arms, with a 28-fold cut in failing text pairings and a target size regression |
+| [5. Figma Make and Figma Design](5-figma-make/README.md) | Does it work in a design tool, not a code editor? | Build: 8 of 16 without, 14 of 16 with. Design file, strict AA: 2 of 3 control against 1 of 3 treatment, with a 28-fold cut in failing text pairings |
 
 ---
 
@@ -188,15 +188,15 @@ The control's most instructive failure is that it built the entire navigation ou
 | Criterion | Control | Treatment |
 | --- | --- | --- |
 | 1.4.3 Text contrast | 19 of 47 pairings pass | 40 of 41 pairings pass |
-| 1.4.11 Non-text contrast | Passes | Passes |
-| 2.5.8 Target size, 24 x 24, Level AA | Pass, by spacing exception | **Fail**, 5 crowded nav links |
-| 2.5.5 Target size, 44 x 44, Level AAA, toolkit house standard | 0 of 6 buttons | 9 of 9 controls |
+| 1.4.11 Non-text contrast | Passes | **Fail**, Subscribe button at 2.71:1 |
+| 2.5.8 Target size, 24 x 24, Level AA | Pass, by spacing exception | Pass, by spacing exception |
+| 2.5.5 Target size, 44 x 44, Level AAA, toolkit house standard | 0 of 6 buttons | 9 of 9 buttons and inputs, nav links excluded |
 
-Scored strictly at Level AA that is a 1 of 3 tie, not the 1 of 3 against 3 of 3 first published here. The 44 x 44 bar the toolkit recommends is SC 2.5.5 at Level AAA, and scoring it under the 2.5.8 label overstated the result; on the actual AA criterion the control passes by the spacing exception and the treatment fails, because it fits five nav links where the control fits four. The real separation is magnitude inside 1.4.3, twenty-eight failing pairings against one. Full explanation in [Scoring corrections](5-figma-make/DESIGN-FILE-AUDIT.md#scoring-corrections). It is a deliberately narrow result rather than another 20 check number. It is also the ceiling classification from study 4 tested from the other side. The control failed the criterion a design file most directly controls, 1.4.3, twenty-eight times, and left every criterion a design file cannot reach in exactly the same unrecorded state as the treatment. Neither arm recorded alt text, heading levels, or reading order. A file cannot annotate itself, which is the argument for design review rather than against it.
+Scored strictly at Level AA that is **2 of 3 for the control against 1 of 3 for the treatment**, so the toolkit arm scores below the unguided one on the headline count. It turns on one button. The 44 x 44 bar the toolkit recommends is SC 2.5.5 at Level AAA, and scoring it under the 2.5.8 label overstated the original result; on the actual AA criterion both arms clear the spacing exception with their narrowest nav gap at 82.5px against a 24px requirement. The real separation is magnitude inside 1.4.3, twenty-eight failing pairings against one, and that is the only number here that has survived all three scorings of the file unchanged. Two of those three scorings favored the toolkit and both were wrong. Full explanation in [Scoring corrections](5-figma-make/DESIGN-FILE-AUDIT.md#scoring-corrections). It is a deliberately narrow result rather than another 20 check number. It is also the ceiling classification from study 4 tested from the other side. The control failed the criterion a design file most directly controls, 1.4.3, twenty-eight times, and left every criterion a design file cannot reach in exactly the same unrecorded state as the treatment. Neither arm recorded alt text, heading levels, or reading order. A file cannot annotate itself, which is the argument for design review rather than against it.
 
 Three findings cut against the toolkit.
 
-The **nav links failed in both arms**, at 17px tall in the design file and in both builds. That is now a confirmed gap in the guidance rather than a one-off.
+The **nav links miss the 44px house standard in both arms**, at 17px tall in the design file and in both builds. They meet Level AA by the spacing exception, so this is a gap against the toolkit's own recommendation rather than a conformance failure, and it is now confirmed rather than a one-off.
 
 The control **wrote five good, specific alt texts unprompted**, which continues the trend from study 3. Image naming is no longer differentiating value and the toolkit should stop claiming it.
 
@@ -214,6 +214,18 @@ knowledge and cannot come from a consistency check, because the arithmetic was
 consistent. Correct numbers scored against the wrong standard is the AI auditing
 failure mode to watch for, and it is documented in full in
 [Scoring corrections](5-figma-make/DESIGN-FILE-AUDIT.md#scoring-corrections).
+
+That correction was itself wrong twice, which is the sharper half of the finding.
+It reversed the target size verdict on the treatment without ever measuring a gap,
+reasoning from five links being more than four, and it carried a contrast value
+into the wrong row while the correct value for the same pair sat twenty rows away
+in the same document. Its scorecard then totaled two passes as 1 of 3. The first
+round of errors came from an AI agent grading its own subject. The second came from
+correcting prose rather than re-measuring the file, which is the cheaper thing to do
+and the reason the same direction of error survived a deliberate audit of itself.
+The rule that came out of it is now in the review skill: a ratio is only a
+measurement when both colors are already in the file, and a verdict is only as good
+as the inventory of elements behind it.
 
 The study also produced two reusable method corrections, both of which had me reporting wrong numbers before I caught them. A programmatic `.focus()` does not match `:focus-visible`, so it shows no focus ring where a real `Tab` press shows one. And computed style contrast is wrong on these builds, because the engine cannot composite alpha over photography, which made about 6 of the control's 20 reported contrast violations false. In the design file, `strokeWeight` alone cannot distinguish a border from a divider, and reading `individualStrokeWeights` removed four boundary failures I had wrongly scored against the control.
 

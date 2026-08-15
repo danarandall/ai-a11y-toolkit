@@ -111,13 +111,24 @@ meets an exception: sufficient spacing, an equivalent control elsewhere on the
 screen, an inline link inside a sentence, user agent control, or an essential
 presentation. The spacing exception is the one that decides most navigation:
 a 24px diameter circle centered on the target must not overlap the circle of any
-other target. Four spaced links can pass while five crowded ones fail at the
-same height, so measure the gaps, not just the elements.
+other target. Compute it from center to center and compare against 24. A row of
+short links can pass on spacing alone no matter how short they are, and adding
+links to the row does not change that unless the gaps actually close, so measure
+the gaps rather than inferring crowding from the count.
 
-Report 44 by 44 separately, as a recommendation rather than a failure. That is
-SC 2.5.5 Target Size (Enhanced) at Level AAA, and it is a good default for
-primary controls and for touch, but it is not the AA bar. Never label a number
-from one conformance level with the name of another.
+List every interactive target you measured, including the ones that pass. A
+target size verdict is only as good as the inventory behind it, and the elements
+most likely to be missed are the ones most likely to fail: navigation laid out as
+bare text in an auto layout row, inline links, icon-only controls, and anything
+whose parent frame is named `Frame`. If the verdict is a pass, the pass has to
+cover the shortest target in the file, not the tallest. Name that element.
+
+Report 44 by 44 only where an element falls short of it, and rank that as polish
+rather than a failure. That is SC 2.5.5 Target Size (Enhanced) at Level AAA, and
+it is a good default for primary controls and for touch, but it is not the AA
+bar. Where every control already reaches 44, that is a recorded signal and not a
+finding. Never label a number from one conformance level with the name of
+another.
 
 **Never read a value off an exported image.** Measure against the node tree.
 
@@ -165,10 +176,22 @@ without all four.
 3. **Why it matters.** One sentence on who this affects and how, in plain
    language. Not a restatement of the rule.
 4. **Fix.** A specific change, with the value to use. "Increase the contrast" is
-   not a fix. "#c45b3e measures 4.27:1 on #ffffff. Darken to #be583c, which holds
-   the same hue and saturation and reaches 4.52:1" is a fix. Verify the
-   replacement value before offering it. A fix that does not itself pass is
-   worse than no fix, because it will be trusted.
+   not a fix. The replacement value has to come from a measurement rather than
+   an estimate, and there are only two ways to get one.
+
+   The preferred fix reuses a color already in the file that you have measured
+   against that exact background and found to clear the bar. "The kicker is
+   #c45b3e on #ffffff at 4.27:1, below the 4.5:1 required for normal text at
+   Level AA. The body color #5c4a42 is already used on this surface and measures
+   8.36:1" is a fix. It carries two measured numbers and adds nothing to the
+   palette.
+
+   When no existing color will do, name the direction and the target and stop
+   there. "Darken this accent until it reaches 4.5:1 on #ffffff, and read the
+   ratio from the contrast readout in the Figma color picker before applying it"
+   is a fix. It is less satisfying and it is honest.
+
+   Never invent a hex value and state the ratio it will reach.
 
 ## Ranking
 
@@ -180,10 +203,16 @@ present findings in the order you found them.
 - **Serious.** Fails a criterion the file determines, on secondary content.
 - **Decision missing.** A decision that design owns is unrecorded, so the build
   will guess. Alternative text, heading levels, reading order, states.
-- **Polish.** A recommendation above the AA bar, including the 44 by 44
-  enhanced target size, or a craft improvement.
+- **Polish.** Falls short of a recommendation above the AA bar, including the 44
+  by 44 enhanced target size, or a craft improvement worth making.
 
 Within a band, order by how many layers are affected.
+
+Every band describes something that falls short. An element that meets the bar
+named in its own evidence is not a finding in any band, including Polish. It
+belongs in the recorded signals table, or nowhere. A report that lists a passing
+element under a heading announcing it failed will be read by the headline and
+acted on by someone who never reaches the evidence line.
 
 ## Report shape
 
@@ -255,7 +284,27 @@ These exist because each one has produced a wrong result in a real audit.
   a pass.
 - Report the findings that cut against the design at the same length as the
   ones that flatter it.
+- Read back every finding against its own evidence before writing it down. If
+  the evidence line shows the element meeting the bar the heading says it
+  misses, delete the finding. Do not soften the heading and keep it. This is the
+  single most common way a review contradicts itself, because the heading gets
+  written from the pattern being looked for and the evidence gets written from
+  the measurement, and nothing forces the two to agree.
+- Count a band only from what remains after that pass. Empty bands are a good
+  result. Write "None" under the band and move on.
+- Every ratio in the report must come from two colors that are both already in
+  the file. Reading a ratio off the node tree and predicting one for a color you
+  just made up are different activities, and only the first is measurement. In a
+  run of this review against a real file, every ratio read from the file was
+  correct to the hundredth and every ratio predicted for an invented color was
+  wrong, including one that was reported as passing at 4.64:1 while actually
+  measuring 4.27:1 against a 4.5:1 bar. That fix would have been applied, the
+  failure would have survived, and the number beside it would have said
+  otherwise.
 - If a value cannot be measured, say it cannot be measured. Do not estimate.
+- Use words for pass and fail, never symbols. No check marks, crosses, arrows,
+  or emoji. A symbol carries no measurement and does not survive being pasted
+  into a ticket.
 - Never claim the design is accessible, compliant, or conformant. Report what
   passes, what fails, and what still needs testing in a build with a keyboard
   and a screen reader.

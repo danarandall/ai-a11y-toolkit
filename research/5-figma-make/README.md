@@ -20,8 +20,10 @@ There is a second pair. The same prompt, run twice in the **Figma Design** agent
 rather than Make, producing two static design files. Those are measured separately
 in [DESIGN-FILE-AUDIT.md](DESIGN-FILE-AUDIT.md), because a design file and a
 running page cannot be scored on the same rubric. A design file determines only 3
-of the 55 WCAG 2.2 A and AA criteria, so that comparison is 1 of 3 against 3 of 3
-and is not comparable in weight to the sixteen check result below.
+of the 55 WCAG 2.2 A and AA criteria, so that comparison is 2 of 3 for the control
+against 1 of 3 for the treatment and is not comparable in weight to the sixteen
+check result below. The toolkit arm scores lower there, on one button, and the
+corrections behind that number are recorded in full in that file.
 
 Design control: page `Page 2`, node `10:2`
 Design treatment: page `Sourdough Test`, node `0:1`

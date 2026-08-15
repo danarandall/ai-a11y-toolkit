@@ -33,15 +33,22 @@ than the twenty-check build studies.
 | Criterion | What a design file can do | Control | Treatment |
 | --- | --- | --- | --- |
 | 1.4.3 Text contrast | Determines | **19 of 47 pairings pass** | **40 of 41 pairings pass** |
-| 1.4.11 Non-text contrast | Determines | All component boundaries pass | All component boundaries pass |
-| 2.5.8 Target size, 24 x 24, **Level AA** | Determines | **Pass**, via the spacing exception | **Fail**, 5 nav links |
+| 1.4.11 Non-text contrast | Determines | All component boundaries pass | **Subscribe button at 2.71:1** |
+| 2.5.8 Target size, 24 x 24, **Level AA** | Determines | **Pass**, via the spacing exception | **Pass**, via the spacing exception |
 
-**Headline, scored strictly at Level AA: 1 of 3 for the control, 1 of 3 for the
+**Headline, scored strictly at Level AA: 2 of 3 for the control, 1 of 3 for the
 treatment.**
 
-An earlier version of this file reported 1 of 3 against 3 of 3. That was wrong, and
-it was wrong in the toolkit's favor. Two corrections, both explained in
-[Scoring corrections](#scoring-corrections) below.
+This file has been corrected twice since publication and the second correction was
+itself wrong in two places. It first reported 1 of 3 against 3 of 3, then a 1 of 3
+tie. Both were wrong, and the current numbers are the third attempt. Every
+correction is recorded in [Scoring corrections](#scoring-corrections) below rather
+than quietly folded in.
+
+**On the headline count the toolkit arm now scores below the control.** That is the
+result and it is reported here at the same length it would get if it ran the other
+way. It turns on one button, and the sentence underneath it about magnitude within
+1.4.3 is the finding that survives all three scorings intact.
 
 The toolkit's 44 x 44 target requirement is a house standard drawn from
 [SC 2.5.5 Target Size (Enhanced)](https://www.w3.org/TR/WCAG22/#target-size-enhanced),
@@ -50,10 +57,12 @@ it under the 2.5.8 label. Measured against the house standard the separation is
 clean, 0 of 6 control buttons against 9 of 9 treatment controls, and that result is
 reported in its own section below rather than in the AA scorecard.
 
-Measured against the actual AA criterion, the direction reverses. The control's four
-nav links sit far enough apart to earn the 2.5.8 spacing exception. The treatment
-crowds five links into the same bar, so they do not. The unguided file meets 2.5.8
-and the guided file does not.
+Measured against the actual AA criterion, both arms pass. The control's four nav
+links sit 100.5px to 110px apart center to center and the treatment's five sit
+82.5px to 131px apart, against a 24px requirement. Neither is close to the line.
+A previous correction to this file claimed the treatment's five links were too
+crowded to earn the exception. That was reasoning from the link count rather than
+measuring the gaps, and the measurement does not support it.
 
 The one real separation on the AA criteria is magnitude within 1.4.3. Both arms fail
 the criterion, since a single failing pairing fails it, but the control fails it
@@ -160,7 +169,15 @@ the token exists in the file.
 
 # 1.4.11 Non-text contrast
 
-**Both arms pass. This criterion did not separate them.**
+**The control passes. The treatment fails on one control, the Subscribe button.**
+
+This section originally reported both arms as passing. The treatment's Subscribe
+button was recorded here at 5.05:1 when it measures 2.71:1, and the correct value
+was already sitting in this file's own 1.4.3 table for the same color pair. The
+5.05:1 belongs to `#a04e27` on `#f3efe3`, a light background, and it is a real
+measurement sitting in the wrong row. Nothing checked it against the pairing it had
+been attached to, and a dark ground reading five to one should not have survived a
+second look.
 
 Component boundaries, control:
 
@@ -180,7 +197,7 @@ Component boundaries, treatment:
 | Ghost button border, 1.5px | `#2c2115` on `#faf6ee` | 14.59:1 |
 | Filled button | `#2c2115` on `#faf6ee` | 14.59:1 |
 | Newsletter input, white on dark panel | `#ffffff` on `#2c2115` | 13.68:1 |
-| Subscribe button | `#a04e27` on `#2c2115` | 5.05:1 |
+| Subscribe button | `#a04e27` on `#2c2115` | **2.71:1**, fails 3:1 |
 | Arrow icon inside button | `#faf6ee` on `#2c2115` | 14.59:1 |
 
 Both arms also carry low-contrast strokes that are correctly exempt. 1.4.11
@@ -224,16 +241,18 @@ script that ignores `individualStrokeWeights` will invent boundary failures.
 
 # Target size
 
-Two different bars, and they give opposite answers. Reported separately for that
+Two different bars, and they give different answers. Reported separately for that
 reason.
 
 | Bar | Level | Control | Treatment |
 | --- | --- | --- | --- |
-| 24 x 24, SC 2.5.8 | **AA** | **Pass**, by spacing exception | **Fail**, 5 crowded nav links |
-| 44 x 44, SC 2.5.5, toolkit house standard | **AAA** | **0 of 6 buttons** | **9 of 9 controls** |
+| 24 x 24, SC 2.5.8 | **AA** | **Pass**, by spacing exception | **Pass**, by spacing exception |
+| 44 x 44, SC 2.5.5, toolkit house standard | **AAA** | **0 of 6 buttons** | **9 of 9 buttons and inputs** |
 
-On the buttons alone the house standard separates the arms cleanly. On the criterion
-that AA conformance actually turns on, the unguided file wins.
+On the buttons the house standard separates the arms cleanly. On the criterion that
+AA conformance actually turns on, both arms pass and the criterion does not separate
+them at all. The 9 of 9 figure counts buttons and inputs and excludes the five nav
+links, which miss the house standard in both arms.
 
 | Arm | Buttons at 44px or above | Button height |
 | --- | --- | --- |
@@ -263,7 +282,7 @@ Treatment controls:
 | Get Directions | 174 x 48 | Passes | Passes |
 | Subscribe | 121 x 48 | Passes | Passes |
 | Email input | 487 x 48 | Passes | Passes |
-| Nav links, 5 | 36 to 105 **wide x 17 tall** | Fails, on the 17px height | Fails, on the 17px height |
+| Nav links, 5 | 36 to 105 **wide x 17 tall** | Fails, on the 17px height | Via spacing exception |
 
 The control landed on 41px, three pixels short of the house standard. That is not a
 careless number, it is a plausible aesthetic default. It falls short of the
@@ -272,15 +291,24 @@ toolkit's 44px house standard, which is Level AAA territory, while passing the
 across every control including the input, which reads as a deliberate token
 rather than nine independent choices.
 
-**Both arms failed the nav links,** and this is the honest limit of the result.
+**Both arms miss the house standard on the nav links,** and this is the honest
+limit of the result. They meet Level AA by exception, covered below, and they do
+not reach 44px.
 Control nav links are 17px tall, treatment nav links are 17px tall. The skill did
 not fix the one place both agents laid out navigation as bare text in an
 auto-layout row rather than as padded targets.
 
-The control has a partial defense the treatment does not. Its four nav links sit
-100.5px to 106.5px apart center to center, comfortably clearing the 24px spacing
-exception in 2.5.8, so they meet the AA floor by exception even at 17px tall. The
-treatment's five links do not, being more numerous in the same bar.
+Both arms clear the AA floor by exception. The control's four links sit 106.5px,
+110px, and 100.5px apart center to center. The treatment's five sit 124px, 131px,
+96.5px, and 82.5px apart. The requirement is 24px. The narrowest gap in either file
+clears it more than three times over, and adding a fifth link to a bar that wide
+never came close to closing them.
+
+An earlier correction to this file asserted that the treatment's five links failed
+the exception because they were more numerous in the same bar. No gap was measured
+before that claim was written. Link count is not a proxy for spacing, and the
+numbers above are read from the same node trees that were available when the claim
+was made.
 
 Neither arm meets the 44px house standard here, and in both files the room
 already exists: the bars are 89px and 96px tall. Fourteen pixels of vertical
@@ -390,6 +418,8 @@ Written by Dana Randall in a personal capacity. Licensed CC BY 4.0.
 
 # Scoring corrections
 
+## First correction
+
 This file originally reported **1 of 3 against 3 of 3** on the criteria a design
 file determines. That was wrong twice, and both errors favored the toolkit.
 
@@ -403,11 +433,11 @@ requirement. It did not. It missed a stricter house standard that this project
 recommends for good reasons, and the toolkit's own Section 3.5 has always described
 it correctly.
 
-**On the real AA criterion the result reverses.** Reading this file's own measurement
-tables against 24 x 24: the control's four nav links are 100.5px to 106.5px apart
-and clear the spacing exception, so the control meets 2.5.8. The treatment's five
-links in the same bar do not, so the treatment fails it. The arm without the toolkit
-does better on the AA target size criterion.
+**On the real AA criterion the control passes.** Reading this file's own measurement
+tables against 24 x 24: the control's four nav links are 100.5px to 110px apart and
+clear the spacing exception, so the control meets 2.5.8. The first correction also
+claimed the treatment failed the same exception. It does not, and that claim is
+retracted in the third correction below.
 
 **And the treatment never had a clean sheet on 1.4.3.** One failing pairing fails a
 criterion. The treatment has one, at 2.71:1. Reporting it as a pass applied binary
@@ -452,20 +482,51 @@ If you are using AI to audit accessibility, this is the failure mode to watch. N
 bad measurements. Correct measurements scored against the wrong bar, presented with
 enough internal consistency to look verified.
 
+## Third correction, 2026-08-14
+
+The correction above was itself wrong in two places, and its scorecard did not add
+up. All three errors are below. This round came out of testing an unrelated thing:
+a review skill was run against both design files, and checking its output against
+the node trees meant re-measuring what this audit had already claimed.
+
+**The treatment fails 1.4.11.** Its Subscribe button is `#a04e27` on `#2c2115` at
+2.71:1, against a 3:1 requirement for a control boundary. This file recorded it at
+5.05:1 in the 1.4.11 table while recording the same pair correctly at 2.71:1 in the
+1.4.3 table twenty rows earlier. The contradiction sat in the open and survived the
+first correction, which read both of those tables.
+
+**The treatment passes 2.5.8.** The first correction claimed its five nav links were
+too crowded to earn the spacing exception, and reversed the headline on that basis.
+No gap was ever measured. The centers sit 82.5px to 131px apart against a 24px
+requirement. The claim was inferred from the link count, which is the same category
+of error as the one it was correcting: reasoning toward a plausible answer instead
+of reading the number.
+
+**The control's total was wrong arithmetic.** Its scorecard row read Fail, Pass,
+Pass and totaled 1 of 3. Two passes is 2 of 3. The wrong total made the arms look
+tied, which was the shape the surrounding prose had already committed to.
+
 Corrected scorecard, strict AA:
 
 | Criterion | Control | Treatment |
 | --- | --- | --- |
 | 1.4.3 Text contrast | Fail, 28 pairings | Fail, 1 pairing |
-| 1.4.11 Non-text contrast | Pass | Pass |
-| 2.5.8 Target size, 24 x 24 | Pass | Fail |
-| **Total** | **1 of 3** | **1 of 3** |
+| 1.4.11 Non-text contrast | Pass | **Fail**, 2.71:1 |
+| 2.5.8 Target size, 24 x 24 | Pass | Pass |
+| **Total** | **2 of 3** | **1 of 3** |
 
-The measurements were never wrong. Every number in this file came from the node
-trees and still stands. What was wrong was which bar they were scored against and
-which label that bar was given.
+**The toolkit arm scores below the control on the headline count.** It is a
+three-criterion scorecard and it turns on one button, so it should not be read as
+more than it is, but it should not be softened either. Two of the three scorings
+this file has published favored the toolkit and both were wrong. The one that does
+not favor it is the one that survived measurement.
 
-The honest summary of this arm is narrower than what was first published: on the
-three criteria a design file determines, the two arms tie at 1 of 3, the toolkit
-produced a twenty-eight-fold reduction in failing text pairings, and it introduced a
-target size regression in the navigation by fitting more links into the same bar.
+The finding that has not moved through any of it: the control fails 1.4.3 twenty-eight
+times and the treatment fails it once. Every scoring of this file, including the two
+wrong ones, has produced that same twenty-eight-fold gap. It is the only number here
+that was never in dispute, and it is the reason the study is worth keeping.
+
+The measurements of what is actually in the two files have held up throughout. Every
+dimension and every color pairing read from the node trees has survived
+re-measurement. What failed three times was the layer on top: which bar applied,
+which row a value belonged to, and whether the totals added up.
