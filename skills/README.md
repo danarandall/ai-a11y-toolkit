@@ -15,6 +15,7 @@ There are two builds, because tools differ on what they accept.
 | `ai-a11y-toolkit/` | Claude Code, Cursor, Codex | A routing `SKILL.md` plus thirteen reference files |
 | `figma/ai-a11y-toolkit.md` | Custom skills for the Figma agent and Figma Make | One self-contained file, 55 KB |
 | `figma/ai-a11y-toolkit-core.md` | The same, when the 55 KB file will not save | One file, 12 KB |
+| `figma/ai-a11y-toolkit-review.md` | Reviewing an existing Figma selection rather than producing new work | One file, 13 KB |
 
 Figma custom skills must be a single Markdown file and do not support
 `references/`, `scripts/`, or `assets/` directories, so the Figma builds inline
@@ -62,7 +63,31 @@ figma/
                                   designers, prompting, agent directives, failure
                                   patterns, verification
   ai-a11y-toolkit-core.md         non-negotiables, design file scope, agent directives
+  ai-a11y-toolkit-review.md       read-only review of an existing selection: what a file
+                                  determines, influences, and cannot affect; how to measure
+                                  each; the finding format; severity bands; report shape
 ```
+
+## The two Figma skills
+
+The toolkit and the review are separate skills because Figma invokes one skill
+per prompt. [Figma documents](https://help.figma.com/hc/en-us/articles/40283639496599-Custom-skills-for-the-Figma-agent-and-Figma-Make)
+that if more than one skill is mentioned in a single prompt, only the first is
+used. So neither file can depend on the other being loaded, and the review build
+repeats what it needs rather than pointing at the main file.
+
+Install both. Use them in sequence.
+
+| You are | Invoke |
+| --- | --- |
+| Designing, generating, or building something new | `/ai-a11y-toolkit` |
+| Measuring something that already exists | `/ai-a11y-toolkit-review` |
+
+Their triggers are written not to overlap. The main skill's description covers
+creating, editing, and generating. The review's covers reviewing, auditing, and
+checking. Figma documents no conflict resolution when two skills claim the same
+trigger, so the separation is deliberate and both descriptions should be kept
+disjoint if either is edited.
 
 ## Installing it
 
@@ -108,8 +133,14 @@ python3 tools/build-skill.py
 python3 tools/build-figma-skill.py
 ```
 
-Do not hand-edit anything under `ai-a11y-toolkit/references/` or
-`figma/`, because the next build overwrites it. `SKILL.md` is authored by hand
-and `tools/build-skill.py` leaves it alone.
+Do not hand-edit `figma/ai-a11y-toolkit.md`, `figma/ai-a11y-toolkit-core.md`,
+or anything under `ai-a11y-toolkit/references/`, because the next build
+overwrites them. To change what the Figma skill says about itself, including
+its `description`, edit `tools/build-figma-skill.py` and rebuild.
+
+Two files in those directories are authored by hand and no build touches them:
+`ai-a11y-toolkit/SKILL.md` and `figma/ai-a11y-toolkit-review.md`. The review
+build is hand-authored because it is a procedure rather than a set of rules, so
+it has no corresponding section in `ACCESSIBILITY.md` to generate from.
 
 Written by Dana Randall. Licensed CC BY 4.0.

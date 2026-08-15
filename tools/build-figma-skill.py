@@ -35,13 +35,18 @@ def section(frag, title):
     raise SystemExit(f"section not found: {frag}")
 
 
+# The trigger deliberately omits "review". Reviewing existing work belongs to
+# the companion skill, skills/figma/ai-a11y-toolkit-review.md, and Figma
+# documents no conflict resolution when two skills claim the same trigger.
 DESC = (
     "WCAG 2.2 Level AA accessibility rules for designing and building digital "
-    "experiences. Use this skill whenever you create, edit, or review a screen, "
-    "component, or layout, and whenever you generate code, copy, or alt text. "
-    "Use it for questions about contrast, color, focus, keyboard operation, "
-    "headings, reading order, target size, motion, form errors, zoom, alt text, "
-    "or whether a design system makes a product accessible."
+    "experiences. Use this skill whenever you create, edit, or generate a "
+    "screen, component, or layout, and whenever you generate code, copy, or "
+    "alt text. Use it for questions about contrast, color, focus, keyboard "
+    "operation, headings, reading order, target size, motion, form errors, "
+    "zoom, alt text, or whether a design system makes a product accessible. "
+    "To measure and report on work that already exists, use "
+    "ai-a11y-toolkit-review instead."
 )
 
 HEAD = """# AI A11y Toolkit
