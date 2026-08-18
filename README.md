@@ -27,7 +27,7 @@ Pasting accessibility rules into chat does not fix it, because chat context deca
 | [`ACCESSIBILITY.md`](ACCESSIBILITY.md) | 167 KB | You can commit a file to a repo, upload to project knowledge, or drop it in the Figma Make `guidelines` folder. The full reference, 18 sections, all 55 Level A and AA success criteria in build terms. |
 | [`skills/ai-a11y-toolkit`](skills/) | 190 KB | Your coding agent supports agent skills. Same content, split so the agent loads the routing file always and pulls in one reference file per task. Works in Claude Code, Cursor, and Codex. |
 | [`skills/figma/ai-a11y-toolkit.md`](skills/figma/ai-a11y-toolkit.md) | 55 KB | You are in a Figma Design file, where a custom skill is the only route. One self-contained file, also on the [Figma Community](https://www.figma.com/community/skill/76094/ai-a11y-toolkit-wcag-22-aa). Works in Figma Make too. |
-| [`skills/figma/ai-a11y-toolkit-review.md`](skills/figma/ai-a11y-toolkit-review.md) | 16 KB | You want a Figma file you already have measured rather than new work generated. Read-only, scores only the three criteria a static file determines, also on the [Figma Community](https://www.figma.com/community/skill/76247). |
+| [`skills/figma/ai-a11y-toolkit-review.md`](skills/figma/ai-a11y-toolkit-review.md) | 18 KB | You want a Figma file you already have measured rather than new work generated. Read-only, scores only the three criteria a static file determines, also on the [Figma Community](https://www.figma.com/community/skill/76247). |
 
 ## Quick start
 

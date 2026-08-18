@@ -15,7 +15,7 @@ There are two builds, because tools differ on what they accept.
 | `ai-a11y-toolkit/` | Claude Code, Cursor, Codex | A routing `SKILL.md` plus thirteen reference files |
 | `figma/ai-a11y-toolkit.md` | Custom skills for the Figma agent and Figma Make | One self-contained file, 55 KB |
 | `figma/ai-a11y-toolkit-core.md` | The same, when the 55 KB file will not save | One file, 12 KB |
-| `figma/ai-a11y-toolkit-review.md` | Reviewing an existing Figma selection rather than producing new work | One file, 16 KB |
+| `figma/ai-a11y-toolkit-review.md` | Reviewing an existing Figma selection rather than producing new work | One file, 18 KB |
 
 Figma custom skills must be a single Markdown file and do not support
 `references/`, `scripts/`, or `assets/` directories, so the Figma builds inline

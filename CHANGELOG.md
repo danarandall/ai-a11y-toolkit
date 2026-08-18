@@ -2,6 +2,14 @@
 
 ## 2026.08
 
+### Updated 18 August 2026, no change to file version
+
+A sixth test, a real failure the review found, a real failure it missed, and one error of mine. No rules changed in `ACCESSIBILITY.md`.
+
+- **Added a color alone check to the review skill, 1.4.1, Level A.** Run against a financial services dashboard control, the review reported color independence as an observation and never raised the thing it describes. The selected tab in the bottom navigation differed from the other five only by a `#6c5dd3` pill behind an identical icon and a heavier white label. No text, no mark, no shape said which tab was current. Color alone was in the skill only as a recorded state and a report field, so it could describe the situation and had no way to rank it. The check now compares sibling controls in the same container and raises a ranked finding where exactly one differs only in fill or text color. This does not move 1.4.1 into the three criteria a file settles on its own, because whether the state is also exposed in code cannot be seen in a design file.
+- **Extended the prohibition on predicted ratios to cover proposed pairings.** The previous rule banned stating a ratio for a hex that is not in the file. On this run the skill reported white on `#6c5dd3` as 4.88:1 when it measures 5.07:1, and both colors were already in the file, so the rule did not apply. Being present in the file is not what makes a number correct. A fix line must now carry both hex values beside the ratio, and any pairing not currently painted together has to be computed before it is written down.
+- **The contrast finding on that frame was correct and was wrongly called a false positive.** The `+2.4%` chip is `#00e676` on `#6c5dd3` at 3.04:1, at 12px weight 600 against a 4.5:1 bar. That is a real failure, correctly found and correctly measured. It was dismissed on the basis of a screenshot, in which the purple chip reads as dark navy. The skill already said never to read a value off an export. It now says that this covers a screenshot pasted into the conversation, and records what the error cost, because the rule was written down and broken anyway by the party checking the rule.
+
 ### Updated 14 August 2026, no change to file version
 
 The review skill is published, and two stale numbers in it and around it. No rules changed in `ACCESSIBILITY.md`.

@@ -130,7 +130,25 @@ bar. Where every control already reaches 44, that is a recorded signal and not a
 finding. Never label a number from one conformance level with the name of
 another.
 
-**Never read a value off an exported image.** Measure against the node tree.
+**Meaning carried by color alone, 1.4.1, Level A.** Compare controls that sit as
+siblings in the same container. Where they are identical in structure and exactly
+one differs only in fill color or text color, the state being signaled is carried
+by color alone. Raise it as a ranked finding rather than recording it as a state.
+In a run of this review, the selected tab in a bottom navigation bar differed
+from the other five only by a purple pill behind an identical icon and a heavier
+white label, with no text, mark, or shape saying which tab was current. The
+review recorded color independence as an observation and never raised it. Check
+selected and current states, status, categories, links inside body text, and
+required fields. Name what to add: a text label, a shape change, an underline, or
+a different glyph. This does not move 1.4.1 into the set of criteria a file
+settles on its own, because whether the state is also exposed in code cannot be
+seen here. It does mean a file can show a failure that is already visible.
+
+**Never read a value off an exported image.** Measure against the node tree. This
+applies to a screenshot someone pastes into the conversation as well as to an
+export. A rendering can misreport a fill badly enough to invert a verdict: a
+purple chip at #6c5dd3 read as dark navy, which would have turned a real failure
+at 3.04:1 into a reported false positive.
 
 **A text layer's name defaults to its own content.** A layer named the same as
 the words inside it has not been named. It is not a description and it is not
@@ -191,7 +209,14 @@ without all four.
    ratio from the contrast readout in the Figma color picker before applying it"
    is a fix. It is less satisfying and it is honest.
 
-   Never invent a hex value and state the ratio it will reach.
+   Never invent a hex value and state the ratio it will reach. The same applies to
+   two colors that both already exist in the file but are not currently painted
+   together. That is a proposed pairing, not a measurement, and it has to be
+   computed before it is written down. Put both hex values beside the ratio so the
+   pairing being claimed is visible on the page. In a run of this review, white on
+   #6c5dd3 was reported as 4.88:1 when it measures 5.07:1. Both colors were
+   already in the file, so being in the file is not what makes a number correct.
+   Computing it is.
 
 ## Ranking
 
